@@ -43,3 +43,25 @@ section.allDogs .accordion-content .breedGrid .breedBlock label { width: 100%; h
 section.allDogs .accordion-content .breedGrid .breedBlock label input { position: absolute; z-index: 3; top: 1em; right: 1em; }
 
 section.allDogs .accordion-content .breedGrid .breedBlock h3 { box-sizing: border-box; position: absolute; display: block; background-color: #f9f9f9; width: 100%; margin: unset; padding: 1em; z-index: 2; }
+
+#pannel { position: fixed; bottom: 0; background-color: gainsboro; width: 80%; max-width: 1000px; margin: auto; left: 0; right: 0; padding: 1em; box-sizing: border-box; z-index: 10; height: 50vh; transition-property: all; transition-duration: .5s; transition-timing-function: cubic-bezier(0, 1, 0.5, 1); }
+
+#pannel .bottom { background-color: skyblue; display: flex; justify-content: space-between; }
+
+#pannel .list #items { list-style: none; padding: unset; }
+
+#pannel .list #items li { display: flex; height: 3em; margin-bottom: 1em; }
+
+#pannel .list #items li .delete { display: flex; align-self: center; width: 2em; height: 2em; border-radius: 100px; background-color: #F81E1E; padding: .4em; box-sizing: border-box; cursor: pointer; flex-shrink: 0; }
+
+#pannel .list #items li .breed { max-width: 100%; background-color: coral; display: flex; justify-content: space-between; align-items: center; padding-right: 1em; margin-left: 1em; flex-grow: 1; }
+
+#pannel .list #items li .breed img.breedImage { height: 100%; aspect-ratio: 1/1; object-fit: cover; max-width: 100px; }
+
+#pannel .list #items li .breed img.dragIcon { max-height: 1.2em; }
+
+.overlay { z-index: 5; position: fixed; width: 100%; height: 100vh; background-color: rgba(0, 0, 0, 0); top: 0; left: 0; pointer-events: none; transition-property: all; transition-duration: .5s; transition-timing-function: cubic-bezier(0, 1, 0.5, 1); }
+
+body.open .overlay { background-color: rgba(0, 0, 0, 0.5); pointer-events: all; }
+
+body.open #pannel { height: 50vh; }

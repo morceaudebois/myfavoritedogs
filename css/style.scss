@@ -7,6 +7,7 @@ body {
     font-family: Futura;
     color: $textColor;
 
+
 }
 
 p {
@@ -188,18 +189,112 @@ section.allDogs {
 }
 
 
+#pannel {
+    position: fixed;
+    bottom: 0;
+    background-color: gainsboro;
+    width: 80%;
+    max-width: 1000px;
+    margin: auto;
+    left: 0; right: 0;
+    padding: 1em;
+    box-sizing: border-box;
+    z-index: 10;
+
+
+    // height: 4em; 
+    height: 50vh;
 
 
 
-// #slider {
-// 	overflow-y: hidden;
-// 	height: 500px; /* approximate max height */
-//     background-color: orange;
-// 	transition-property: all;
-// 	transition-duration: .5s;
-// 	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-// }
+    transition-property: all;
+	transition-duration: .5s;
+	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
 
-// #slider.closed {
-// 	height: 0;
-// }
+    .bottom {
+        background-color: skyblue;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .list {
+        #items {
+            list-style: none;
+            padding: unset;
+
+            li {
+                display: flex;
+
+                height: 3em;
+                margin-bottom: 1em;
+
+                .delete {
+                    display: flex;
+                    align-self: center;
+                    width: 2em;
+                    height: 2em;
+                    border-radius: 100px;
+                    background-color: #F81E1E;
+                    padding: .4em;
+                    box-sizing: border-box;
+                    cursor: pointer;
+                    flex-shrink: 0;
+                }
+
+                .breed {
+                    max-width: 100%;
+                    background-color: coral;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding-right: 1em;
+                    margin-left: 1em;
+                    flex-grow: 1;
+
+                    img {
+                        &.breedImage {
+                            height: 100%;
+                            aspect-ratio: 1/1;
+                            object-fit: cover;
+                            max-width: 100px;
+                        }
+
+                        &.dragIcon {
+                            max-height: 1.2em;
+                        }
+                        
+                    }
+                }
+            }
+        }
+    }
+    
+
+}
+
+
+
+.overlay {
+    z-index: 5;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: hsla(0, 0%, 0%, 0);
+    top: 0; left: 0;
+    pointer-events: none;
+    transition-property: all;
+	transition-duration: .5s;
+	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+
+body.open {
+    .overlay {
+        background-color: hsla(0, 0%, 0%, 0.5);
+        pointer-events: all;
+    }
+
+    #pannel {
+        height: 50vh;
+    }
+}
+

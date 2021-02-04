@@ -47,8 +47,6 @@ checkboxes.forEach((checkbox) => {
 
 
   checkbox.addEventListener("change", countChecked);
-
-  
   function countChecked() {
     let checkedBoxes = document.querySelectorAll('input[type="checkbox"]:checked');
 
@@ -61,10 +59,14 @@ checkboxes.forEach((checkbox) => {
     values = [...new Set(values)];
     
     // ajoute dans le compteur
-    document.getElementById('compteur').innerHTML = values.length;
+    if (!values) {
+      id('compteur').innerHTML = 'No breed selected.';
+    } else if (values.length === 1) {
+      id('compteur').innerHTML = values.length + ' breed selected.';
+    } else {
+      id('compteur').innerHTML = values.length + ' breeds selected.';
+    }
   }
-
-
   
 });
 
@@ -73,7 +75,10 @@ checkboxes.forEach((checkbox) => {
 
 
 
-
+var el = document.getElementById('items');
+var sortable = Sortable.create(el, {
+  animation: 150
+});
 
 
 
