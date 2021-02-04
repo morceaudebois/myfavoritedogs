@@ -67,6 +67,35 @@ checkboxes.forEach((checkbox) => {
       id('compteur').innerHTML = values.length + ' breeds selected.';
     }
   }
+
+
+
+
+
+
+
+
+
+
+  checkbox.addEventListener("change", sendToStorage); 
+
+  function sendToStorage() {
+    localStorage.clear();
+
+    let checkedBoxes = document.querySelectorAll('input[type="checkbox"]:checked');
+    
+    let values = [];
+    checkedBoxes.forEach((checkedBox) => {
+      values.push(checkedBox.value);
+    });
+
+    
+
+    values = [...new Set(values)];
+
+
+    localStorage.setItem("breeds", JSON.stringify(values));
+  }
   
 });
 
@@ -75,10 +104,72 @@ checkboxes.forEach((checkbox) => {
 
 
 
-var el = document.getElementById('items');
-var sortable = Sortable.create(el, {
-  animation: 150
+let list = document.getElementById('items');
+let elements = document.querySelectorAll('#items > li');
+
+// retourne la place d'un li
+function getIndex(node) {
+  let children = node.parentNode.children;
+
+  for (i = 0; i < children.length; i++) {
+    if (node == children[i]) break;
+  }
+  return i + 1;
+}
+
+// liste drag and sort
+let sortable = Sortable.create(list, {
+  animation: 150,
+  onEnd: function() {
+
+    // pour chaque li, trouver sa place
+    elements.forEach((element) => {
+      let place = element.querySelector('.place');
+      place.innerHTML = '#' + getIndex(element);
+    })
+
+  }
+
 });
+
+
+
+
+
+
+
+
+
+
+
+
+window.onload = function() {
+  let values = JSON.parse(localStorage.getItem("breeds"));
+
+  values.forEach((value) => {
+    checkboxes.forEach((checkbox) => {
+      if (checkbox.value === value) {
+        checkbox.checked = true;
+      }
+    });
+  })
+
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

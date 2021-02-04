@@ -100,12 +100,12 @@ try {
 
                         <div class="breed">
                             <img class="breedImage" src="http://localhost/~tahoe/myfavoritedogs/images/malinois.jpg">
-                            <span>Czechoslovakian Wolfdog</span>
+                            <span><span class="place"></span> - Czechoslovakian Wolfdog</span>
                             <img class="dragIcon" src="http://localhost/~tahoe/myfavoritedogs/images/drag.svg">
                         </div>
                     </li>
-                    <li>item 2</li>
-                    <li>item 3</li>
+                    <li><span class="place">#2</span>item 2</li>
+                    <li><span class="place">#3</span>item 3</li>
                 </ul>
         </div>
     </div>
