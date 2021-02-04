@@ -1,0 +1,205 @@
+$accent: #9DC88D;
+$textColor: #505050;
+
+
+body {
+    margin: 0;
+    font-family: Futura;
+    color: $textColor;
+
+}
+
+p {
+    font-weight: 400;
+}
+
+
+.bigTitle {
+    margin-bottom: 2em;
+
+    h2, p {
+        margin: unset;
+    }
+
+    hr {
+        border: 1px solid $textColor;
+        opacity: .8;
+    }
+
+}
+
+header {
+    background-color: $accent;
+    padding: 1em;
+    color: white;
+
+    display: flex;
+    justify-content: space-between;
+
+    h1 {
+        margin: unset;
+        font-family: Futura;
+        font-size: 1.4em;
+        font-weight: 500;
+        letter-spacing: 1px;;
+    }
+
+    div {
+        display: flex;
+        align-items: center; 
+    }
+
+    #addList img {
+        width: 2em;
+        height: 2em;
+        filter: invert(100);
+    }
+}
+
+section {
+    margin: 2em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+section.allDogs {
+    width: 80%;
+    max-width: 1000px;
+    margin:50px auto;
+
+    button.accordion {
+        background: white;
+        width: 100%;
+        border: none;
+        outline: none;
+        padding: 0;
+        text-align: left;
+        font-size: 1.5em;
+        font-family: Futura;
+        color: $textColor;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.2s linear;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        svg {
+            width: 1.5em;
+            transform: rotate(-90deg);
+            transition: all 0.2s linear;
+            
+            path {
+                transition: all 0.2s linear;
+            }
+        }
+
+        &.isOpen svg {
+            transform: rotate(0deg);
+
+            path {
+                fill: $accent;
+            }
+        }
+    }
+
+
+
+    .accordion-content {
+        margin: 1em 0;
+        background-color: white;
+        padding: 0 20px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-in-out;
+
+        .breedGrid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-gap: 1em;
+            
+            .breedBlock {
+                aspect-ratio: 1/1;
+                display: flex;
+                align-items: flex-end;
+                border-radius: 30px;
+                overflow: hidden;
+                position: relative;
+                box-sizing: border-box;
+                
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    z-index: 1;
+                }
+
+                
+
+                label {
+                    width: 100%;
+                    height: 100%;
+                    position:absolute;
+                    z-index: 3;
+                    cursor: pointer;
+
+                    input {
+                        position:absolute;
+                        z-index: 3;
+                        top: 1em;
+                        right: 1em; 
+                    }
+                }
+
+                h3 {
+                    box-sizing: border-box;
+                    position:absolute;
+                    display: block;
+                    background-color: #f9f9f9;
+                    width: 100%;
+                    margin: unset;
+                    padding: 1em;
+                    z-index: 2;
+                }
+            }
+
+            
+        }
+    }
+    
+}
+
+
+
+
+
+// #slider {
+// 	overflow-y: hidden;
+// 	height: 500px; /* approximate max height */
+//     background-color: orange;
+// 	transition-property: all;
+// 	transition-duration: .5s;
+// 	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+// }
+
+// #slider.closed {
+// 	height: 0;
+// }

@@ -1,0 +1,45 @@
+body { margin: 0; font-family: Futura; color: #505050; }
+
+p { font-weight: 400; }
+
+.bigTitle { margin-bottom: 2em; }
+
+.bigTitle h2, .bigTitle p { margin: unset; }
+
+.bigTitle hr { border: 1px solid #505050; opacity: .8; }
+
+header { background-color: #9DC88D; padding: 1em; color: white; display: flex; justify-content: space-between; }
+
+header h1 { margin: unset; font-family: Futura; font-size: 1.4em; font-weight: 500; letter-spacing: 1px; }
+
+header div { display: flex; align-items: center; }
+
+header #addList img { width: 2em; height: 2em; filter: invert(100); }
+
+section { margin: 2em; }
+
+section.allDogs { width: 80%; max-width: 1000px; margin: 50px auto; }
+
+section.allDogs button.accordion { background: white; width: 100%; border: none; outline: none; padding: 0; text-align: left; font-size: 1.5em; font-family: Futura; color: #505050; font-weight: 500; cursor: pointer; transition: background-color 0.2s linear; display: flex; justify-content: space-between; align-items: center; }
+
+section.allDogs button.accordion svg { width: 1.5em; transform: rotate(-90deg); transition: all 0.2s linear; }
+
+section.allDogs button.accordion svg path { transition: all 0.2s linear; }
+
+section.allDogs button.accordion.isOpen svg { transform: rotate(0deg); }
+
+section.allDogs button.accordion.isOpen svg path { fill: #9DC88D; }
+
+section.allDogs .accordion-content { margin: 1em 0; background-color: white; padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.2s ease-in-out; }
+
+section.allDogs .accordion-content .breedGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); grid-gap: 1em; }
+
+section.allDogs .accordion-content .breedGrid .breedBlock { aspect-ratio: 1/1; display: flex; align-items: flex-end; border-radius: 30px; overflow: hidden; position: relative; box-sizing: border-box; }
+
+section.allDogs .accordion-content .breedGrid .breedBlock img { width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+
+section.allDogs .accordion-content .breedGrid .breedBlock label { width: 100%; height: 100%; position: absolute; z-index: 3; cursor: pointer; }
+
+section.allDogs .accordion-content .breedGrid .breedBlock label input { position: absolute; z-index: 3; top: 1em; right: 1em; }
+
+section.allDogs .accordion-content .breedGrid .breedBlock h3 { box-sizing: border-box; position: absolute; display: block; background-color: #f9f9f9; width: 100%; margin: unset; padding: 1em; z-index: 2; }
