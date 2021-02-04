@@ -44,7 +44,7 @@ section.allDogs .accordion-content .breedGrid .breedBlock label input { position
 
 section.allDogs .accordion-content .breedGrid .breedBlock h3 { box-sizing: border-box; position: absolute; display: block; background-color: #f9f9f9; width: 100%; margin: unset; padding: 1em; z-index: 2; }
 
-#pannel { position: fixed; bottom: 0; background-color: gainsboro; width: 80%; max-width: 1000px; margin: auto; left: 0; right: 0; padding: 1em; box-sizing: border-box; z-index: 10; height: 50vh; transition-property: all; transition-duration: .5s; transition-timing-function: cubic-bezier(0, 1, 0.5, 1); }
+#pannel { position: fixed; bottom: 0; background-color: gainsboro; width: 80%; max-width: 1000px; margin: auto; left: 0; right: 0; padding: 1em; box-sizing: border-box; z-index: 10; height: 4em; transition-property: all; transition-duration: .5s; transition-timing-function: cubic-bezier(0, 1, 0.5, 1); }
 
 #pannel .bottom { background-color: skyblue; display: flex; justify-content: space-between; }
 

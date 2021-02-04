@@ -24,6 +24,41 @@ accordionBtns.forEach((accordion) => {
 
 
 
+// compteur de races
+function countChecked() {
+  let checkedBoxes = document.querySelectorAll('input[type="checkbox"]:checked');
+
+  // compte les valeurs et retire les dupliquées
+  let values = [];
+  checkedBoxes.forEach((checkedBox) => {
+    values.push(checkedBox.value);
+  });
+
+  values = [...new Set(values)];
+  
+  // ajoute dans le compteur
+  if (!values) {
+    id('compteur').innerHTML = 'No breed selected.';
+  } else if (values.length === 1) {
+    id('compteur').innerHTML = values.length + ' breed selected.';
+  } else {
+    id('compteur').innerHTML = values.length + ' breeds selected.';
+  }
+}
+
+
+// c'est sûrement pas ouf mais je vois pas comment faire autrement
+function sendToList(breedSlug) {
+  let breedData = document.querySelector('.' + breedSlug).children;
+  let breedName = breedData[2].innerHTML;
+  let breedImage = breedData[0].currentSrc;
+
+  let fullLi = '<li class="' + breedSlug + '"><div class="delete"><img src="http://localhost/~tahoe/myfavoritedogs/images/moins.svg"></div><div class="breed"><img class="breedImage" src="' + breedImage + '"><span><span class="place"></span> - ' + breedName + '</span><img class="dragIcon" src="http://localhost/~tahoe/myfavoritedogs/images/drag.svg"></div></li>'; 
+
+  list.insertAdjacentHTML('beforeend', fullLi);
+  listIndexes();
+}
+
 
 
 
@@ -44,41 +79,16 @@ checkboxes.forEach((checkbox) => {
     });
   }
 
-
-
   checkbox.addEventListener("change", countChecked);
-  function countChecked() {
-    let checkedBoxes = document.querySelectorAll('input[type="checkbox"]:checked');
-
-    // compte les valeurs et retire les dupliquées
-    let values = [];
-    checkedBoxes.forEach((checkedBox) => {
-      values.push(checkedBox.value);
-    });
-
-    values = [...new Set(values)];
-    
-    // ajoute dans le compteur
-    if (!values) {
-      id('compteur').innerHTML = 'No breed selected.';
-    } else if (values.length === 1) {
-      id('compteur').innerHTML = values.length + ' breed selected.';
-    } else {
-      id('compteur').innerHTML = values.length + ' breeds selected.';
-    }
-  }
 
 
 
 
-
-
-
+  
 
 
 
   checkbox.addEventListener("change", sendToStorage); 
-
   function sendToStorage() {
     localStorage.clear();
 
@@ -89,12 +99,17 @@ checkboxes.forEach((checkbox) => {
       values.push(checkedBox.value);
     });
 
+    values = [...new Set(values)];
     
 
-    values = [...new Set(values)];
-
-
     localStorage.setItem("breeds", JSON.stringify(values));
+
+    list.innerHTML = '';
+    values.forEach((value) => {
+      
+      sendToList(value);
+    })
+
   }
   
 });
@@ -105,7 +120,7 @@ checkboxes.forEach((checkbox) => {
 
 
 let list = document.getElementById('items');
-let elements = document.querySelectorAll('#items > li');
+
 
 // retourne la place d'un li
 function getIndex(node) {
@@ -117,19 +132,23 @@ function getIndex(node) {
   return i + 1;
 }
 
+// donne leur place aux éléments de la liste
+function listIndexes() {
+  let elements = document.querySelectorAll('#items > li');
+
+  // pour chaque li, trouver sa place
+  elements.forEach((element) => {
+    let place = element.querySelector('.place');
+    place.innerHTML = '#' + getIndex(element);
+  })
+}
+
 // liste drag and sort
 let sortable = Sortable.create(list, {
   animation: 150,
   onEnd: function() {
-
-    // pour chaque li, trouver sa place
-    elements.forEach((element) => {
-      let place = element.querySelector('.place');
-      place.innerHTML = '#' + getIndex(element);
-    })
-
+    listIndexes();
   }
-
 });
 
 
@@ -144,15 +163,22 @@ let sortable = Sortable.create(list, {
 
 
 window.onload = function() {
-  let values = JSON.parse(localStorage.getItem("breeds"));
 
-  values.forEach((value) => {
-    checkboxes.forEach((checkbox) => {
-      if (checkbox.value === value) {
-        checkbox.checked = true;
-      }
-    });
-  })
+  let values = JSON.parse(localStorage.getItem("breeds"));
+  if (values) {
+    values.forEach((value) => {
+        // recoche les cases à partir du local storage
+        checkboxes.forEach((checkbox) => {
+          if (checkbox.value === value) {
+            checkbox.checked = true;
+            countChecked();
+          }
+        });
+
+        sendToList(value);
+        
+      })
+  }
 
 };
 

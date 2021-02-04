@@ -68,7 +68,7 @@ try {
                 
                 foreach ($breeds as $breed) { ?>
 
-                <div class="breedBlock">
+                <div class="breedBlock <?php echo $breed['slug']?>">
                     <img src='http://localhost/~tahoe/myfavoritedogs/images/<?php echo $breed['Image']?>'>
 
                     <label><input type="checkbox" value="<?php echo $breed['slug']?>"></label>
@@ -95,7 +95,7 @@ try {
             </div>
 
             <ul id="items">
-                    <li>
+                    <!-- <li>
                         <div class="delete"><img src="http://localhost/~tahoe/myfavoritedogs/images/moins.svg"></div>
 
                         <div class="breed">
@@ -104,15 +104,11 @@ try {
                             <img class="dragIcon" src="http://localhost/~tahoe/myfavoritedogs/images/drag.svg">
                         </div>
                     </li>
-                    <li><span class="place">#2</span>item 2</li>
-                    <li><span class="place">#3</span>item 3</li>
+                    <li><span class="place">#2</span>item 2</li> -->
                 </ul>
         </div>
     </div>
     <div class="overlay" onclick="document.body.classList.toggle('open');"></div>
-
-     <!-- <div id="slider">Some content here....</div>
-     <button onclick="document.getElementById('slider').classList.toggle('closed');">Toggle slider</button> -->
 
 
 
