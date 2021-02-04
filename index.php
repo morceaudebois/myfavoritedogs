@@ -105,7 +105,7 @@ try {
 
 
 
-
+<div id="compteur"></div>
 
 
 

@@ -27,19 +27,53 @@ accordionBtns.forEach((accordion) => {
 
 
 
-let checkboxes = document.querySelectorAll('input[type="checkbox');
+let checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
 checkboxes.forEach((checkbox) => {
   checkbox.addEventListener("change", checkToo);
 
   function checkToo() {
+    // trouve toutes les checkbox qui ont la même valeur que celle cliquée
     let toCheck = document.querySelectorAll('input[value="' + checkbox.value + '"');
     
     toCheck.forEach((value) => {
+      // clique sur les checkbox qui ne sont pas celle cliquée
       if (value != checkbox) {
         value.click();
       }
     });
   }
+
+
+
+  checkbox.addEventListener("change", countChecked);
+
+  
+  function countChecked() {
+    let checkedBoxes = document.querySelectorAll('input[type="checkbox"]:checked');
+
+    // compte les valeurs et retire les dupliquées
+    let values = [];
+    checkedBoxes.forEach((checkedBox) => {
+      values.push(checkedBox.value);
+    });
+
+    values = [...new Set(values)];
+    
+    // ajoute dans le compteur
+    document.getElementById('compteur').innerHTML = values.length;
+  }
+
+
   
 });
+
+
+
+
+
+
+
+
+
+
