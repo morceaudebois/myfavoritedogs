@@ -1,9 +1,21 @@
 id = name => document.getElementById(name);
 cl = name => document.getElementsByClassName(name);
 
+const list = document.getElementById('items');
 
+
+// retourne la place d'un li
+function getIndex(node) {
+  let children = node.parentNode.children;
+
+  for (i = 0; i < children.length; i++) {
+    if (node == children[i]) break;
+  }
+  return i + 1;
+}
+
+// accordéon volé
 const accordionBtns = document.querySelectorAll('.accordion');
-
 accordionBtns.forEach((accordion) => {
   accordion.onclick = function () {
     
@@ -18,8 +30,6 @@ accordionBtns.forEach((accordion) => {
     }
   };
 });
-
-
 
 
 
@@ -47,27 +57,12 @@ function countChecked() {
 }
 
 
-// c'est sûrement pas ouf mais je vois pas comment faire autrement
-function sendToList(breedSlug) {
-  let breedData = document.querySelector('.' + breedSlug).children;
-  let breedName = breedData[2].innerHTML;
-  let breedImage = breedData[0].currentSrc;
-
-  let fullLi = '<li class="' + breedSlug + '"><div class="delete"><img src="http://localhost/~tahoe/myfavoritedogs/images/moins.svg"></div><div class="breed"><img class="breedImage" src="' + breedImage + '"><span><span class="place"></span> - ' + breedName + '</span><img class="dragIcon" src="http://localhost/~tahoe/myfavoritedogs/images/drag.svg"></div></li>'; 
-
-  list.insertAdjacentHTML('beforeend', fullLi);
-  listIndexes();
-}
-
-
-
-
+// Actions quand les checkbox changent 
 let checkboxes = document.querySelectorAll('input[type="checkbox"]');
-
 checkboxes.forEach((checkbox) => {
-  checkbox.addEventListener("change", checkToo);
 
   function checkToo() {
+    
     // trouve toutes les checkbox qui ont la même valeur que celle cliquée
     let toCheck = document.querySelectorAll('input[value="' + checkbox.value + '"');
     
@@ -79,58 +74,103 @@ checkboxes.forEach((checkbox) => {
     });
   }
 
+  // coche les checkbox identiques
+  checkbox.addEventListener("change", checkToo);
+
+  // compte les checkbox cochées
   checkbox.addEventListener("change", countChecked);
 
+  // Ajout dans le local storage + update de la liste
+  // checkbox.addEventListener("change", sendToStorage); 
 
+  checkbox.addEventListener("change", maybeSendToList);
 
-
-  
-
-
-
-  checkbox.addEventListener("change", sendToStorage); 
-  function sendToStorage() {
-    localStorage.clear();
-
-    let checkedBoxes = document.querySelectorAll('input[type="checkbox"]:checked');
-    
-    let values = [];
-    checkedBoxes.forEach((checkedBox) => {
-      values.push(checkedBox.value);
-    });
-
-    values = [...new Set(values)];
-    
-
-    localStorage.setItem("breeds", JSON.stringify(values));
-
-    list.innerHTML = '';
-    values.forEach((value) => {
+  function maybeSendToList() {
+    if (checkbox.checked) {
       
-      sendToList(value);
-    })
+      // ajoute si la liste est vide
+      if (getListValues().length === 0) {
+        sendToList(checkbox.value);
+      } 
 
+
+      
+    } else {
+      getListValues().forEach((listValue) => {
+        
+        if (listValue === checkbox.value) {
+          console.log(document.querySelector('#items li.' + listValue));
+          document.querySelector('#items li.' + listValue).remove();
+        }
+        
+      })
+      
+    }
   }
   
 });
 
+function getListValues() {
+  let elements = document.querySelectorAll('#items > li');
+  let names = [];
+  elements.forEach((element) => {
+    names.push(element.classList.toString());
+  })
 
-
-
-
-
-let list = document.getElementById('items');
-
-
-// retourne la place d'un li
-function getIndex(node) {
-  let children = node.parentNode.children;
-
-  for (i = 0; i < children.length; i++) {
-    if (node == children[i]) break;
-  }
-  return i + 1;
+  names = [...new Set(names)];
+  
+  return names;
 }
+
+
+// mise à jour de la liste
+// c'est sûrement pas ouf mais je vois pas comment faire autrement
+function sendToList(breedSlug) {
+
+  let breedData = document.querySelector('.' + breedSlug).children;
+  let breedName = breedData[2].innerHTML;
+  let breedImage = breedData[0].currentSrc;
+
+  let fullLi = '<li class="' + breedSlug + '"><div class="delete"><img src="http://localhost/~tahoe/myfavoritedogs/images/moins.svg"></div><div class="breed"><img class="breedImage" src="' + breedImage + '"><span><span class="place"></span> - ' + breedName + '</span><img class="dragIcon" src="http://localhost/~tahoe/myfavoritedogs/images/drag.svg"></div></li>'; 
+
+  list.insertAdjacentHTML('beforeend', fullLi);
+  listIndexes();
+  
+}
+
+
+
+// function sendToStorage() {
+
+//   // reset le storage
+//   localStorage.clear();
+
+//   // trouve toutes les checkbox cochées
+//   let checkedBoxes = document.querySelectorAll('input[type="checkbox"]:checked');
+  
+//   // ajoute toutes les checkbox cochées dans l'array values
+//   let values = [];
+//   checkedBoxes.forEach((checkedBox) => {
+//     values.push(checkedBox.value);
+//   });
+
+//   // retire les doublons
+//   values = [...new Set(values)];
+  
+
+//   // envoie dans le storage
+//   localStorage.setItem("breeds", JSON.stringify(values));
+//   console.log(values + "envoyés dans le storage")
+//   // update la liste
+//   // list.innerHTML = '';
+//   // values.forEach((value) => {
+//   //   sendToList(value);
+    
+//   // })
+
+// }
+
+
 
 // donne leur place aux éléments de la liste
 function listIndexes() {
@@ -142,6 +182,17 @@ function listIndexes() {
     place.innerHTML = '#' + getIndex(element);
   })
 }
+
+
+
+
+
+
+
+
+
+
+
 
 // liste drag and sort
 let sortable = Sortable.create(list, {
@@ -163,8 +214,10 @@ let sortable = Sortable.create(list, {
 
 
 window.onload = function() {
-
+  
   let values = JSON.parse(localStorage.getItem("breeds"));
+
+  // s'il y a quelque chose dans le storage, cocher + mettre dans la liste
   if (values) {
     values.forEach((value) => {
         // recoche les cases à partir du local storage
@@ -174,12 +227,11 @@ window.onload = function() {
             countChecked();
           }
         });
-
         sendToList(value);
-        
+
       })
   }
-
+  
 };
 
 
