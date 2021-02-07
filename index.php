@@ -94,20 +94,57 @@ try {
                 <h2>My list</h2> <hr>
             </div>
 
-            <ul id="items">
-                    <!-- <li>
-                        <div class="delete"><img src="http://localhost/~tahoe/myfavoritedogs/images/moins.svg"></div>
-
-                        <div class="breed">
-                            <img class="breedImage" src="http://localhost/~tahoe/myfavoritedogs/images/malinois.jpg">
-                            <span><span class="place"></span> - Czechoslovakian Wolfdog</span>
-                            <img class="dragIcon" src="http://localhost/~tahoe/myfavoritedogs/images/drag.svg">
-                        </div>
-                    </li>
-                    <li><span class="place">#2</span>item 2</li> -->
-                </ul>
+            <ul id="items"></ul>
         </div>
+        
+        <div class="saveList">
+            <div class="bigTitle">
+                <h2>Save your list</h2> <hr>
+            </div>
+
+            <label for="name">What's your name?</label>
+
+            <input type="text" id="name" name="name" minlength="4" maxlength="8" size="10" placeholder="Michael">
+
+            <button>Generate link</button>
+            
+            
+            <br>
+
+
+            <label for="link">Your permanent link</label>
+
+            <input type="text" id="link" name="link" minlength="4" maxlength="8" size="10" placeholder="#">
+            <button>Copy</button>
+
+            <div class="bigTitle">
+                <h2>Share your list</h2> <hr>
+            </div>
+
+            <div class="socialContainer">
+                <a href="#" class="socialBlock">
+                    <img src="http://localhost/~tahoe/myfavoritedogs/images/twitter.svg">
+                    <span>Twitter</span>
+                </a>
+
+                <a href="#" class="socialBlock">
+                    <img src="http://localhost/~tahoe/myfavoritedogs/images/facebook.svg">
+                    <span>Facebook</span>
+                </a>
+
+                <a href="#" class="socialBlock">
+                    <img src="http://localhost/~tahoe/myfavoritedogs/images/telegram.svg">
+                    <span>Telegram</span>
+                </a>
+            </div>
+
+        </div>
+        
+        
     </div>
+
+
+
     <div class="overlay" onclick="document.body.classList.toggle('open');"></div>
 
 
