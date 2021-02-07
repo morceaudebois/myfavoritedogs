@@ -24,7 +24,7 @@ try {
 
 </head>
 <body>
-
+    
     <header>
         <h1>myfavoritedogs</h1>
         <div id="addList">
@@ -104,17 +104,19 @@ try {
 
             <label for="name">What's your name?</label>
 
-            <input type="text" id="name" name="name" minlength="4" maxlength="8" size="10" placeholder="Michael">
-
-            <button>Generate link</button>
             
+
+            <input type="text" id="name" name="name" minlength="4" maxlength="20" size="10" placeholder="Michael">
+
+            <button onclick="showCustomer()">Generate link</button>
+            <div id="result"></div>
             
             <br>
 
 
             <label for="link">Your permanent link</label>
 
-            <input type="text" id="link" name="link" minlength="4" maxlength="8" size="10" placeholder="#">
+            <input type="text" id="link" name="link" minlength="4" maxlength="20" size="20" placeholder="#">
             <button>Copy</button>
 
             <div class="bigTitle">
