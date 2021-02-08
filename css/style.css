@@ -73,3 +73,5 @@ section.allDogs .accordion-content .breedGrid .breedBlock h3 { box-sizing: borde
 #pannel .saveList .socialContainer a.socialBlock img { height: 3.5em; padding-bottom: 1em; }
 
 #pannel .saveList .socialContainer a.socialBlock span { text-align: center; }
+
+body.savedList img { max-width: 200px; }

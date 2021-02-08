@@ -65,10 +65,6 @@ try {
                 echo $e->getMessage();
             }
 
-
-
-            echo $breedData["title"];
-
             ?>
             
             <div class="breedBlock <?php echo $breedData['slug']?>">

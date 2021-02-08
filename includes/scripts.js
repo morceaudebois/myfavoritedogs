@@ -78,7 +78,7 @@ function sendToList(breedSlug) {
     let breedName = breedData[2].innerHTML;
     let breedImage = breedData[0].currentSrc;
 
-    let fullLi = '<li class="' + breedSlug + '"><div class="delete"><img src="http://localhost/~tahoe/myfavoritedogs/images/moins.svg"></div><div class="breed"><img class="breedImage" src="' + breedImage + '"><span><span class="place"></span> - ' + breedName + '</span><img class="dragIcon" src="http://localhost/~tahoe/myfavoritedogs/images/drag.svg"></div></li>'; 
+    let fullLi = '<li class="' + breedSlug + '"><div class="delete" onclick="del(this.parentNode)"><img src="http://localhost/~tahoe/myfavoritedogs/images/moins.svg"></div><div class="breed"><img class="breedImage" src="' + breedImage + '"><span><span class="place"></span> - ' + breedName + '</span><img class="dragIcon" src="http://localhost/~tahoe/myfavoritedogs/images/drag.svg"></div></li>'; 
 
     list.insertAdjacentHTML('beforeend', fullLi);
 }
@@ -98,7 +98,7 @@ checkboxes.forEach((checkbox) => {
         toCheck.forEach((value) => {
             // clique sur les checkbox qui ne sont pas celle cliquée
             if (value != checkbox) {
-            value.click();
+              value.click();
             }
         });
     }
@@ -106,6 +106,14 @@ checkboxes.forEach((checkbox) => {
     // met à jour la liste
     checkbox.addEventListener("change", updateList);
 });
+
+
+function del(element) {
+  let toUncheck = document.querySelectorAll('input[value="' + element.className + '"');
+
+  // uncheck un input, les autres se décochent automatiquement grâce à checkToo()
+  toUncheck[0].click();
+}
 
 
 function updateList() {
