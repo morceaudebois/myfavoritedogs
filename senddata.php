@@ -26,7 +26,7 @@ $races = explode("|", $data);
 
 
 
-$stmt = $db->prepare('INSERT INTO lists (Name, Data) VALUES (:name, :data)');
+$stmt = $db->prepare('INSERT INTO lists (name, data) VALUES (:name, :data)');
 
 $stmt->execute(array(
     ':name' => $races[1],
