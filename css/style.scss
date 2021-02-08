@@ -1,5 +1,37 @@
 $accent: #9DC88D;
 $textColor: #505050;
+$radius: 30px;
+
+
+
+@mixin blobLink {
+    transition: transform .5s;
+    transition-timing-function: cubic-bezier(.2, 3, .4, 1);
+    user-select: none;
+    outline: none;
+
+    &:hover {
+        transform: scale(1.04, 1.04);
+    }
+
+    &:active {
+        transform: scale(1.08, 1.08);
+    }
+}
+
+@mixin blobLink-S {
+    transition: transform .5s;
+    transition-timing-function: cubic-bezier(.2, 3, .4, 1);
+    user-select: none;
+
+    &:hover {
+        transform: scale(1.015, 1.015);
+    }
+
+    &:active {
+        transform: scale(1.03, 1.03);
+    }
+}
 
 
 body {
@@ -10,6 +42,21 @@ body {
 
 p {
     font-weight: 400;
+}
+
+.niceBtn {
+    background-color: $accent;
+    border: 0;
+    color: white;
+    font-size: 1.2em;
+    min-width: 150px;
+    height: 2.4em;
+    border-radius: 10px;
+    font-family: Futura;
+    font-weight: 500;
+    cursor: pointer;
+
+    @include blobLink();
 }
 
 .overlay {
@@ -33,6 +80,10 @@ body.open {
 
     #pannel {
         height: 50vh;
+
+        .bottom button:before {
+            content:"Hide ";
+        }
     }
 }
 
@@ -157,12 +208,14 @@ section.allDogs {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             grid-gap: 1em;
+            margin: 1em 0;
             
             .breedBlock {
+                @include blobLink-S();
                 aspect-ratio: 1/1;
                 display: flex;
                 align-items: flex-end;
-                border-radius: 30px;
+                border-radius: $radius;
                 overflow: hidden;
                 position: relative;
                 box-sizing: border-box;
@@ -196,7 +249,7 @@ section.allDogs {
                     box-sizing: border-box;
                     position:absolute;
                     display: block;
-                    background-color: #f9f9f9;
+                    background-color: #efefef;
                     width: 100%;
                     margin: unset;
                     padding: 1em;
@@ -214,29 +267,44 @@ section.allDogs {
 #pannel {
     position: fixed;
     bottom: 0;
-    background-color: gainsboro;
+    background-color: white;
     width: 80%;
-    max-width: 1000px;
+    max-width: 600px;
     margin: auto;
     left: 0; right: 0;
-    padding: 1em;
+    padding: 0 1em 1em 1em;
     box-sizing: border-box;
     z-index: 10;
 
-
-    height: 4em; 
-    // height: 50vh;
+    box-shadow: 0px 3px 35px rgba(0, 0, 0, .4);
 
 
+    height: 5em; 
+
+    border-radius: $radius $radius 0 0;
 
     transition-property: all;
 	transition-duration: .5s;
 	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
 
     .bottom {
-        background-color: skyblue;
         display: flex;
         justify-content: space-between;
+        height: 3em;
+        margin: 1em 0;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        #compteur {
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+
+        button:before {
+            content:"View ";
+        }
     }
 
     .list {
@@ -247,8 +315,9 @@ section.allDogs {
             li {
                 display: flex;
 
-                height: 3em;
+                height: 3.5em;
                 margin-bottom: 1em;
+                
 
                 .delete {
                     display: flex;
@@ -261,11 +330,15 @@ section.allDogs {
                     box-sizing: border-box;
                     cursor: pointer;
                     flex-shrink: 0;
+
+                    @include blobLink();
                 }
 
                 .breed {
+                    border-radius: 13px;
+                    overflow: hidden;
                     max-width: 100%;
-                    background-color: coral;
+                    background-color: #efefef;
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
@@ -273,8 +346,14 @@ section.allDogs {
                     margin-left: 1em;
                     flex-grow: 1;
 
+                    span {
+                        width: 100%;
+                        padding-left: .6em;
+                    }
+
                     img {
                         &.breedImage {
+                            border-radius: 13px;
                             height: 100%;
                             aspect-ratio: 1/1;
                             object-fit: cover;
@@ -296,7 +375,6 @@ section.allDogs {
             display: flex;
             justify-content: space-evenly;
             
-
             a.socialBlock {
                 display: flex;
                 flex-direction: column;
@@ -304,9 +382,12 @@ section.allDogs {
                 background-color: white;
                 text-decoration: none;
                 color: $textColor;
+                box-shadow: 0px 3px 35px rgba(0, 0, 0, .4);
+                border-radius: 18px;
+                aspect-ratio: 1/1;
 
                 img {
-                    height: 3.5em;
+                    max-width: 60px;
                     padding-bottom: 1em;
                 }
 
