@@ -71,7 +71,7 @@ try {
                 <div class="breedBlock <?php echo $breed['slug']?>">
                     <img src='http://localhost/~tahoe/myfavoritedogs/images/<?php echo $breed['image']?>'>
 
-                    <label><input type="checkbox" value="<?php echo $breed['slug']?>"></label>
+                    <label><input type="checkbox" value="<?php echo $breed['slug']?>"><span class="checkmark"></span></label>
                     
 
                     <h3><?php echo $breed['title']?></h3>
