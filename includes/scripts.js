@@ -186,24 +186,44 @@ window.onload = function() {
 
 
 
+// clic sur le bouton de génération de lien
+id("genLink").addEventListener('click', (e) => {
+  if (e.isTrusted) {
+    let timerId;
 
-
-function showCustomer() {
-  let values = localStorage.getItem("breeds");
-  let name = id("name").value;
-
-  var xhttp;
-
-  xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("result").innerHTML = this.responseText;
+    //Reset Timeout if function is called before it ends
+    if (!(timerId == null)) {
+      clearTimeout(timerId);
     }
-  };
 
-  xhttp.open("GET", "senddata.php?q=" + values + "|" + name, true);
-  xhttp.send();
-}
+    timerId = setTimeout(function () {
+      //Place code that you don't want to get spammed here
+
+      // envoie les données en ajax dans la BDD
+      let values = localStorage.getItem("breeds");
+      let name = id("name").value;
+
+      var xhttp;
+
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("result").innerHTML = this.responseText;
+        }
+      };
+
+      xhttp.open("GET", "senddata.php?q=" + values + "|" + name, true);
+      xhttp.send();
+
+    }, 200); //200ms Timeout
+
+  }
+});
+
+
+
+
+
 
 
 

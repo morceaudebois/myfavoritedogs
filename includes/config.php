@@ -4,7 +4,7 @@
 define('DBHOST','localhost');
 define('DBUSER','root');
 define('DBPASS','rootroot');
-define('DBNAME','myfavouritedogs');
+define('DBNAME','myfavoritedogs');
 
 try {
    $db = new PDO("mysql:host=".DBHOST.";port=8889;dbname=".DBNAME, DBUSER, DBPASS);

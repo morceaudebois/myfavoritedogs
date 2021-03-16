@@ -108,7 +108,7 @@ try {
 
             <input type="text" id="name" name="name" minlength="4" maxlength="20" size="10" placeholder="Michael">
 
-            <button onclick="showCustomer()">Generate link</button>
+            <button id="genLink">Generate link</button>
             <div id="result"></div>
             
             <br>

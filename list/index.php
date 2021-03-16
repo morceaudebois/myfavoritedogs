@@ -12,11 +12,7 @@ try {
     echo $e->getMessage();
 } 
 
-    
-
-
     $breeds = json_decode($list['data'], true);
-
 
 ?>
 
