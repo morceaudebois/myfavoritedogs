@@ -12,7 +12,21 @@ try {
     echo $e->getMessage();
 } 
 
-    $breeds = json_decode($list['data'], true);
+$breeds = json_decode($list['data'], true);
+
+
+
+try {
+    $stmt = $db->prepare('SELECT image FROM dogbreeds WHERE slug = ?');
+
+    $stmt->bindParam(1, $breeds[0]);  
+    $stmt->execute(); 
+    
+    $mainImage = $stmt->fetch();
+
+} catch(PDOException $e) {
+    echo $e->getMessage();
+}
 
 ?>
 
@@ -32,46 +46,51 @@ try {
 
 <body class="savedList">
 
-    <header>
-        <h1>myfavoritedogs</h1>
-        <div id="addList">
-            <img src='http://localhost/~tahoe/myfavoritedogs/images/new.svg'>
-        </div>
-    </header>
+    <?php @include '../header.php'; ?>
+    
 
-    <div class="hero">
-        <h2><?php echo $list['name'] ?>'s favorite dogs list</h2>
+    <div class="hero">     
+        <div class="titleCard" style="background-image: url('<?php echo 'http://localhost/~tahoe/myfavoritedogs/images/' . $mainImage[0]?>')">
+            <div class="gradient"></div>
+            <h1 class="title"><?php echo $list['name'] ?>'s favorite dogs list</h1>
+        </div>
+        
     </div>
 
-    <?php
-    
-        foreach ($breeds as $breed) {  
-
-            try {
-                $stmt = $db->prepare('SELECT * FROM dogbreeds WHERE slug = ?');
-
-                $stmt->bindParam(1, $breed);  
-                $stmt->execute(); 
-                
-                $breedData = $stmt->fetch();
-
-                
-    
-            } catch(PDOException $e) {
-                echo $e->getMessage();
-            }
-
-            ?>
+    <main>
+        <div class="breedGrid">
+        <?php 
+        
             
+            foreach ($breeds as $breed) { 
+
+                try {
+                    $stmt = $db->prepare('SELECT * FROM dogbreeds WHERE slug = ?');
+
+                    $stmt->bindParam(1, $breed);  
+                    $stmt->execute(); 
+                    
+                    $breedData = $stmt->fetch();
+        
+                } catch(PDOException $e) {
+                    echo $e->getMessage();
+                } ?>
+
+
+
             <div class="breedBlock <?php echo $breedData['slug']?>">
                 <img src='http://localhost/~tahoe/myfavoritedogs/images/<?php echo $breedData['image']?>'>
-                
 
                 <h3><?php echo $breedData['title']?></h3>
             </div>
-        <?php
-        }
-    ?>
+
+            <?php } ?>
+        </div>
+    </main>
+
+    
+
+  
 
 </body>
 
