@@ -124,8 +124,30 @@ body.savedList main .breedGrid .breedBlock:nth-child(3) .medal { border: 3px sol
 
 body.savedList main .breedGrid .breedBlock:nth-child(n+4) .medal { border: 3px solid #c8e8bc; text-shadow: 0px 0 3px #252b2230; background-color: #9DC88D; color: white; font-size: 1.4em; }
 
-body.savedList .titleCard { overflow: hidden; position: relative; height: 25vh; box-shadow: 0px 3px 35px rgba(0, 0, 0, 0.3); box-sizing: border-box; background-size: cover; background-position: center center; margin-bottom: 2em; display: flex; justify-content: center; }
+body.savedList .titleCard { overflow: hidden; position: relative; height: 25vh; box-shadow: 0px 3px 35px rgba(0, 0, 0, 0.3); box-sizing: border-box; background-size: cover; background-position: center 33%; margin-bottom: 2em; display: flex; justify-content: center; }
 
-body.savedList .titleCard .gradient { z-index: 3; width: 100%; height: 40%; position: absolute; bottom: 0; background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.00709) 10.47%, rgba(0, 0, 0, 0.02755) 19.56%, rgba(0, 0, 0, 0.06016) 27.58%, rgba(0, 0, 0, 0.1037) 34.81%, rgba(0, 0, 0, 0.15697) 41.57%, rgba(0, 0, 0, 0.21875) 48.13%, rgba(0, 0, 0, 0.28782) 54.79%, rgba(0, 0, 0, 0.36296) 61.85%, rgba(0, 0, 0, 0.44297) 69.61%, rgba(0, 0, 0, 0.52662) 78.36%, rgba(0, 0, 0, 0.6127) 88.39%, rgba(0, 0, 0, 0.7)); }
+body.savedList .titleCard .gradient { z-index: 3; width: 100%; height: 65%; position: absolute; bottom: 0; background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.00709) 10.47%, rgba(0, 0, 0, 0.02755) 19.56%, rgba(0, 0, 0, 0.06016) 27.58%, rgba(0, 0, 0, 0.1037) 34.81%, rgba(0, 0, 0, 0.15697) 41.57%, rgba(0, 0, 0, 0.21875) 48.13%, rgba(0, 0, 0, 0.28782) 54.79%, rgba(0, 0, 0, 0.36296) 61.85%, rgba(0, 0, 0, 0.44297) 69.61%, rgba(0, 0, 0, 0.52662) 78.36%, rgba(0, 0, 0, 0.6127) 88.39%, rgba(0, 0, 0, 0.7)); }
 
 body.savedList .titleCard h1 { max-width: 1200px; margin: auto; width: 100%; padding: 0 12px; box-sizing: border-box; color: white; position: absolute; z-index: 4; margin-right: auto; margin-left: auto; left: auto; right: auto; bottom: .5em; }
+
+body.screenshot header { padding: .5em 0; }
+
+body.screenshot header .container { justify-content: center; }
+
+body.screenshot header .container #addList { display: none; }
+
+body.screenshot .titleCard { height: 15vh; }
+
+body.screenshot .titleCard h1 { font-size: 1.5em; }
+
+body.screenshot .breedGrid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important; }
+
+body.screenshot .breedGrid .breedBlock { aspect-ratio: unset; overflow: visible; flex-direction: row; align-items: unset; min-height: 70px; max-height: 70px; }
+
+body.screenshot .breedGrid .breedBlock img { max-width: 15%; border-radius: 12px 0 0 12px; }
+
+body.screenshot .breedGrid .breedBlock .medal { top: unset; right: 0; left: unset; align-self: center; }
+
+body.screenshot .breedGrid .breedBlock h3, body.screenshot .breedGrid .breedBlock img { position: relative; }
+
+body.screenshot .breedGrid .breedBlock h3 { padding: .5em 1em; height: 100%; max-width: 70%; font-size: 1.1em; display: flex; align-items: center; border-radius: 0 12px 12px 0; }

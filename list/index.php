@@ -44,7 +44,7 @@ try {
 
 </head>
 
-<body class="savedList">
+<body class="savedList screenshot">
 
     <?php @include '../header.php'; ?>
     
@@ -79,9 +79,12 @@ try {
             <div class="breedBlock <?php echo $breedData['slug']?>">
                 <img src='http://localhost/~tahoe/myfavoritedogs/images/<?php echo $breedData['image']?>'>
 
-                <h3><?php echo $breedData['title']?></h3>
+                
 
+                <h3><?php echo $breedData['title']?></h3>
                 <span class="medal"></span>
+
+                
             </div>
 
             <?php } ?>
