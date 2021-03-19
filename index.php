@@ -142,7 +142,7 @@ try {
 
 
 
-    <div class="overlay" onclick="document.body.classList.toggle('open');"></div>
+    <div class="overlay"></div>
 
     
 

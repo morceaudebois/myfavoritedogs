@@ -228,6 +228,9 @@ id("genLink").addEventListener('click', (e) => {
 
 
 
-
+document.querySelector('.overlay').addEventListener('click', () => {
+  document.body.classList.toggle('open');
+  console.log(document.querySelector('.screenshotContainer canvas'));
+});
 
   

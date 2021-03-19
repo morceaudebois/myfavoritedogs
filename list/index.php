@@ -44,7 +44,7 @@ try {
 
 </head>
 
-<body class="savedList screenshot">
+<body class="savedList">
 
     <?php @include '../header.php'; ?>
     
@@ -91,13 +91,15 @@ try {
         </div>
     </main>
 
-    
+    <button onclick="screen()">Screenshot</button>
 
+    <div class="screenshotContainer">
 
+    </div>
 
+    <div class="overlay"></div>
 
-
-
+<script src='../includes/html2canvas.min.js'></script>
 <script src='http://localhost/~tahoe/myfavoritedogs/list/list.js'></script>
   
 
