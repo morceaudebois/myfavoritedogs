@@ -179,11 +179,15 @@ window.onload = function() {
         listIndexes();
       })
   }
+
+
+
+
+
+
+
   
 };
-
-
-
 
 
 // clic sur le bouton de génération de lien
@@ -219,10 +223,6 @@ id("genLink").addEventListener('click', (e) => {
 
   }
 });
-
-
-
-
 
 
 

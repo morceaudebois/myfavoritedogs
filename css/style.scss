@@ -37,25 +37,10 @@ $radius: 30px;
 
 
 @mixin maxWidth() {
-    max-width: 800px;
+    max-width: 1200px;
     margin: auto;
     width: 100%;
     padding: 0 12px;
-    box-sizing: border-box;
-}
-
-@mixin medal() {
-    position: absolute;
-    font-family: Futura;
-    font-size: 1.5em;
-    top: 20px;
-    left: 20px;
-    z-index: 5;
-    border-radius: 100%;
-    width: 40px;
-    height: 40px;
-    text-align: center;
-    padding-top: 1px;
     box-sizing: border-box;
 }
 
@@ -219,11 +204,18 @@ p {
 
 header {
     background-color: $accent;
-    padding: 1em;
+    padding: 1em 0;
     color: white;
 
-    display: flex;
-    justify-content: space-between;
+    
+    position: relative;
+    z-index: 99;
+
+    .container {
+        @include maxWidth();
+        display: flex;
+        justify-content: space-between;
+    }
 
     h1 {
         margin: unset;
@@ -480,11 +472,23 @@ body.savedList {
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             grid-gap: 1.5em;
 
- 
+            .medal {
+                position: absolute;
+                font-family: Futura;
+                font-size: 1.5em;
+                top: 20px;
+                left: 20px;
+                z-index: 5;
+                border-radius: 100%;
+                width: 40px;
+                height: 40px;
+                text-align: center;
+                padding-top: 1px;
+                box-sizing: border-box;
+            }
+
             // médailles
-            .breedBlock:nth-child(1):before {
-                @include medal();
-                content: '1';
+            .breedBlock:nth-child(1) .medal {
                 color: #fffdcc;
                 background: linear-gradient(159deg, rgba(249,206,8,1) 0%, rgba(250,185,4,1) 100%);
                 border: 3px solid #f9e082;
@@ -492,9 +496,7 @@ body.savedList {
 
             }
 
-            .breedBlock:nth-child(2):before {
-                @include medal();
-                content: '2';
+            .breedBlock:nth-child(2) .medal {
                 border: 3px solid #edeff1;
                 color: white;
                 background: linear-gradient(159deg, rgba(209,215,218,1) 0%, rgba(194,203,207,1) 100%);
@@ -502,14 +504,21 @@ body.savedList {
                 padding-left: 1px;
             }
 
-            .breedBlock:nth-child(3):before {
-                @include medal();
-                content: '3';
+            .breedBlock:nth-child(3) .medal {
                 border: 3px solid #f7bb23;
                 color: #ffe2bf;
                 text-shadow: 0px 0 3px #5c450c3d;
                 background: linear-gradient(159deg, rgba(222,125,9,1) 0%, rgba(198,112,8,1) 100%);
                 padding-left: 2px;
+            }
+
+            // toutes les médailles à partir de la 4ème inclue
+            .breedBlock:nth-child(n+4) .medal {
+                border: 3px solid #c8e8bc;
+                text-shadow: 0px 0 3px #252b2230;
+                background-color: $accent;
+                color: white;
+                font-size: 1.4em;
             }
         }
     }
