@@ -44,11 +44,10 @@ try {
 
 </head>
 
-<body class="savedList">
-
+<body class="savedList screenshot">
+    <div class="toScreen">
     <?php @include '../header.php'; ?>
     
-
     <div class="hero">     
         <div class="titleCard" style="background-image: url('<?php echo 'http://localhost/~tahoe/myfavoritedogs/images/' . $mainImage[0]?>')">
             <div class="gradient"></div>
@@ -74,7 +73,7 @@ try {
                 } catch(PDOException $e) {
                     echo $e->getMessage();
                 }
-            ?>
+        ?>
 
             <div class="breedBlock <?php echo $breedData['slug']?>">
                 <img src='http://localhost/~tahoe/myfavoritedogs/images/<?php echo $breedData['image']?>'>
@@ -92,6 +91,8 @@ try {
     </main>
 
     <button onclick="screen()">Screenshot</button>
+    </div>
+    
 
     <div class="screenshotContainer">
 

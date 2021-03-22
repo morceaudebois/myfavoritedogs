@@ -13,12 +13,13 @@
 
 function screen() {
     document.body.classList.add("screenshot");
-    html2canvas(document.body).then(canvas => {
+
+    html2canvas(document.querySelector('.toScreen')).then(canvas => {
         document.querySelector('.screenshotContainer').appendChild(canvas)
     });
+
     document.body.classList.remove("screenshot");
     document.body.classList.toggle('open');
-    
 }
 
 

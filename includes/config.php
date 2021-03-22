@@ -13,4 +13,8 @@ try {
    die($e -> getMessage());
 }
 
+$homeURL = 'http://localhost/~tahoe/myfavoritedogs/';
+
 ?>
+
+

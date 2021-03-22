@@ -18,9 +18,24 @@ accordionBtns.forEach((accordion) => {
     } else {
       //if the accordion is currently closed
       content.style.maxHeight = content.scrollHeight + 'px';
+
+
     }
   };
+
+  // fix le responsive
+  document.getElementsByTagName('body')[0].onresize = function() {
+    let areOpen = document.querySelectorAll('.isOpen');
+    
+    areOpen.forEach((isOpen) => {
+        let content = isOpen.nextElementSibling;
+        content.style.maxHeight = content.scrollHeight + 'px'; 
+    })
+  };
+
 });
+
+
 
 // retourne les slugs de la liste
 function getValues(origin) {
@@ -192,7 +207,13 @@ window.onload = function() {
 
 // clic sur le bouton de génération de lien
 id("genLink").addEventListener('click', (e) => {
-  if (e.isTrusted) {
+  let name = id("name").value;
+
+  if (!name) {
+    id('error').style.display = "block";
+  } else if (e.isTrusted) {
+    id('error').style.display = "none";
+    
     let timerId;
 
     //Reset Timeout if function is called before it ends
@@ -205,8 +226,7 @@ id("genLink").addEventListener('click', (e) => {
 
       // envoie les données en ajax dans la BDD
       let values = localStorage.getItem("breeds");
-      let name = id("name").value;
-
+      
       var xhttp;
 
       xhttp = new XMLHttpRequest();
@@ -220,7 +240,9 @@ id("genLink").addEventListener('click', (e) => {
       xhttp.send();
 
     }, 200); //200ms Timeout
-
+  } else {
+    id('error').style.display = "block";
+    id('error').innerHTML = "Go away, bot.";
   }
 });
 

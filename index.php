@@ -23,7 +23,7 @@ try {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/fontawesome.min.css">
 
 </head>
-<body>
+<body class="open">
     
     <?php @include 'header.php'; ?>
 
@@ -31,8 +31,7 @@ try {
     <section class="allDogs">
 
         <div class="bigTitle">
-            <h2>All the dogs</h2> <hr>
-
+            <h2>All the dogs</h2> <div class="hr"></div>
             <p>Select your favorite dog breeds.</p>
         </div>
             
@@ -96,23 +95,40 @@ try {
             <div class="bigTitle">
                 <h2>Save your list</h2> <hr>
             </div>
+    
 
-            <label for="name">What's your name?</label>
+            <div class="doubleContainer nameContainer">
+                <div class="half">
 
+                    <div class="fieldContainer">
+                        <label for="name">What's your name?</label>
+                        <input type="text" id="name" name="name" minlength="4" maxlength="20" size="10" placeholder="Michael">
+
+                    </div>
+
+                    
+                </div>
+                <div class="half">
+                    <button id="genLink" class="niceBtn">Generate link</button>
+                </div>
+            </div>
+
+            <span id="error">Please enter your name.</span>
             
 
-            <input type="text" id="name" name="name" minlength="4" maxlength="20" size="10" placeholder="Michael">
-
-            <button id="genLink">Generate link</button>
-            <div id="result"></div>
             
+            <!-- <div id="result">
+                <label for="link">Your permanent link</label>
+                <input type="text" id="link" name="link" minlength="4" maxlength="20" size="20" placeholder="#">
+                <button>Copy</button>
+            </div> -->
+
             <br>
 
 
-            <label for="link">Your permanent link</label>
+            
 
-            <input type="text" id="link" name="link" minlength="4" maxlength="20" size="20" placeholder="#">
-            <button>Copy</button>
+            
 
             <div class="bigTitle">
                 <h2>Share your list</h2> <hr>
