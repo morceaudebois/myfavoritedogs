@@ -63,8 +63,8 @@ try {
         
     if (isset($alreadyExists) && !empty($alreadyExists)) {
 
-        echo "This list already exists! Here's its permanent link.<br>";
-        echo "http://localhost/~tahoe/myfavoritedogs/list?q=" . $alreadyExists['link'];
+        // echo "This list already exists! Here's its permanent link.<br>";
+        echo $homeURL . "list/index.php?q=" . $alreadyExists['link'];
 
     } else {
         // créée la nouvelle liste
@@ -77,8 +77,8 @@ try {
                 ':link' => $link
             ));
 
-            echo "Your list has been saved! Here's your permanent link.<br>";
-            echo "http://localhost/~tahoe/myfavoritedogs/list?q=" . $link;
+            // echo "Your list has been saved! Here's your permanent link.<br>";
+            echo $homeURL . "list/index.php?q=" . $link;
 
         } catch(PDOException $e) {
             echo $e->getMessage();

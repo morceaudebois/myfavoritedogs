@@ -171,6 +171,10 @@ let sortable = Sortable.create(list, {
     onEnd: function() {
         listIndexes();
         sendToStorage();
+
+        cl('nameContainer')[0].style.display = "flex";
+        cl('linkContainer')[0].style.display = "none";
+        id('copyLink').innerHTML = 'Copy link';
     }
 });
 
@@ -194,14 +198,6 @@ window.onload = function() {
         listIndexes();
       })
   }
-
-
-
-
-
-
-
-  
 };
 
 
@@ -209,8 +205,10 @@ window.onload = function() {
 id("genLink").addEventListener('click', (e) => {
   let name = id("name").value;
 
+  // si aucun nom n'est entré
   if (!name) {
     id('error').style.display = "block";
+  // si nom entré + clic par humain
   } else if (e.isTrusted) {
     id('error').style.display = "none";
     
@@ -232,7 +230,11 @@ id("genLink").addEventListener('click', (e) => {
       xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-          document.getElementById("result").innerHTML = this.responseText;
+          // document.getElementById("result").innerHTML = this.responseText;
+          cl('nameContainer')[0].style.display = "none";
+          cl('linkContainer')[0].style.display = "flex";
+
+          id('link').value = this.responseText;
         }
       };
 
@@ -240,11 +242,31 @@ id("genLink").addEventListener('click', (e) => {
       xhttp.send();
 
     }, 200); //200ms Timeout
+  // si pas clic par humain
   } else {
     id('error').style.display = "block";
     id('error').innerHTML = "Go away, bot.";
   }
 });
+
+
+
+
+function copyLink() {
+    /* Get the text field */
+    var copyText = id("link");
+
+    /* Select the text field */
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); /* For mobile devices */
+  
+    /* Copy the text inside the text field */
+    document.execCommand("copy");
+  
+    /* Alert the copied text */
+    id('copyLink').innerHTML = 'Link has been copied';
+    // alert("Copied the text: " + copyText.value);
+}
 
 
 

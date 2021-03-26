@@ -99,17 +99,29 @@ try {
 
             <div class="doubleContainer nameContainer">
                 <div class="half">
-
                     <div class="fieldContainer">
                         <label for="name">What's your name?</label>
                         <input type="text" id="name" name="name" minlength="4" maxlength="20" size="10" placeholder="Michael">
 
                     </div>
-
-                    
                 </div>
+
                 <div class="half">
                     <button id="genLink" class="niceBtn">Generate link</button>
+                </div>
+            </div>
+
+
+            <div class="doubleContainer linkContainer">
+                <div class="half">
+                    <div class="fieldContainer">
+                        <label for="link">Here's your link!</label>
+                        <input type="text" id="link" name="link">
+                    </div>
+                </div>
+
+                <div class="half">
+                    <button id="copyLink" class="niceBtn" onclick='copyLink()'>Copy link</button>
                 </div>
             </div>
 
