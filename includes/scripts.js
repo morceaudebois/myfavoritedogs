@@ -144,7 +144,6 @@ function updateList() {
 }
 
 
-
 //compteur de races
 function counter() {
   // ajoute dans le compteur
@@ -175,6 +174,7 @@ let sortable = Sortable.create(list, {
         cl('nameContainer')[0].style.display = "flex";
         cl('linkContainer')[0].style.display = "none";
         id('copyLink').innerHTML = 'Copy link';
+        id('share').style.display = "none";
     }
 });
 
@@ -201,13 +201,18 @@ window.onload = function() {
 };
 
 
+
+
 // clic sur le bouton de génération de lien
 id("genLink").addEventListener('click', (e) => {
-  let name = id("name").value;
-
-  // si aucun nom n'est entré
-  if (!name) {
+  // si la liste est vide
+  if (localStorage.getItem("breeds").length === 2) {
     id('error').style.display = "block";
+    id('error').innerHTML = "Your list is empy!";
+  // si aucun nom n'est entré
+  } else if (!id("name").value) {
+    id('error').style.display = "block";
+    id('error').innerHTML = "Please enter your name.";
   // si nom entré + clic par humain
   } else if (e.isTrusted) {
     id('error').style.display = "none";
@@ -235,6 +240,15 @@ id("genLink").addEventListener('click', (e) => {
           cl('linkContainer')[0].style.display = "flex";
 
           id('link').value = this.responseText;
+
+          id('share').style.display = "block";
+          id('twitterBlock').href = "https://twitter.com/intent/tweet?text=Here's%20a%20list%20of%20my%20favorite%20dog%20breeds! " + this.responseText;
+
+          id('facebookBlock').href = "https://www.facebook.com/sharer/sharer.php?u=" + this.responseText;
+
+          id('telegramBlock').href = "https://t.me/share/url?url=" + this.responseText + "&text=" + "Here's a list of my favorite dog breeds!";
+
+          
         }
       };
 
@@ -274,7 +288,7 @@ function copyLink() {
 
 document.querySelector('.overlay').addEventListener('click', () => {
   document.body.classList.toggle('open');
-  console.log(document.querySelector('.screenshotContainer canvas'));
+  // console.log(document.querySelector('.screenshotContainer canvas'));
 });
 
   

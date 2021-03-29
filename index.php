@@ -125,7 +125,7 @@ try {
                 </div>
             </div>
 
-            <span id="error">Please enter your name.</span>
+            <span id="error"></span>
             
 
             
@@ -138,30 +138,32 @@ try {
             <br>
 
 
+            <div id="share">
+                <div class="bigTitle">
+                    <h2>Share your list</h2> <hr>
+                </div>
+
+                <div class="socialContainer">
+                    <a target="_blank" class="socialBlock" id="twitterBlock">
+                        <img src="http://localhost/~tahoe/myfavoritedogs/images/twitter.svg">
+                        <span>Twitter</span>
+                    </a>
+
+                    <a target="_blank" class="socialBlock" id="facebookBlock">
+                        <img src="http://localhost/~tahoe/myfavoritedogs/images/facebook.svg">
+                        <span>Facebook</span>
+                    </a>
+
+                    <a target="_blank" class="socialBlock" id="telegramBlock">
+                        <img src="http://localhost/~tahoe/myfavoritedogs/images/telegram.svg">
+                        <span>Telegram</span>
+                    </a>
+                </div>
+            </div>
+
             
 
             
-
-            <div class="bigTitle">
-                <h2>Share your list</h2> <hr>
-            </div>
-
-            <div class="socialContainer">
-                <a href="#" class="socialBlock">
-                    <img src="http://localhost/~tahoe/myfavoritedogs/images/twitter.svg">
-                    <span>Twitter</span>
-                </a>
-
-                <a href="#" class="socialBlock">
-                    <img src="http://localhost/~tahoe/myfavoritedogs/images/facebook.svg">
-                    <span>Facebook</span>
-                </a>
-
-                <a href="#" class="socialBlock">
-                    <img src="http://localhost/~tahoe/myfavoritedogs/images/telegram.svg">
-                    <span>Telegram</span>
-                </a>
-            </div>
 
         </div>
         

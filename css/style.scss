@@ -45,6 +45,33 @@ $radius: 30px;
     box-sizing: border-box;
 }
 
+
+// custom scrollbar
+/* width */
+::-webkit-scrollbar {
+    width: 16px;
+    left: -50px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    margin-top: 30px;
+}
+
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 15px;
+    border: 3px solid white; 
+    
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 .screenshotContainer {
     opacity: 0;
     pointer-events: none;
@@ -83,6 +110,9 @@ body {
     
         #pannel {
             height: 50vh;
+            overflow-y: scroll;
+
+
     
             .bottom button:before {
                 content:"Hide ";
@@ -221,6 +251,11 @@ body {
         }
     }
 }
+
+
+
+
+
 
 p {
     font-weight: 400;
@@ -519,34 +554,38 @@ section.allDogs {
 
         .linkContainer { display: none; }
 
+        #share {
+            display: none; 
 
-        .socialContainer {
-            display: flex;
-            justify-content: space-evenly;
-            
-            a.socialBlock {
+            .socialContainer {
                 display: flex;
-                flex-direction: column;
-                padding: 2em;
-                background-color: white;
-                text-decoration: none;
-                color: $textColor;
-                box-shadow: 0px 3px 35px rgba(0, 0, 0, .3);
-                border-radius: 18px;
-                aspect-ratio: 1/1;
-
-                img {
-                    max-width: 60px;
-                    padding-bottom: 1em;
-                }
-
-                span {
-                    text-align: center;
-                }
+                justify-content: space-evenly;
+                
+                a.socialBlock {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 2em;
+                    background-color: white;
+                    text-decoration: none;
+                    color: $textColor;
+                    box-shadow: 0px 3px 35px rgba(0, 0, 0, .3);
+                    border-radius: 18px;
+                    aspect-ratio: 1/1;
+    
+                    img {
+                        max-width: 60px;
+                        padding-bottom: 1em;
+                    }
+    
+                    span {
+                        text-align: center;
+                    }
+                } 
             }
-
-            
         }
+
+
+        
     }
 }
 
