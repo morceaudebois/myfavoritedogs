@@ -31,9 +31,10 @@ function resetList() { list.innerHTML = ''; }
 
 // accordéon volé
 const accordionBtns = document.querySelectorAll('.accordion');
+let index = 0;
 accordionBtns.forEach((accordion) => {
-  accordion.onclick = function () {
-    
+  
+  accordion.onclick = function () { 
     this.classList.toggle('isOpen');
     let content = this.nextElementSibling;
     if (content.style.maxHeight) {
@@ -42,10 +43,13 @@ accordionBtns.forEach((accordion) => {
     } else {
       //if the accordion is currently closed
       content.style.maxHeight = content.scrollHeight + 'px';
-
-
     }
   };
+
+  // ouvre le premier au chargement 
+  if (index === 0) { accordion.click(); } index++;
+
+  
 
   // fix le responsive
   document.getElementsByTagName('body')[0].onresize = function() {

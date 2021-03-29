@@ -110,9 +110,7 @@ body {
     
         #pannel {
             height: 50vh;
-            overflow-y: scroll;
-
-
+            overflow-y: auto;
     
             .bottom button:before {
                 content:"Hide ";

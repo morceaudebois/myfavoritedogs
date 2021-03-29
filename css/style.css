@@ -20,7 +20,7 @@ body #error { color: #f81e1e; display: none; margin-top: .6em; }
 
 body.open .overlay { background-color: rgba(0, 0, 0, 0.5); pointer-events: all; }
 
-body.open #pannel { height: 50vh; overflow-y: scroll; }
+body.open #pannel { height: 50vh; overflow-y: auto; }
 
 body.open #pannel .bottom button:before { content: "Hide "; }
 
@@ -198,10 +198,10 @@ body.screenshot .breedGrid .breedBlock h3, body.screenshot .breedGrid .breedBloc
 
 body.screenshot .breedGrid .breedBlock h3 { padding: .5em 1em; height: 100%; max-width: 70%; font-size: 1.1em; display: flex; align-items: center; border-radius: 0 12px 12px 0; }
 
-.mobile #pannel { width: 100%; padding: 0 1em 1em 1em; }
+.smallTablet #pannel, .mobile #pannel { width: 100%; padding: 0 1em 1em 1em; }
 
-.mobile #pannel .saveList #share .socialContainer { grid-gap: 1em; }
+.smallTablet #pannel .saveList #share .socialContainer, .mobile #pannel .saveList #share .socialContainer { grid-gap: 1em; }
 
-.mobile #pannel .saveList #share .socialContainer a.socialBlock img { max-width: 45px; }
+.smallTablet #pannel .saveList #share .socialContainer a.socialBlock img, .mobile #pannel .saveList #share .socialContainer a.socialBlock img { max-width: 45px; }
 
-.mobile.open #pannel { height: 80vh; }
+.smallTablet.open #pannel, .mobile.open #pannel { height: 80vh; }

@@ -9,7 +9,10 @@ try {
 
 } catch(PDOException $e) {
     echo $e->getMessage();
-} ?>
+} 
+
+$index = 0;
+?>
 
 <!DOCTYPE html>
 <html>
@@ -37,7 +40,8 @@ try {
             
         <?php foreach ($tags as $tag) { ?>
 
-        <button class="accordion">
+        <button class="accordion" <?php if ($index == 0) { echo "id='isOpen'"; } $index++; ?> >
+            
             <span><?php echo $tag['name'] ?></span>
 
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 91.8 59.3"><path d="M41,57.2,2,18.2A6.8,6.8,0,0,1,2,8.5H2L8.5,2a6.8,6.8,0,0,1,9.7,0h0L45.9,29.7,73.5,2a6.8,6.8,0,0,1,9.7,0h.1l6.4,6.5a6.9,6.9,0,0,1,.1,9.7h-.1l-39,39a6.8,6.8,0,0,1-9.6.1Z" transform="translate(0 0)" fill="#505050"/></svg>
