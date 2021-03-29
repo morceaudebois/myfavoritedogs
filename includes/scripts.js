@@ -1,6 +1,30 @@
 id = name => document.getElementById(name);
 cl = name => document.getElementsByClassName(name);
 
+(function() {
+  // your page initialization code here
+  // the DOM will be available here
+  window.addEventListener('resize', addScreenWidthClasses);
+
+  function addScreenWidthClasses() {
+      if (window.innerWidth < 489) {
+          document.body.classList.remove('mobile', 'smallTablet', 'tablet', 'desktop');
+          document.body.classList.add('mobile');
+      } else if (window.innerWidth < 768)  {
+          document.body.classList.remove('mobile', 'smallTablet', 'tablet', 'desktop');
+          document.body.classList.add('smallTablet');
+      } else if (window.innerWidth < 992) {
+          document.body.classList.remove('mobile', 'smallTablet', 'tablet', 'desktop');
+          document.body.classList.add('tablet');
+      } else {
+          document.body.classList.remove('mobile', 'smallTablet', 'tablet', 'desktop');
+          document.body.classList.add('desktop');
+      }
+  }
+
+  addScreenWidthClasses();
+})();
+
 const list = document.getElementById('items');
 
 function resetList() { list.innerHTML = ''; }
@@ -203,8 +227,11 @@ window.onload = function() {
 
 
 
-// clic sur le bouton de génération de lien
-id("genLink").addEventListener('click', (e) => {
+
+
+
+// gère la génération de lien
+function genLink(e) {
   // si la liste est vide
   if (localStorage.getItem("breeds").length === 2) {
     id('error').style.display = "block";
@@ -261,6 +288,18 @@ id("genLink").addEventListener('click', (e) => {
     id('error').style.display = "block";
     id('error').innerHTML = "Go away, bot.";
   }
+}
+
+// enter dans l'input
+id('name') .onkeyup = function(e) {
+  if(e.keyCode == 13){
+    genLink(e);
+  }
+}
+
+// clic sur le bouton de génération de lien
+id("genLink").addEventListener('click', (e) => {
+  genLink(e);
 });
 
 

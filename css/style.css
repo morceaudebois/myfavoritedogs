@@ -144,9 +144,9 @@ section.allDogs .accordion-content .breedGrid .breedBlock:active { transform: sc
 
 #pannel .saveList #share { display: none; }
 
-#pannel .saveList #share .socialContainer { display: flex; justify-content: space-evenly; }
+#pannel .saveList #share .socialContainer { display: grid; grid-template-columns: 1fr 1fr 1fr; grid-gap: 2em; }
 
-#pannel .saveList #share .socialContainer a.socialBlock { display: flex; flex-direction: column; padding: 2em; background-color: white; text-decoration: none; color: #505050; box-shadow: 0px 3px 35px rgba(0, 0, 0, 0.3); border-radius: 18px; aspect-ratio: 1/1; }
+#pannel .saveList #share .socialContainer a.socialBlock { display: flex; flex-direction: column; background-color: white; text-decoration: none; color: #505050; box-shadow: 0px 3px 35px rgba(0, 0, 0, 0.3); border-radius: 18px; aspect-ratio: 1/1; justify-content: center; align-items: center; }
 
 #pannel .saveList #share .socialContainer a.socialBlock img { max-width: 60px; padding-bottom: 1em; }
 
@@ -197,3 +197,11 @@ body.screenshot .breedGrid .breedBlock .medal { top: unset; right: 0; left: unse
 body.screenshot .breedGrid .breedBlock h3, body.screenshot .breedGrid .breedBlock img { position: relative; }
 
 body.screenshot .breedGrid .breedBlock h3 { padding: .5em 1em; height: 100%; max-width: 70%; font-size: 1.1em; display: flex; align-items: center; border-radius: 0 12px 12px 0; }
+
+.mobile #pannel { width: 100%; padding: 0 1em 1em 1em; }
+
+.mobile #pannel .saveList #share .socialContainer { grid-gap: 1em; }
+
+.mobile #pannel .saveList #share .socialContainer a.socialBlock img { max-width: 45px; }
+
+.mobile.open #pannel { height: 80vh; }

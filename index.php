@@ -23,7 +23,7 @@ try {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/fontawesome.min.css">
 
 </head>
-<body class="open">
+<body>
     
     <?php @include 'header.php'; ?>
 
@@ -102,7 +102,6 @@ try {
                     <div class="fieldContainer">
                         <label for="name">What's your name?</label>
                         <input type="text" id="name" name="name" minlength="4" maxlength="20" size="10" placeholder="Michael">
-
                     </div>
                 </div>
 
