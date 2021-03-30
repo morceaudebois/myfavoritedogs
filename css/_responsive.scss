@@ -17,4 +17,8 @@
     &.open {
         #pannel { height: 80vh; }
     }
+
+    footer .doubleContainer {
+        flex-direction: column;
+    }
 }

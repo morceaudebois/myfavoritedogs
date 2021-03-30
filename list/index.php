@@ -90,8 +90,8 @@ try {
         </div>
     </main>
 
-    <button onclick="screen()">Screenshot</button>
-    </div>
+    <!-- <button onclick="screen()">Screenshot</button>
+    </div> -->
     
 
     <div class="screenshotContainer"></div>
