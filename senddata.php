@@ -69,12 +69,13 @@ try {
     } else {
         // créée la nouvelle liste
         try {
-            $stmt = $db->prepare('INSERT INTO lists (name, data, link) VALUES (:name, :data, :link)');
+            $stmt = $db->prepare('INSERT INTO lists (name, data, link, date) VALUES (:name, :data, :link, :date)');
 
             $stmt->execute(array(
                 ':name' => $races[1],
                 ':data' => $races[0],
-                ':link' => $link
+                ':link' => $link,
+                ':date' => date("Y/m/d")
             ));
 
             // echo "Your list has been saved! Here's your permanent link.<br>";

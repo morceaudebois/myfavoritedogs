@@ -274,16 +274,14 @@ function genLink(e) {
 
           id('share').style.display = "block";
           id('twitterBlock').href = "https://twitter.com/intent/tweet?text=Here's%20a%20list%20of%20my%20favorite%20dog%20breeds! " + this.responseText;
-
           id('facebookBlock').href = "https://www.facebook.com/sharer/sharer.php?u=" + this.responseText;
-
           id('telegramBlock').href = "https://t.me/share/url?url=" + this.responseText + "&text=" + "Here's a list of my favorite dog breeds!";
 
           
         }
       };
 
-      xhttp.open("GET", "senddata.php?q=" + values + "|" + name, true);
+      xhttp.open("GET", "senddata.php?q=" + values + "|" + id("name").value, true);
       xhttp.send();
 
     }, 200); //200ms Timeout
