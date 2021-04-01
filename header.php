@@ -8,7 +8,7 @@
 
         if (strpos($url, 'list') !== false) { ?>
             <a id="addList" title="Create my own list" href="<?php echo $homeURL ?>">
-                <img src='http://localhost/~tahoe/myfavoritedogs/images/new.svg'>
+                <img src='<?php echo $homeURL . "/images/new.svg" ?>'>
             </a>
         <?php }  ?>
         

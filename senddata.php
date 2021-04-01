@@ -12,17 +12,6 @@ function generateRandomString($length = 10) {
 
 
 
-// try {
-//     $stmt = $db->prepare('SELECT * FROM dogtags');
-
-//     $stmt->execute(array());
-    
-//     $tags = $stmt->fetchAll();
-
-// } catch(PDOException $e) {
-//     echo $e->getMessage();
-// }
-
 $data = $_GET['q'];
 $races = explode("|", $data);
 
@@ -89,7 +78,3 @@ try {
 } catch(PDOException $e) {
     echo $e->getMessage();
 }
-
-
-
-
