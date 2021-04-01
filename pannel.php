@@ -56,17 +56,17 @@
 
                 <div class="socialContainer">
                     <a target="_blank" class="socialBlock" id="twitterBlock">
-                        <img src="http://localhost/~tahoe/myfavoritedogs/images/twitter.svg">
+                        <img src="<?php echo $homeURL . "/images/twitter.svg" ?>">
                         <span>Twitter</span>
                     </a>
 
                     <a target="_blank" class="socialBlock" id="facebookBlock">
-                        <img src="http://localhost/~tahoe/myfavoritedogs/images/facebook.svg">
+                        <img src="<?php echo $homeURL . "/images/facebook.svg" ?>">
                         <span>Facebook</span>
                     </a>
 
                     <a target="_blank" class="socialBlock" id="telegramBlock">
-                        <img src="http://localhost/~tahoe/myfavoritedogs/images/telegram.svg">
+                        <img src="<?php echo $homeURL . "/images/telegram.svg" ?>">
                         <span>Telegram</span>
                     </a>
                 </div>

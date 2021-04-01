@@ -19,9 +19,9 @@ $index = 0;
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>My Favourite Dogs</title>
+    <title>My Favorite Dogs</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='http://localhost/~tahoe/myfavoritedogs/css/style.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='<?php echo $homeURL . "/css/style.css" ?>'>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/fontawesome.min.css">
 
@@ -67,8 +67,8 @@ $index = 0;
                 foreach ($breeds as $breed) { ?>
 
                 <div class="breedBlock <?php echo $breed['slug']?>">
-                    <img src='http://localhost/~tahoe/myfavoritedogs/images/<?php echo $breed['image']?>'>
 
+                    <img src='<?php echo $homeURL . "/images/" . $breed['image'] ?>'>
                     <label><input type="checkbox" value="<?php echo $breed['slug']?>"><span class="checkmark"></span></label>
                     
 

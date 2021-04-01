@@ -36,9 +36,9 @@ try {
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>My Favourite Dogs</title>
+    <title>My Favorite Dogs</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='http://localhost/~tahoe/myfavoritedogs/css/style.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='<?php echo $homeURL . "/css/style.css" ?>'>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/fontawesome.min.css">
 
@@ -49,7 +49,8 @@ try {
     <?php @include '../header.php'; ?>
     
     <div class="hero">     
-        <div class="titleCard" style="background-image: url('<?php echo 'http://localhost/~tahoe/myfavoritedogs/images/' . $mainImage[0]?>')">
+        <div class="titleCard" style="background-image: url('<?php echo $homeURL . "/images/" . $mainImage[0] ?>')">
+
             <div class="gradient"></div>
             <h1 class="title"><?php echo $list['name'] ?>'s favorite dogs list</h1>
         </div>
@@ -76,7 +77,7 @@ try {
         ?>
 
             <div class="breedBlock <?php echo $breedData['slug']?>">
-                <img src='http://localhost/~tahoe/myfavoritedogs/images/<?php echo $breedData['image']?>'>
+                <img src='<?php echo $homeURL . "/images/" . $breedData['image']?>'>
 
                 
 
@@ -100,7 +101,7 @@ try {
     <?php @include '../footer.php' ?>
 
     <script src='../includes/html2canvas.min.js'></script>
-    <script src='http://localhost/~tahoe/myfavoritedogs/list/list.js'></script>
+    <script src='<?php echo $homeURL . "/list/list.js" ?>'></script>
   
 
 </body>
