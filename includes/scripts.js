@@ -27,7 +27,15 @@ cl = name => document.getElementsByClassName(name);
 
 const list = document.getElementById('items');
 
-function resetList() { list.innerHTML = ''; }
+function resetList() {
+  list.innerHTML = '';
+
+  // reset l'enregistrement de liste
+  cl('nameContainer')[0].style.display = "flex";
+  cl('linkContainer')[0].style.display = "none";
+  id('copyLink').innerHTML = 'Copy link';
+  id('share').style.display = "none";
+}
 
 // accordéon volé
 const accordionBtns = document.querySelectorAll('.accordion');
@@ -156,11 +164,14 @@ function del(element) {
 
   // uncheck un input, les autres se décochent automatiquement grâce à checkToo()
   toUncheck[0].click();
+
+
+
 }
 
 
 function updateList() {
-    resetList();
+    resetList(); 
 
     getValues("checkboxes").forEach((value) => {
         sendToList(value);
@@ -178,7 +189,9 @@ function counter() {
   if (getValues("checkboxes").length === 0) {
     id('compteur').innerHTML = 'No breed selected.';
 
+    document.body.classList.remove('open');
     id('pannel').style.transform = "translatey(100%)";
+    
     id('pannel').style.boxShadow = "unset";
 
   } else if (getValues("checkboxes").length === 1) {
@@ -215,6 +228,7 @@ let sortable = Sortable.create(list, {
         id('share').style.display = "none";
     }
 });
+
 
 
 
@@ -330,7 +344,9 @@ function copyLink() {
   
     /* Alert the copied text */
     id('copyLink').innerHTML = 'Link has been copied';
-    // alert("Copied the text: " + copyText.value);
+
+    setTimeout(function() { id('copyLink').innerHTML = 'Copy link';
+    }, 5000);
 }
 
 

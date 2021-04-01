@@ -5,7 +5,7 @@
         </div>
         <div class="half">
             <p>Made in France by <a href="https://tahoe.be/">Tahoe Beetschen</a>
-            <!-- <br>Check out the <a href="/credits">photo credits</a></p> -->
+            <br>Check out the <a href="/credits">photo credits</a></p>
         </div>
     </div>
 </footer>

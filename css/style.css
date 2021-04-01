@@ -10,6 +10,9 @@
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover { background: #555; }
 
+/* Remove outline for non-keyboard :focus */
+*:focus:not(.focus-visible) { outline: none; }
+
 .screenshotContainer { opacity: 0; pointer-events: none; width: 100%; height: 100vh; position: fixed; top: 0; z-index: 100; display: flex; justify-content: center; align-items: center; transform: scale(0.5); transition: transform 0.3s cubic-bezier(0.42, 0, 0.58, 1) 0s, opacity 0.3s cubic-bezier(0.42, 0, 0.58, 1) 0s; }
 
 .screenshotContainer canvas { transform: scale(0.8); }
@@ -28,7 +31,7 @@ body.open #pannel .bottom button:before { content: "Hide "; }
 
 body.open .screenshotContainer { opacity: 1; transform: scale(1); }
 
-body .breedGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); grid-gap: 1em; margin: 1em 0; }
+body .breedGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); grid-gap: 1em; margin: 1em 0; }
 
 body .breedGrid .breedBlock { aspect-ratio: 1/1; display: flex; align-items: flex-end; border-radius: 30px; overflow: hidden; position: relative; box-sizing: border-box; }
 
@@ -114,6 +117,8 @@ section.allDogs .accordion-content .breedGrid .breedBlock:active { transform: sc
 
 #pannel { position: fixed; bottom: 0; background-color: white; width: 80%; max-width: 600px; margin: auto; left: 0; right: 0; padding: 0 2em 2em 2em; box-sizing: border-box; z-index: 10; transform: translateY(100%); height: 5em; border-radius: 30px 30px 0 0; transition-property: all; transition-duration: .5s; transition-timing-function: cubic-bezier(0, 1, 0.5, 1); }
 
+#pannel .list, #pannel .linkContainer { margin-bottom: 2em; }
+
 #pannel .bottom { display: flex; justify-content: space-between; height: 3em; margin: 1em 0; display: flex; justify-content: space-between; align-items: center; }
 
 #pannel .bottom #compteur { font-size: 1.2em; font-weight: 500; }
@@ -124,13 +129,17 @@ section.allDogs .accordion-content .breedGrid .breedBlock:active { transform: sc
 
 #pannel .list #items li { display: flex; height: 3.5em; margin-bottom: 1em; }
 
+#pannel .list #items li.sortable-chosen .breed { cursor: grabbing; }
+
+#pannel .list #items li:hover .breed { background-color: #dddddd; }
+
 #pannel .list #items li .delete { display: flex; align-self: center; width: 2em; height: 2em; border-radius: 100px; background-color: #F81E1E; padding: .4em; box-sizing: border-box; cursor: pointer; flex-shrink: 0; transition: transform .5s; transition-timing-function: cubic-bezier(0.2, 3, 0.4, 1); user-select: none; outline: none; }
 
 #pannel .list #items li .delete:hover { transform: scale(1.04, 1.04); }
 
 #pannel .list #items li .delete:active { transform: scale(1.08, 1.08); }
 
-#pannel .list #items li .breed { border-radius: 13px; overflow: hidden; max-width: 100%; background-color: #efefef; display: flex; justify-content: space-between; align-items: center; padding-right: 1em; margin-left: 1em; flex-grow: 1; transition: all .1s ease-in-out; }
+#pannel .list #items li .breed { border-radius: 13px; overflow: hidden; max-width: 100%; background-color: #efefef; display: flex; justify-content: space-between; align-items: center; padding-right: 1em; margin-left: 1em; flex-grow: 1; transition: all .1s ease-in-out; cursor: grab; }
 
 #pannel .list #items li .breed span { width: 100%; padding-left: .6em; }
 
@@ -148,7 +157,7 @@ section.allDogs .accordion-content .breedGrid .breedBlock:active { transform: sc
 
 #pannel .saveList #share .socialContainer { display: grid; grid-template-columns: 1fr 1fr 1fr; grid-gap: 2em; }
 
-#pannel .saveList #share .socialContainer a.socialBlock { display: flex; flex-direction: column; background-color: white; text-decoration: none; color: #505050; box-shadow: 0px 3px 35px rgba(0, 0, 0, 0.3); border-radius: 18px; aspect-ratio: 1/1; justify-content: center; align-items: center; }
+#pannel .saveList #share .socialContainer a.socialBlock { display: flex; flex-direction: column; background-color: white; text-decoration: none; color: #505050; box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.3); border-radius: 18px; aspect-ratio: 1/1; justify-content: center; align-items: center; }
 
 #pannel .saveList #share .socialContainer a.socialBlock img { max-width: 60px; padding-bottom: 1em; }
 
@@ -156,7 +165,7 @@ section.allDogs .accordion-content .breedGrid .breedBlock:active { transform: sc
 
 body.savedList main { max-width: 1200px; margin: auto; width: 100%; padding: 0 12px; box-sizing: border-box; }
 
-body.savedList main .breedGrid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); grid-gap: 1.5em; }
+body.savedList main .breedGrid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); grid-gap: 1.5em; }
 
 body.savedList main .breedGrid .medal { position: absolute; font-family: Futura; font-size: 1.5em; top: 20px; left: 20px; z-index: 5; border-radius: 100%; width: 40px; height: 40px; text-align: center; padding-top: 1px; box-sizing: border-box; }
 

@@ -72,6 +72,11 @@ $radius: 30px;
     background: #555;
 }
 
+/* Remove outline for non-keyboard :focus */
+*:focus:not(.focus-visible) {
+    outline: none;
+}
+
 .screenshotContainer {
     opacity: 0;
     pointer-events: none;
@@ -127,7 +132,7 @@ body {
 
     .breedGrid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr) ) ;
         grid-gap: 1em;
         margin: 1em 0;
         
@@ -450,6 +455,10 @@ section.allDogs {
     transition-property: all;
 	transition-duration: .5s;
 	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+    
+    .list, .linkContainer {
+        margin-bottom: 2em; 
+    }
 
     .bottom {
         display: flex;
@@ -481,7 +490,10 @@ section.allDogs {
 
                 height: 3.5em;
                 margin-bottom: 1em;
-                
+
+                &.sortable-chosen .breed { cursor: grabbing; }
+
+                &:hover .breed { background-color: #dddddd;}
 
                 .delete {
                     display: flex;
@@ -510,6 +522,7 @@ section.allDogs {
                     margin-left: 1em;
                     flex-grow: 1;
                     transition: all .1s ease-in-out;
+                    cursor: grab;
 
                     span {
                         width: 100%;
@@ -569,7 +582,7 @@ section.allDogs {
                     background-color: white;
                     text-decoration: none;
                     color: $textColor;
-                    box-shadow: 0px 3px 35px rgba(0, 0, 0, .3);
+                    box-shadow: 0px 3px 15px rgba(0, 0, 0, .3);
                     border-radius: 18px;
                     aspect-ratio: 1/1;
                     justify-content: center;
@@ -605,7 +618,7 @@ body.savedList {
         @include maxWidth();
 
         .breedGrid {
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             grid-gap: 1.5em;
 
             .medal {

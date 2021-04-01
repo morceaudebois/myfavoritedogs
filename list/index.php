@@ -97,6 +97,7 @@ try {
     <div class="screenshotContainer"></div>
 
     <div class="overlay"></div>
+    <?php @include '../footer.php' ?>
 
     <script src='../includes/html2canvas.min.js'></script>
     <script src='http://localhost/~tahoe/myfavoritedogs/list/list.js'></script>

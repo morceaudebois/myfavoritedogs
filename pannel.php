@@ -6,7 +6,7 @@
 
         <div class="list">
             <div class="bigTitle">
-                <h2>My list</h2> <hr>
+                <h2>My list</h2> <div class="hr"></div>
             </div>
 
             <ul id="items"></ul>
@@ -14,7 +14,7 @@
         
         <div class="saveList">
             <div class="bigTitle">
-                <h2>Save your list</h2> <hr>
+                <h2>Save your list</h2> <div class="hr"></div>
             </div>
     
 
@@ -49,12 +49,9 @@
             
 
 
-            <br>
-
-
             <div id="share">
                 <div class="bigTitle">
-                    <h2>Share your list</h2> <hr>
+                    <h2>Share your list</h2> <div class="hr"></div>
                 </div>
 
                 <div class="socialContainer">
