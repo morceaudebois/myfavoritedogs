@@ -17,7 +17,8 @@ $breeds = json_decode($list['data'], true);
 
 
 try {
-    $stmt = $db->prepare('SELECT image FROM dogbreeds WHERE slug = ?');
+    $stmt = $db->prepare('SELECT photo_url FROM photos INNER JOIN dogbreeds WHERE dogbreeds.id = photos.breed_id AND dogbreeds.slug = ?');
+    // -- breed_id = ?');
 
     $stmt->bindParam(1, $breeds[0]);  
     $stmt->execute(); 
@@ -49,7 +50,7 @@ try {
     <?php @include '../header.php'; ?>
     
     <div class="hero">     
-        <div class="titleCard" style="background-image: url('<?php echo $homeURL . "/images/" . $mainImage[0] ?>')">
+        <div class="titleCard" style="background-image: url('<?php echo $homeURL . "/images/" . $mainImage['photo_url'] ?>')">
 
             <div class="gradient"></div>
             <h1 class="title"><?php echo $list['name'] ?>'s favorite dogs list</h1>
@@ -70,20 +71,31 @@ try {
                     $stmt->execute(); 
                     
                     $breedData = $stmt->fetch();
-        
+
+                } catch(PDOException $e) {
+                    echo $e->getMessage();
+                }
+
+
+
+                try {
+                    $stmt = $db->prepare('SELECT photo_url FROM photos INNER JOIN dogbreeds WHERE dogbreeds.id = photos.breed_id AND dogbreeds.slug = ?');
+
+                    $stmt->bindParam(1, $breed);  
+                    $stmt->execute(); 
+                    
+                    $breedPhoto = $stmt->fetch();
+
                 } catch(PDOException $e) {
                     echo $e->getMessage();
                 }
         ?>
 
             <div class="breedBlock <?php echo $breedData['slug']?>">
-                <img src='<?php echo $homeURL . "/images/" . $breedData['image']?>'>
-
-                
+                <img src='<?php echo $homeURL . "/images/" . $breedPhoto['photo_url']?>'>
 
                 <h3><?php echo $breedData['title']?></h3>
                 <span class="medal"></span>
-
                 
             </div>
 

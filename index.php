@@ -20,10 +20,10 @@ $index = 0;
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>My Favorite Dogs</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel='stylesheet' type='text/css' media='screen' href='<?php echo $homeURL . "/css/style.css" ?>'>
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/fontawesome.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/fontawesome.min.css"> -->
 
 </head>
 <body>
@@ -40,7 +40,7 @@ $index = 0;
             
         <?php foreach ($tags as $tag) { ?>
 
-        <button class="accordion" <?php if ($index == 0) { echo "id='isOpen'"; } $index++; ?> >
+        <button class="accordion">
             
             <span><?php echo $tag['name'] ?></span>
 
@@ -54,26 +54,38 @@ $index = 0;
             <?php 
             
                 try {
+                    // Va chercher les infos textes
                     $stmt = $db->prepare('SELECT * FROM dogbreeds INNER JOIN dogbreeds_meta ON dogbreeds.id = dogbreeds_meta.breed_id WHERE dogbreeds_meta.tag_id =' . $tag['tag_id']);
         
                     $stmt->execute(array());
                     
                     $breeds = $stmt->fetchAll();
-        
+
+                    // va chercher les photos
+                    $stmt = $db->prepare('SELECT breed_id, photo_url FROM photos');
+                    $stmt->execute(array());
+                    $breedPhotos = $stmt->fetchAll();
+
                 } catch(PDOException $e) {
                     echo $e->getMessage();
                 }
                 
-                foreach ($breeds as $breed) { ?>
+                // va chercher l'URL de la photo correspondante
+                foreach ($breeds as $breed) { 
+                    foreach($breedPhotos as $breedPhoto) {
+                        if ($breedPhoto['breed_id'] === $breed['breed_id']) {
+                            $photo_url = $breedPhoto['photo_url'];
+                        }
+                    }
+                ?>
 
-                <div class="breedBlock <?php echo $breed['slug']?>">
+                    <div class="breedBlock <?php echo $breed['slug']?>">
+                        
+                        <img src='<?php echo $homeURL . "/images/" . $photo_url ?>'>
+                        <label><input type="checkbox" value="<?php echo $breed['slug']?>"><span class="checkmark"></span></label>
 
-                    <img src='<?php echo $homeURL . "/images/" . $breed['image'] ?>'>
-                    <label><input type="checkbox" value="<?php echo $breed['slug']?>"><span class="checkmark"></span></label>
-                    
-
-                    <h3><?php echo $breed['title']?></h3>
-                </div>
+                        <h3><?php echo $breed['title']?></h3>
+                    </div>
 
                 <?php } ?>
             </div>
@@ -88,18 +100,6 @@ $index = 0;
     <div class="overlay"></div>
 
     
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

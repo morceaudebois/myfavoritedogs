@@ -8,12 +8,12 @@ define('DBNAME','myfavoritedogs');
 
 try {
    $db = new PDO("mysql:host=".DBHOST.";port=8889;dbname=".DBNAME, DBUSER, DBPASS);
-   $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+   $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 } catch (Exception $e) {
    die($e -> getMessage());
 }
 
-$homeURL = 'http://localhost/~tahoe/myfavoritedogs/';
+$homeURL = 'http://192.168.1.15/~tahoe/myfavoritedogs';
 
 ?>
 

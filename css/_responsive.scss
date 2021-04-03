@@ -21,4 +21,22 @@
     footer .doubleContainer {
         flex-direction: column;
     }
+
+
+
+
+    section {
+        &.allDogs {
+            margin: 20px auto;
+
+            .accordion-content {
+                padding: 0 10px;
+            }
+        }
+    }
+
+    footer .doubleContainer .half:last-child {
+        text-align: left;
+    }
 }
+

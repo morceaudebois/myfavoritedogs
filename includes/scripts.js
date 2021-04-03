@@ -120,8 +120,7 @@ function listIndexes() {
 }
 
 
-
-
+const baseurl = window.location.origin+window.location.pathname;
 // mise à jour de la liste
 // c'est sûrement pas ouf mais je vois pas comment faire autrement
 function sendToList(breedSlug) {
@@ -129,7 +128,7 @@ function sendToList(breedSlug) {
     let breedName = breedData[2].innerHTML;
     let breedImage = breedData[0].currentSrc;
 
-    let fullLi = '<li class="' + breedSlug + '"><div class="delete" onclick="del(this.parentNode)"><img src="/images/moins.svg"></div><div class="breed"><img class="breedImage" src="' + breedImage + '"><span><span class="place"></span> - ' + breedName + '</span><img class="dragIcon" src="/images/drag.svg"></div></li>'; 
+    let fullLi = '<li class="' + breedSlug + '"><div class="delete" onclick="del(this.parentNode)"><img src="' + baseurl + 'images/moins.svg"></div><div class="breed"><img class="breedImage" src="' + breedImage + '"><span><span class="place"></span> - ' + breedName + '</span><img class="dragIcon" src="' + baseurl + 'images/drag.svg"></div></li>'; 
 
     list.insertAdjacentHTML('beforeend', fullLi);
 }
@@ -141,31 +140,32 @@ let checkboxes = document.querySelectorAll('input[type="checkbox"]');
 checkboxes.forEach((checkbox) => {
 
     // coche les checkbox identiques
-    checkbox.addEventListener("change", checkToo);
+    checkbox.addEventListener("click", checkToo);
     function checkToo() {
         // trouve toutes les checkbox qui ont la même valeur que celle cliquée
         let toCheck = document.querySelectorAll('input[value="' + checkbox.value + '"');
 
         toCheck.forEach((value) => {
             // clique sur les checkbox qui ne sont pas celle cliquée
-            if (value != checkbox) {
+            
+            if (value != checkbox && (event.isTrusted)) {
               value.click();
             }
         });
     }
 
     // met à jour la liste
-    checkbox.addEventListener("change", updateList);
+    checkbox.addEventListener("click", updateList);
 });
 
 
 function del(element) {
-  let toUncheck = document.querySelectorAll('input[value="' + element.className + '"');
+  let toUnchecks = document.querySelectorAll('input[value="' + element.className + '"');
 
-  // uncheck un input, les autres se décochent automatiquement grâce à checkToo()
-  toUncheck[0].click();
-
-
+  // décoche tout ce qu'il y a à décocher
+  toUnchecks.forEach((toUncheck) => {
+    toUncheck.click();
+  });
 
 }
 
@@ -190,19 +190,19 @@ function counter() {
     id('compteur').innerHTML = 'No breed selected.';
 
     document.body.classList.remove('open');
-    id('pannel').style.transform = "translatey(100%)";
+    // id('pannel').style.transform = "translatey(100%)";
     
     id('pannel').style.boxShadow = "unset";
 
   } else if (getValues("checkboxes").length === 1) {
     id('compteur').innerHTML = getValues("checkboxes").length + ' breed selected.';
 
-    id('pannel').style.transform = "translatey(0%)";      
+    // id('pannel').style.transform = "translatey(0%)";      
     id('pannel').style.boxShadow = "0px 3px 35px rgba(0, 0, 0, .3)";
   } else {
     id('compteur').innerHTML = getValues("checkboxes").length + ' breeds selected.';
 
-    id('pannel').style.transform = "translatey(0%)";    
+    // id('pannel').style.transform = "translatey(0%)";    
     id('pannel').style.boxShadow = "0px 3px 35px rgba(0, 0, 0, .3)";
   }
 }
@@ -355,7 +355,6 @@ function copyLink() {
 
 document.querySelector('.overlay').addEventListener('click', () => {
   document.body.classList.toggle('open');
-  // console.log(document.querySelector('.screenshotContainer canvas'));
 });
 
   
