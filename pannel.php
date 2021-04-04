@@ -1,7 +1,7 @@
 <div id="pannel">
         <div class="bottom">
             <div id="compteur">No breed selected.</div>
-            <button onclick="document.body.classList.toggle('open');" class="niceBtn">my list</button>
+            <button onclick="pannel(this)" class="niceBtn">my list</button>
         </div>
 
         <div class="list">

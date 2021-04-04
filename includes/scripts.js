@@ -183,20 +183,23 @@ function updateList() {
 }
 
 
-//compteur de races
+//compteur de races & pannel behaviour
 function counter() {
   // ajoute dans le compteur
   if (getValues("checkboxes").length === 0) {
     id('compteur').innerHTML = 'No breed selected.';
+
     document.body.classList.remove('open');
     document.body.classList.add('noSelection');
 
   } else if (getValues("checkboxes").length === 1) {
     id('compteur').innerHTML = getValues("checkboxes").length + ' breed selected.';
+
     document.body.classList.remove('noSelection');
 
   } else {
     id('compteur').innerHTML = getValues("checkboxes").length + ' breeds selected.';
+
     document.body.classList.remove('noSelection');
   }
 }
@@ -344,11 +347,16 @@ function copyLink() {
 }
 
 
+function pannel(el) {
+  document.body.classList.toggle('open');
 
+  id('pannel').scrollTop = 0; // For Safari
+  id('pannel').scrollTop = 0;
+}
 
 
 document.querySelector('.overlay').addEventListener('click', () => {
-  document.body.classList.toggle('open');
+  pannel();
 });
 
   

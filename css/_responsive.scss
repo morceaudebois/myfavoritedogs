@@ -4,11 +4,17 @@
         padding: 0 1em 1em 1em;
         transform: translateY(calc(50vh - 90px));
 
-        .saveList #share .socialContainer {
-            grid-gap: 1em;
+        .saveList {
+            .niceBtn {
+                min-width: 110px;
+            }
 
-            a.socialBlock img {
-                max-width: 45px;
+            #share .socialContainer {
+                grid-gap: 1em;
+    
+                a.socialBlock img {
+                    max-width: 45px;
+                }
             }
         }
         
@@ -22,7 +28,7 @@
         flex-direction: column;
     }
 
-
+    
 
 
     section {

@@ -231,6 +231,8 @@ body.screenshot .breedGrid .breedBlock h3 { padding: .5em 1em; height: 100%; max
 
 .smallTablet #pannel, .mobile #pannel { width: 100%; padding: 0 1em 1em 1em; transform: translateY(calc(50vh - 90px)); }
 
+.smallTablet #pannel .saveList .niceBtn, .mobile #pannel .saveList .niceBtn { min-width: 110px; }
+
 .smallTablet #pannel .saveList #share .socialContainer, .mobile #pannel .saveList #share .socialContainer { grid-gap: 1em; }
 
 .smallTablet #pannel .saveList #share .socialContainer a.socialBlock img, .mobile #pannel .saveList #share .socialContainer a.socialBlock img { max-width: 45px; }
