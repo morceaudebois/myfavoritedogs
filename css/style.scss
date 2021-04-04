@@ -110,6 +110,8 @@ body {
     a { color: $accent; text-decoration: none; }
 
     &.open {
+        overflow: hidden;
+        
         .overlay {
             background-color: hsla(0, 0%, 0%, 0.5);
             pointer-events: all;
@@ -118,6 +120,10 @@ body {
         #pannel {
             overflow-y: auto;
             transform: unset;
+
+            .list .bigTitle {
+                opacity: 1;
+            }
     
             .bottom button:before {
                 content:"Hide ";
@@ -130,9 +136,14 @@ body {
         }
     }
 
+    &.noSelection #pannel {
+        // box-shadow: unset;
+        transform: translatey(100%);
+    }
+
     .breedGrid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr) ) ;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr) ) ;
         grid-gap: 1em;
         margin: 1em 0;
         
@@ -251,6 +262,7 @@ body {
             transition: all .1s ease-in-out;
             font-size: 1em;
             box-sizing: border-box;
+            -webkit-appearance: none;
 
             &:hover {
                 box-shadow: 0 0 0 4px #9dc88d4f;
@@ -297,7 +309,7 @@ p {
     background-color: hsla(0, 0%, 0%, 0);
     top: 0; left: 0;
     pointer-events: none;
-    transition-property: all;
+    transition-property: all .5s ;
 	transition-duration: .5s;
 	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
 }
@@ -428,10 +440,11 @@ section.allDogs {
     .accordion-content {
         margin: 1em 0;
         background-color: white;
-        padding: 0 20px;
+        padding: 0 10px;
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.2s ease-in-out;
+        
         will-change: max-height;
 
         .breedGrid .breedBlock {
@@ -455,7 +468,7 @@ section.allDogs {
     z-index: 10;
     overflow: hidden;
 
-    // box-shadow: 0px 3px 35px rgba(0, 0, 0, .3);
+    box-shadow: 0px 3px 35px rgba(0, 0, 0, .3);
 
 
     height: 50vh;
@@ -472,6 +485,8 @@ section.allDogs {
     .list, .linkContainer {
         margin-bottom: 2em; 
     }
+
+    .list .bigTitle { opacity: 0; }
 
     .bottom {
         display: flex;
@@ -607,6 +622,10 @@ section.allDogs {
                     aspect-ratio: 1/1;
                     justify-content: center;
                     align-items: center;
+                    
+                    @supports not (aspect-ratio: 1/1) {
+                        padding: 20px;
+                    }
     
                     img {
                         max-width: 60px;
@@ -638,7 +657,7 @@ body.savedList {
         @include maxWidth();
 
         .breedGrid {
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             grid-gap: 1.5em;
 
             .medal {
@@ -735,7 +754,7 @@ body.savedList {
 footer {
     @include maxWidth();
     margin-bottom: 6em;
-    padding: 0 20px;
+    padding: 0 10px;
 
     .doubleContainer .half {
 

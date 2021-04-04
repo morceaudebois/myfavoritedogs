@@ -23,15 +23,21 @@ body #error { color: #f81e1e; display: none; margin-top: .6em; }
 
 body a { color: #9DC88D; text-decoration: none; }
 
+body.open { overflow: hidden; }
+
 body.open .overlay { background-color: rgba(0, 0, 0, 0.5); pointer-events: all; }
 
 body.open #pannel { overflow-y: auto; transform: unset; }
+
+body.open #pannel .list .bigTitle { opacity: 1; }
 
 body.open #pannel .bottom button:before { content: "Hide "; }
 
 body.open .screenshotContainer { opacity: 1; transform: scale(1); }
 
-body .breedGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); grid-gap: 1em; margin: 1em 0; }
+body.noSelection #pannel { transform: translatey(100%); }
+
+body .breedGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); grid-gap: 1em; margin: 1em 0; }
 
 body .breedGrid .breedBlock { aspect-ratio: 1/1; display: flex; align-items: flex-end; border-radius: 30px; overflow: hidden; position: relative; box-sizing: border-box; }
 
@@ -61,7 +67,7 @@ body .fieldContainer { display: flex; flex-direction: column; }
 
 body .fieldContainer label { margin-bottom: .7em; }
 
-body .fieldContainer input[type="text"], body .fieldContainer textarea { min-height: 46px; max-width: 100%; padding: .5em; border-radius: 10px; box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.3); border: 1px solid #ea4c8900; transition: all .1s ease-in-out; font-size: 1em; box-sizing: border-box; }
+body .fieldContainer input[type="text"], body .fieldContainer textarea { min-height: 46px; max-width: 100%; padding: .5em; border-radius: 10px; box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.3); border: 1px solid #ea4c8900; transition: all .1s ease-in-out; font-size: 1em; box-sizing: border-box; -webkit-appearance: none; }
 
 body .fieldContainer input[type="text"]:hover, body .fieldContainer textarea:hover { box-shadow: 0 0 0 4px #9dc88d4f; }
 
@@ -75,7 +81,7 @@ p { font-weight: 400; }
 
 .niceBtn:active { transform: scale(1.03, 1.03); }
 
-.overlay { z-index: 5; position: fixed; width: 100%; height: 100vh; background-color: rgba(0, 0, 0, 0); top: 0; left: 0; pointer-events: none; transition-property: all; transition-duration: .5s; transition-timing-function: cubic-bezier(0, 1, 0.5, 1); }
+.overlay { z-index: 5; position: fixed; width: 100%; height: 100vh; background-color: rgba(0, 0, 0, 0); top: 0; left: 0; pointer-events: none; transition-property: all .5s; transition-duration: .5s; transition-timing-function: cubic-bezier(0, 1, 0.5, 1); }
 
 .bigTitle { margin-bottom: 2em; }
 
@@ -109,7 +115,7 @@ section.allDogs button.accordion.isOpen svg { transform: rotate(0deg); }
 
 section.allDogs button.accordion.isOpen svg path { fill: #9DC88D; }
 
-section.allDogs .accordion-content { margin: 1em 0; background-color: white; padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.2s ease-in-out; will-change: max-height; }
+section.allDogs .accordion-content { margin: 1em 0; background-color: white; padding: 0 10px; max-height: 0; overflow: hidden; transition: max-height 0.2s ease-in-out; will-change: max-height; }
 
 section.allDogs .accordion-content .breedGrid .breedBlock { transition: transform .5s; transition-timing-function: cubic-bezier(0.2, 3, 0.4, 1); user-select: none; }
 
@@ -117,9 +123,11 @@ section.allDogs .accordion-content .breedGrid .breedBlock:hover { transform: sca
 
 section.allDogs .accordion-content .breedGrid .breedBlock:active { transform: scale(1.03, 1.03); }
 
-#pannel { position: fixed; bottom: 0; background-color: white; width: 80%; max-width: 600px; margin: auto; left: 0; right: 0; padding: 0 2em 2em 2em; box-sizing: border-box; z-index: 10; overflow: hidden; height: 50vh; transform: translateY(calc(50vh - 80px)); will-change: transform; border-radius: 30px 30px 0 0; transition-property: all; transition-duration: .5s; transition-timing-function: cubic-bezier(0, 1, 0.5, 1); }
+#pannel { position: fixed; bottom: 0; background-color: white; width: 80%; max-width: 600px; margin: auto; left: 0; right: 0; padding: 0 2em 2em 2em; box-sizing: border-box; z-index: 10; overflow: hidden; box-shadow: 0px 3px 35px rgba(0, 0, 0, 0.3); height: 50vh; transform: translateY(calc(50vh - 80px)); will-change: transform; border-radius: 30px 30px 0 0; transition-property: all; transition-duration: .5s; transition-timing-function: cubic-bezier(0, 1, 0.5, 1); }
 
 #pannel .list, #pannel .linkContainer { margin-bottom: 2em; }
+
+#pannel .list .bigTitle { opacity: 0; }
 
 #pannel .bottom { display: flex; justify-content: space-between; height: 3em; margin: 1em 0; display: flex; justify-content: space-between; align-items: center; }
 
@@ -165,13 +173,15 @@ section.allDogs .accordion-content .breedGrid .breedBlock:active { transform: sc
 
 #pannel .saveList #share .socialContainer a.socialBlock { display: flex; flex-direction: column; background-color: white; text-decoration: none; color: #505050; box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.3); border-radius: 18px; aspect-ratio: 1/1; justify-content: center; align-items: center; }
 
+@supports not (aspect-ratio: 1/1) { #pannel .saveList #share .socialContainer a.socialBlock { padding: 20px; } }
+
 #pannel .saveList #share .socialContainer a.socialBlock img { max-width: 60px; padding-bottom: 1em; }
 
 #pannel .saveList #share .socialContainer a.socialBlock span { text-align: center; }
 
 body.savedList main { max-width: 1200px; margin: auto; width: 100%; padding: 0 12px; box-sizing: border-box; }
 
-body.savedList main .breedGrid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); grid-gap: 1.5em; }
+body.savedList main .breedGrid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); grid-gap: 1.5em; }
 
 body.savedList main .breedGrid .medal { position: absolute; font-family: Futura; font-size: 1.5em; top: 20px; left: 20px; z-index: 5; border-radius: 100%; width: 40px; height: 40px; text-align: center; padding-top: 1px; box-sizing: border-box; }
 
@@ -189,7 +199,7 @@ body.savedList .titleCard .gradient { z-index: 3; width: 100%; height: 65%; posi
 
 body.savedList .titleCard h1 { max-width: 1200px; margin: auto; width: 100%; padding: 0 12px; box-sizing: border-box; color: white; position: absolute; z-index: 4; margin-right: auto; margin-left: auto; left: auto; right: auto; bottom: .5em; }
 
-footer { max-width: 1200px; margin: auto; width: 100%; padding: 0 12px; box-sizing: border-box; margin-bottom: 6em; padding: 0 20px; }
+footer { max-width: 1200px; margin: auto; width: 100%; padding: 0 12px; box-sizing: border-box; margin-bottom: 6em; padding: 0 10px; }
 
 footer .doubleContainer .half:last-child { text-align: right; }
 
@@ -219,13 +229,13 @@ body.screenshot .breedGrid .breedBlock h3, body.screenshot .breedGrid .breedBloc
 
 body.screenshot .breedGrid .breedBlock h3 { padding: .5em 1em; height: 100%; max-width: 70%; font-size: 1.1em; display: flex; align-items: center; border-radius: 0 12px 12px 0; }
 
-.smallTablet #pannel, .mobile #pannel { width: 100%; padding: 0 1em 1em 1em; }
+.smallTablet #pannel, .mobile #pannel { width: 100%; padding: 0 1em 1em 1em; transform: translateY(calc(50vh - 90px)); }
 
 .smallTablet #pannel .saveList #share .socialContainer, .mobile #pannel .saveList #share .socialContainer { grid-gap: 1em; }
 
 .smallTablet #pannel .saveList #share .socialContainer a.socialBlock img, .mobile #pannel .saveList #share .socialContainer a.socialBlock img { max-width: 45px; }
 
-.smallTablet.open #pannel, .mobile.open #pannel { height: 80vh; }
+.smallTablet.open #pannel, .mobile.open #pannel { height: 70vh; }
 
 .smallTablet footer .doubleContainer, .mobile footer .doubleContainer { flex-direction: column; }
 

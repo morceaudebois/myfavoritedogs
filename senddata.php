@@ -53,7 +53,7 @@ try {
     if (isset($alreadyExists) && !empty($alreadyExists)) {
 
         // echo "This list already exists! Here's its permanent link.<br>";
-        echo $homeURL . "list/index.php?q=" . $alreadyExists['link'];
+        echo $homeURL . "/list/index.php?q=" . $alreadyExists['link'];
 
     } else {
         // créée la nouvelle liste
@@ -68,7 +68,7 @@ try {
             ));
 
             // echo "Your list has been saved! Here's your permanent link.<br>";
-            echo $homeURL . "list/index.php?q=" . $link;
+            echo $homeURL . "/list/index.php?q=" . $link;
 
         } catch(PDOException $e) {
             echo $e->getMessage();

@@ -2,7 +2,7 @@
     #pannel {
         width: 100%;
         padding: 0 1em 1em 1em;
-        
+        transform: translateY(calc(50vh - 90px));
 
         .saveList #share .socialContainer {
             grid-gap: 1em;
@@ -15,7 +15,7 @@
     }
 
     &.open {
-        #pannel { height: 80vh; }
+        #pannel { height: 70vh; }
     }
 
     footer .doubleContainer {

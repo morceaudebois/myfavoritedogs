@@ -188,22 +188,16 @@ function counter() {
   // ajoute dans le compteur
   if (getValues("checkboxes").length === 0) {
     id('compteur').innerHTML = 'No breed selected.';
-
     document.body.classList.remove('open');
-    // id('pannel').style.transform = "translatey(100%)";
-    
-    id('pannel').style.boxShadow = "unset";
+    document.body.classList.add('noSelection');
 
   } else if (getValues("checkboxes").length === 1) {
     id('compteur').innerHTML = getValues("checkboxes").length + ' breed selected.';
+    document.body.classList.remove('noSelection');
 
-    // id('pannel').style.transform = "translatey(0%)";      
-    id('pannel').style.boxShadow = "0px 3px 35px rgba(0, 0, 0, .3)";
   } else {
     id('compteur').innerHTML = getValues("checkboxes").length + ' breeds selected.';
-
-    // id('pannel').style.transform = "translatey(0%)";    
-    id('pannel').style.boxShadow = "0px 3px 35px rgba(0, 0, 0, .3)";
+    document.body.classList.remove('noSelection');
   }
 }
 
