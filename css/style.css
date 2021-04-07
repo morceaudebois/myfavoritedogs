@@ -57,7 +57,8 @@ body .breedGrid .breedBlock label .checkmark { position: absolute; top: 1em; rig
 
 body .breedGrid .breedBlock label .checkmark:after { content: ""; position: absolute; opacity: 0; left: 12px; top: 7px; width: 5px; height: 10px; border: solid white; border-width: 0 3px 3px 0; transform: rotate(45deg); transition: opacity .1s ease; }
 
-body .breedGrid .breedBlock label:hover input ~ .checkmark { background-color: #9DC88D; }
+@media (hover: hover) { body .breedGrid .breedBlock label { /* behaviour for desktop browsers */ }
+  body .breedGrid .breedBlock label:hover input ~ .checkmark { background-color: #9DC88D; } }
 
 body .breedGrid .breedBlock h3 { box-sizing: border-box; position: absolute; display: block; background-color: #efefef; width: 100%; margin: unset; padding: .8em 1em; z-index: 2; box-shadow: 0px -5px 20px rgba(0, 0, 0, 0.15); }
 
@@ -77,7 +78,7 @@ p { font-weight: 400; }
 
 .niceBtn { background-color: #9DC88D; border: 0; color: white; font-size: 1.2em; min-width: 150px; height: 46px; border-radius: 10px; font-family: Futura; font-weight: 500; cursor: pointer; transition: transform .5s; transition-timing-function: cubic-bezier(0.2, 3, 0.4, 1); user-select: none; }
 
-.niceBtn:hover { transform: scale(1.015, 1.015); }
+@media (hover: hover) { .niceBtn:hover { transform: scale(1.015, 1.015); } }
 
 .niceBtn:active { transform: scale(1.03, 1.03); }
 
@@ -119,7 +120,7 @@ section.allDogs .accordion-content { margin: 1em 0; background-color: white; pad
 
 section.allDogs .accordion-content .breedGrid .breedBlock { transition: transform .5s; transition-timing-function: cubic-bezier(0.2, 3, 0.4, 1); user-select: none; }
 
-section.allDogs .accordion-content .breedGrid .breedBlock:hover { transform: scale(1.015, 1.015); }
+@media (hover: hover) { section.allDogs .accordion-content .breedGrid .breedBlock:hover { transform: scale(1.015, 1.015); } }
 
 section.allDogs .accordion-content .breedGrid .breedBlock:active { transform: scale(1.03, 1.03); }
 
@@ -147,7 +148,7 @@ section.allDogs .accordion-content .breedGrid .breedBlock:active { transform: sc
 
 #pannel .list #items li .delete img { width: 100%; }
 
-#pannel .list #items li .delete:hover { transform: scale(1.04, 1.04); }
+@media (hover: hover) { #pannel .list #items li .delete:hover { transform: scale(1.04, 1.04); } }
 
 #pannel .list #items li .delete:active { transform: scale(1.08, 1.08); }
 

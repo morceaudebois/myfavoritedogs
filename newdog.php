@@ -63,8 +63,12 @@
                 'Watchdogs' => $_POST['3'],
                 'Hunting' => $_POST['4'],
                 'Toy' => $_POST['5'],
-                'Greyhounds' => $_POST['6'],
-                'Giant' => $_POST['7']
+                'Giant' => $_POST['6'],
+                'Nordic' => $_POST['7'],
+                'Asian' => $_POST['8'],
+                'Terrier' => $_POST['9'],
+                'Molosser' => $_POST['10'],
+                'Other' => $_POST['11']
             );
 
             $photoURL = $_POST['photoURL'];

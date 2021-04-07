@@ -9,8 +9,10 @@ $radius: 30px;
     user-select: none;
     outline: none;
 
-    &:hover {
-        transform: scale(1.04, 1.04);
+    @media (hover: hover) {
+        &:hover {
+            transform: scale(1.04, 1.04);
+        }
     }
 
     &:active {
@@ -23,8 +25,10 @@ $radius: 30px;
     transition-timing-function: cubic-bezier(.2, 3, .4, 1);
     user-select: none;
 
-    &:hover {
-        transform: scale(1.015, 1.015);
+    @media (hover: hover) {
+        &:hover {
+            transform: scale(1.015, 1.015);
+        }
     }
 
     &:active {
@@ -218,10 +222,15 @@ body {
                         transition: opacity .1s ease;
                     }
                 }
-    
-                &:hover input ~ .checkmark {
-                    background-color: $accent;
+
+                @media (hover: hover) {
+                    /* behaviour for desktop browsers */
+                    &:hover input ~ .checkmark {
+                        background-color: $accent;
+                    }
                 }
+    
+                
             }
     
             h3 {
@@ -628,6 +637,7 @@ section.allDogs {
                     @supports not (aspect-ratio: 1/1) {
                         padding: 20px;
                     }
+
     
                     img {
                         max-width: 60px;

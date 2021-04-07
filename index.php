@@ -1,7 +1,7 @@
 <?php require_once('includes/config.php');
 
 try {
-    $stmt = $db->prepare('SELECT * FROM dogtags');
+    $stmt = $db->prepare('SELECT * FROM dogtags ORDER BY name');
 
     $stmt->execute(array());
     
@@ -55,7 +55,7 @@ $index = 0;
             
                 try {
                     // Va chercher les infos textes
-                    $stmt = $db->prepare('SELECT * FROM dogbreeds INNER JOIN dogbreeds_meta ON dogbreeds.id = dogbreeds_meta.breed_id WHERE dogbreeds_meta.tag_id =' . $tag['tag_id']);
+                    $stmt = $db->prepare('SELECT * FROM dogbreeds INNER JOIN dogbreeds_meta ON dogbreeds.id = dogbreeds_meta.breed_id WHERE dogbreeds_meta.tag_id =' . $tag['tag_id'] . ' ORDER BY title');
         
                     $stmt->execute(array());
                     
@@ -81,7 +81,7 @@ $index = 0;
 
                     <div class="breedBlock <?php echo $breed['slug']?>">
                         
-                        <img src='<?php echo $homeURL . "/images/" . $photo_url ?>'>
+                        <img draggable='false' src='<?php echo $homeURL . "/images/" . $photo_url ?>'>
                         <label><input type="checkbox" value="<?php echo $breed['slug']?>"><span class="checkmark"></span></label>
 
                         <h3><?php echo $breed['title']?></h3>
