@@ -81,7 +81,7 @@ $index = 0;
 
                     <div class="breedBlock <?php echo $breed['slug']?>">
                         
-                        <img draggable='false' src='<?php echo $homeURL . "/images/" . $photo_url ?>'>
+                        <img draggable='false' loading="lazy" src='<?php echo $homeURL . "/images/small/" . $photo_url ?>'>
                         <label><input type="checkbox" value="<?php echo $breed['slug']?>"><span class="checkmark"></span></label>
 
                         <h3><?php echo $breed['title']?></h3>

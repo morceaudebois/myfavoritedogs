@@ -92,7 +92,7 @@ try {
         ?>
 
             <div class="breedBlock <?php echo $breedData['slug']?>">
-                <img src='<?php echo $homeURL . "/images/" . $breedPhoto['photo_url']?>'>
+                <img src='<?php echo $homeURL . "/images/small/" . $breedPhoto['photo_url']?>'>
 
                 <h3><?php echo $breedData['title']?></h3>
                 <span class="medal"></span>

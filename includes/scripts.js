@@ -126,8 +126,8 @@ const baseurl = window.location.origin+window.location.pathname;
 function sendToList(breedSlug) {
     let breedData = document.querySelector('.' + breedSlug).children;
     let breedName = breedData[2].innerHTML;
-    let breedImage = breedData[0].currentSrc;
-
+    let breedImage = breedData[0].currentSrc.replace("small", "smaller");
+    
     let fullLi = '<li class="' + breedSlug + '"><div class="delete" onclick="del(this.parentNode)"><img draggable="false" src="' + baseurl + 'images/moins.svg"></div><div class="breed"><img draggable="false" class="breedImage" src="' + breedImage + '"><span><span class="place"></span> - ' + breedName + '</span><img draggable="false" class="dragIcon" src="' + baseurl + 'images/drag.svg"></div></li>'; 
 
     list.insertAdjacentHTML('beforeend', fullLi);
