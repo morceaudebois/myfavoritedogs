@@ -27,7 +27,7 @@ body.open { overflow: hidden; }
 
 body.open .overlay { background-color: rgba(0, 0, 0, 0.5); pointer-events: all; }
 
-body.open #pannel { overflow-y: auto; transform: unset; }
+body.open #pannel { overflow-y: auto; transform: translateY(0); }
 
 body.open #pannel .list .bigTitle { opacity: 1; }
 
@@ -35,7 +35,7 @@ body.open #pannel .bottom button:before { content: "Hide "; }
 
 body.open .screenshotContainer { opacity: 1; transform: scale(1); }
 
-body.noSelection #pannel { transform: translatey(100%); }
+body.noSelection #pannel { transform: translateY(100%); }
 
 body .breedGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); grid-gap: 1em; margin: 1em 0; }
 

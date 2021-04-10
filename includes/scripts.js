@@ -201,7 +201,6 @@ function updateList() {
 
     getValues("checkboxes").forEach((value) => {
         sendToList(value, false);
-        console.log(value + ' sent to storage');
     })
 
     listIndexes();
@@ -264,7 +263,6 @@ window.onload = function() {
   if (values) {
     
     values.forEach((value) => {
-      console.log("test");
         // recoche les cases à partir du local storage
         checkboxes.forEach((checkbox) => {
           if (checkbox.value === value) {

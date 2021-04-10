@@ -1,8 +1,6 @@
 <?php require_once('includes/config.php');
 
-
 $slug = $_GET['q'];
-
 
 try {
     // Va chercher les URL des photos
