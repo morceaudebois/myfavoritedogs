@@ -1,5 +1,6 @@
 id = name => document.getElementById(name);
 cl = name => document.getElementsByClassName(name);
+const baseurl = window.location.origin+window.location.pathname;
 
 (function() {
   // your page initialization code here
@@ -120,17 +121,42 @@ function listIndexes() {
 }
 
 
-const baseurl = window.location.origin+window.location.pathname;
+
+
+
 // mise à jour de la liste
 // c'est sûrement pas ouf mais je vois pas comment faire autrement
-function sendToList(breedSlug) {
-    let breedData = document.querySelector('.' + breedSlug).children;
-    let breedName = breedData[2].innerHTML;
-    let breedImage = breedData[0].currentSrc.replace("small", "smaller");
-    
-    let fullLi = '<li class="' + breedSlug + '"><div class="delete" onclick="del(this.parentNode)"><img draggable="false" src="' + baseurl + 'images/moins.svg"></div><div class="breed"><img draggable="false" class="breedImage" src="' + breedImage + '"><span><span class="place"></span> - ' + breedName + '</span><img draggable="false" class="dragIcon" src="' + baseurl + 'images/drag.svg"></div></li>'; 
+async function sendToList(breedSlug, justLoaded) {
+  let breedData = document.querySelector('.' + breedSlug).children;
+  let breedName = breedData[2].innerHTML;
 
+  function getImage() {
+    return new Promise(function (resolve, reject) {
+      if (!justLoaded) {
+        resolve(breedData[0].currentSrc.replace("small", "smaller"));
+      // goes get the thumbnail URL
+      } else {
+        let xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            resolve((baseurl + 'images/smaller/' + this.responseText).replace(/\s/g, ''));
+          }
+        };
+
+        xhttp.open("GET", "getdata.php?q=" + breedSlug, true);
+        xhttp.send();
+      }
+    });
+  }
+
+  getImage().then(function (response) {
+    let fullLi = '<li class="' + breedSlug + '"><div class="delete" onclick="del(this.parentNode)"><img draggable="false" src="' + baseurl + 'images/moins.svg"></div><div class="breed"><img draggable="false" class="breedImage" src="' + response + '"><span><span class="place"></span> - ' + breedName + '</span><img draggable="false" class="dragIcon" src="' + baseurl + 'images/drag.svg"></div></li>'; 
     list.insertAdjacentHTML('beforeend', fullLi);
+
+  }).catch(function (req) {
+    console.log('Can\'t get data: ' + req);
+  });
 }
 
 
@@ -174,7 +200,8 @@ function updateList() {
     resetList(); 
 
     getValues("checkboxes").forEach((value) => {
-        sendToList(value);
+        sendToList(value, false);
+        console.log(value + ' sent to storage');
     })
 
     listIndexes();
@@ -235,17 +262,25 @@ window.onload = function() {
 
   // s'il y a quelque chose dans le storage, cocher + mettre dans la liste
   if (values) {
+    
     values.forEach((value) => {
+      console.log("test");
         // recoche les cases à partir du local storage
         checkboxes.forEach((checkbox) => {
           if (checkbox.value === value) {
             checkbox.checked = true;
+
+            // disables lazy loading for selected breeds
+            checkbox.parentNode.previousSibling.previousSibling.loading = "eager";
           }
         });
-        sendToList(value);
-        counter();
-        listIndexes();
+        
+        sendToList(value, true);
+        
       })
+
+      counter();
+      listIndexes();
   }
 };
 

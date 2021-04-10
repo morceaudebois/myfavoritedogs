@@ -475,6 +475,7 @@ section.allDogs {
     margin: auto;
     left: 0; right: 0;
     padding: 0 2em 2em 2em;
+    -moz-padding: 0 2em 2em 2em;
     box-sizing: border-box;
     z-index: 10;
     overflow: hidden;
@@ -483,8 +484,8 @@ section.allDogs {
 
 
     height: 50vh;
+    
     transform: translateY(calc(50vh - 80px));
- 
     will-change: transform;
 
     border-radius: $radius $radius 0 0;

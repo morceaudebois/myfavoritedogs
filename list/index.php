@@ -76,8 +76,6 @@ try {
                     echo $e->getMessage();
                 }
 
-
-
                 try {
                     $stmt = $db->prepare('SELECT photo_url FROM photos INNER JOIN dogbreeds WHERE dogbreeds.id = photos.breed_id AND dogbreeds.slug = ?');
 
