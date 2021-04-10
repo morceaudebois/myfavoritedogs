@@ -124,6 +124,7 @@ body {
         #pannel {
             overflow-y: auto;
             transform: translateY(0);
+            -webkit-transform: translateY(0);
 
             .list .bigTitle {
                 opacity: 1;
@@ -137,12 +138,13 @@ body {
         .screenshotContainer {
             opacity: 1;
             transform: scale(1);
+            -webkit-transform: scale(1);
         }
     }
 
     &.noSelection #pannel {
-        // box-shadow: unset;
         transform: translateY(100%);
+        -webkit-transform: translateY(100%);
     }
 
     .breedGrid {
@@ -486,6 +488,7 @@ section.allDogs {
     height: 50vh;
     
     transform: translateY(calc(50vh - 80px));
+    -webkit-transform: translateY(calc(50vh - 80px));
     will-change: transform;
 
     border-radius: $radius $radius 0 0;
