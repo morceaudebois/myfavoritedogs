@@ -17,13 +17,38 @@ $index = 0;
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset='utf-8'>
+<meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>My Favorite Dogs</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <link rel='stylesheet' type='text/css' media='screen' href='<?php echo $homeURL . "/css/style.css" ?>'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <title>My Favorite Dogs · Make your list</title>
+    <meta name="description" content="Make a list of your favorite dog breeds with myfavoritedogs.co. Discover new breeds and share them with your friends."/>
+
+    <!-- Open graph for social media -->
+	<meta property="og:type" content="tool">
+	<meta property="og:title" content="My Favorite Dogs · Make your list">
+	<meta property="og:url" content="<?php echo $homeURL ?>">
+	<meta property="og:image" content="<?php echo $homeURL . "/images/tarkan.jpg"?>">
     
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/fontawesome.min.css"> -->
+    <meta name="twitter:card" content="summary_large_image"></meta>
+    <meta name="twitter:title" content="My Favorite Dogs · Make a list of your favorite dog breeds"></meta>
+    <meta name="twitter:creator" content="@morceaudebois" />
+    <meta name="twitter:description" content="Make a list of your favorite dog breeds with myfavoritedogs.co. Discover new breeds and share them with your friends!"></meta>
+    <meta name="twitter:image" content="<?php echo $homeURL . "/images/tarkan.jpg"?>" />
+
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $homeURL . '/images/favicons/apple-touch-icon.png' ?>">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $homeURL . '/images/favicons/favicon-32x32.png' ?>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $homeURL . '/images/favicons/favicon-16x16.png' ?>">
+    <link rel="manifest" href="<?php echo $homeURL . '/images/favicons/site.webmanifest' ?>">
+    <link rel="mask-icon" href="<?php echo $homeURL . '/images/favicons/safari-pinned-tab.svg' ?>" color="#9dc88d">
+    <link rel="shortcut icon" href="<?php echo $homeURL . '/images/favicons/favicon.ico' ?>">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="msapplication-config" content="<?php echo $homeURL . '/images/favicons/browserconfig.xml' ?>">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel='stylesheet' type='text/css' media='screen' href='<?php echo $homeURL . "/css/style.css" ?>'>
 
 </head>
 <body class="noSelection">

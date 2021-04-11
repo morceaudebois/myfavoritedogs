@@ -292,7 +292,7 @@ function copyLink() {
   document.execCommand("copy");
 
   /* Alert the copied text */
-  id('copyLink').innerHTML = 'Link has been copied';
+  id('copyLink').innerHTML = 'Link copied';
 
   setTimeout(function() { id('copyLink').innerHTML = 'Copy link';
   }, 3000);

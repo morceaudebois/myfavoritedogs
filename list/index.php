@@ -29,6 +29,10 @@ try {
     echo $e->getMessage();
 }
 
+
+$url =  "//{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
+$escaped_url = htmlspecialchars( $url, ENT_QUOTES, 'UTF-8' );
+
 ?>
 
 
@@ -37,8 +41,35 @@ try {
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>My Favorite Dogs</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <title><?php echo $list['name'] ?>'s favorite dogs list · My Favorite Dogs</title>
+    <meta name="description" content="Make a list of your favorite dog breeds with myfavoritedogs.co. Discover new breeds and share them with your friends."/>
+
+    <!-- Open graph for social media -->
+	<meta property="og:type" content="tool">
+	<meta property="og:title" content="<?php echo $list['name'] ?>'s favorite dogs list">
+	<meta property="og:url" content="<?php echo $escaped_url ?>">
+	<meta property="og:image" content="<?php echo $homeURL . "/images/" . $mainImage['photo_url'] ?>">
+    
+    <meta name="twitter:card" content="summary_large_image"></meta>
+    <meta name="twitter:title" content="<?php echo $list['name'] ?>'s favorite dogs list · My Favorite Dogs"></meta>
+    <meta name="twitter:creator" content="@morceaudebois" />
+    <meta name="twitter:description" content="Make a list of your favorite dog breeds with myfavoritedogs.co. Discover <?php echo $list['name'] ?>'s favorite dogs!"></meta>
+    <meta name="twitter:image" content="<?php echo $homeURL . "/images/" . $mainImage['photo_url'] ?>" />
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $homeURL . '/images/favicons/apple-touch-icon.png' ?>">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $homeURL . '/images/favicons/favicon-32x32.png' ?>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $homeURL . '/images/favicons/favicon-16x16.png' ?>">
+    <link rel="manifest" href="<?php echo $homeURL . '/images/favicons/site.webmanifest' ?>">
+    <link rel="mask-icon" href="<?php echo $homeURL . '/images/favicons/safari-pinned-tab.svg' ?>" color="#9dc88d">
+    <link rel="shortcut icon" href="<?php echo $homeURL . '/images/favicons/favicon.ico' ?>">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="msapplication-config" content="<?php echo $homeURL . '/images/favicons/browserconfig.xml' ?>">
+
+    
     <link rel='stylesheet' type='text/css' media='screen' href='<?php echo $homeURL . "/css/style.css" ?>'>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/fontawesome.min.css">
