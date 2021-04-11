@@ -209,6 +209,7 @@ body {
                     background-color: #efefef;
                     border-radius: 100%;
                     transition: background-color .2s ease;
+                    box-shadow: 0px 3px 5px rgba(0, 0, 0, .1);
     
                     &:after {
                         content: "";
@@ -563,7 +564,6 @@ section.allDogs {
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                    padding-right: 1em;
                     margin-left: 1em;
                     flex-grow: 1;
                     transition: all .1s ease-in-out;
@@ -587,11 +587,19 @@ section.allDogs {
                                 min-width: 54px;
                             }
                         }
+                        
+                    }
 
-                        &.dragIcon {
+                    .dragZone {
+                        width: 40px;
+                        height: 100%;
+                        padding: 0 1em;
+                        display: flex;
+                        align-items: center;
+
+                        .dragIcon {
                             max-height: 1.2em;
                         }
-                        
                     }
                 }
             }

@@ -53,7 +53,7 @@ body .breedGrid .breedBlock label input:checked ~ .checkmark { background-color:
 
 body .breedGrid .breedBlock label input:checked ~ .checkmark:after { opacity: 1; }
 
-body .breedGrid .breedBlock label .checkmark { position: absolute; top: 1em; right: 1em; height: 2em; width: 2em; background-color: #efefef; border-radius: 100%; transition: background-color .2s ease; }
+body .breedGrid .breedBlock label .checkmark { position: absolute; top: 1em; right: 1em; height: 2em; width: 2em; background-color: #efefef; border-radius: 100%; transition: background-color .2s ease; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1); }
 
 body .breedGrid .breedBlock label .checkmark:after { content: ""; position: absolute; opacity: 0; left: 12px; top: 7px; width: 5px; height: 10px; border: solid white; border-width: 0 3px 3px 0; transform: rotate(45deg); transition: opacity .1s ease; }
 
@@ -152,7 +152,7 @@ section.allDogs .accordion-content .breedGrid .breedBlock:active { transform: sc
 
 #pannel .list #items li .delete:active { transform: scale(1.08, 1.08); }
 
-#pannel .list #items li .breed { border-radius: 13px; overflow: hidden; max-width: 100%; background-color: #efefef; display: flex; justify-content: space-between; align-items: center; padding-right: 1em; margin-left: 1em; flex-grow: 1; transition: all .1s ease-in-out; cursor: grab; }
+#pannel .list #items li .breed { border-radius: 13px; overflow: hidden; max-width: 100%; background-color: #efefef; display: flex; justify-content: space-between; align-items: center; margin-left: 1em; flex-grow: 1; transition: all .1s ease-in-out; cursor: grab; }
 
 #pannel .list #items li .breed span { width: 100%; padding-left: .6em; }
 
@@ -160,7 +160,9 @@ section.allDogs .accordion-content .breedGrid .breedBlock:active { transform: sc
 
 @supports not (aspect-ratio: 1/1) { #pannel .list #items li .breed img.breedImage { max-width: 54px; min-width: 54px; } }
 
-#pannel .list #items li .breed img.dragIcon { max-height: 1.2em; }
+#pannel .list #items li .breed .dragZone { width: 40px; height: 100%; padding: 0 1em; display: flex; align-items: center; }
+
+#pannel .list #items li .breed .dragZone .dragIcon { max-height: 1.2em; }
 
 #pannel .saveList .doubleContainer .half:first-child { flex: 1; margin-right: 1em; }
 

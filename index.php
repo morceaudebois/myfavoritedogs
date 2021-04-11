@@ -35,7 +35,7 @@ $index = 0;
 
         <div class="bigTitle">
             <h2>All the dogs</h2> <div class="hr"></div>
-            <p>Select your favorite dog breeds.</p>
+            <p>Select your favorite dog breeds and share the list with your friends!</p>
         </div>
             
         <?php foreach ($tags as $tag) { ?>

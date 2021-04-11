@@ -108,7 +108,7 @@ function updatePannel(breedSlug) {
     getData().then(function (response) {
       let breedData = JSON.parse(response);
   
-      let fullLi = '<li class="' + breedData['slug'] + '"><div class="delete" onclick="check(\'' +  breedData['slug'] + '\')"><img draggable="false" src="' + baseURL + 'images/moins.svg"></div><div class="breed"><img draggable="false" class="breedImage" src="' + baseURL + 'images/smaller/' + breedData['photo_url'] + '"><span><span class="place"></span> - ' + breedData['name'] + '</span><img draggable="false" class="dragIcon" src="' + baseURL + 'images/drag.svg"></div></li>'; 
+      let fullLi = '<li class="' + breedData['slug'] + '"><div class="delete" onclick="check(\'' +  breedData['slug'] + '\')"><img draggable="false" src="' + baseURL + 'images/moins.svg"></div><div class="breed"><img draggable="false" class="breedImage" src="' + baseURL + 'images/smaller/' + breedData['photo_url'] + '"><span><span class="place"></span> - ' + breedData['name'] + '</span><div class="dragZone"><img draggable="false" class="dragIcon" src="' + baseURL + 'images/drag.svg"></div></div></li>'; 
       list.insertAdjacentHTML('beforeend', fullLi);
   
       listIndexes(); sendToStorage(); counter();
@@ -164,6 +164,7 @@ function listIndexes() {
 // liste drag and sort
 let sortable = Sortable.create(list, {
   animation: 150,
+  handle: '.dragZone',
   onEnd: function() {
       listIndexes();
       sendToStorage();
@@ -294,5 +295,5 @@ function copyLink() {
   id('copyLink').innerHTML = 'Link has been copied';
 
   setTimeout(function() { id('copyLink').innerHTML = 'Copy link';
-  }, 5000);
+  }, 3000);
 }
