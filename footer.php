@@ -5,12 +5,10 @@
         </div>
         <div class="half">
             <p>Made in France by <a href="https://tahoe.be/">Tahoe Beetschen</a>
-            <br>Check out the <a href="/credits">photo credits</a></p>
+            <br>Check out the <a href="<?php echo $homeURL . "/credits.php" ?>">photo credits</a></p>
         </div>
     </div>
 </footer>
 
-
-<script src='https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.13.0/Sortable.min.js'></script>
 
 <script src='<?php echo $homeURL . "/includes/scripts.js" ?>'></script>

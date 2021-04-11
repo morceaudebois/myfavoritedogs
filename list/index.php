@@ -71,8 +71,6 @@ $escaped_url = htmlspecialchars( $url, ENT_QUOTES, 'UTF-8' );
 
     
     <link rel='stylesheet' type='text/css' media='screen' href='<?php echo $homeURL . "/css/style.css" ?>'>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/fontawesome.min.css">
 
 </head>
 
@@ -86,7 +84,6 @@ $escaped_url = htmlspecialchars( $url, ENT_QUOTES, 'UTF-8' );
             <div class="gradient"></div>
             <h1 class="title"><?php echo $list['name'] ?>'s favorite dogs list</h1>
         </div>
-        
     </div>
 
     <main>
