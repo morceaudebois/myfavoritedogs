@@ -14,28 +14,21 @@ function getIndex(node) {
 }
 
 window.onload = function() {
-    let values = JSON.parse(localStorage.getItem("breeds"));
-
-    // s'il y a quelque chose dans le storage, cocher + mettre dans la liste
-    if (values.length) {
-        values.forEach((value) => { check(value) })
-    }
-
     // accordéon volé
     const accordionBtns = document.querySelectorAll('.accordion');
     let index = 0;
     accordionBtns.forEach((accordion) => {
 
         accordion.onclick = function () { 
-        this.classList.toggle('isOpen');
-        let content = this.nextElementSibling;
-        if (content.style.maxHeight) {
-            //this is if the accordion is open
-            content.style.maxHeight = null;
-        } else {
-            //if the accordion is currently closed
-            content.style.maxHeight = content.scrollHeight + 'px';
-        }
+            this.classList.toggle('isOpen');
+            let content = this.nextElementSibling;
+            if (content.style.maxHeight) {
+                //this is if the accordion is open
+                content.style.maxHeight = null;
+            } else {
+                //if the accordion is currently closed
+                content.style.maxHeight = content.scrollHeight + 'px';
+            }
         };
 
         // ouvre le premier au chargement 
@@ -43,17 +36,26 @@ window.onload = function() {
 
         // fix le responsive
         document.getElementsByTagName('body')[0].onresize = function() {
-        let areOpen = document.querySelectorAll('.isOpen');
-        
-        areOpen.forEach((isOpen) => {
-            let content = isOpen.nextElementSibling;
-            content.style.maxHeight = content.scrollHeight + 'px'; 
-        })
+            let areOpen = document.querySelectorAll('.isOpen');
+            
+            areOpen.forEach((isOpen) => {
+                let content = isOpen.nextElementSibling;
+                content.style.maxHeight = content.scrollHeight + 'px'; 
+            })
         };
 
     });
 
     addScreenWidthClasses();
+
+    let values = JSON.parse(localStorage.getItem("breeds"));
+
+    // s'il y a quelque chose dans le storage, cocher + mettre dans la liste
+    if (values) {
+        values.forEach((value) => { check(value) })
+    }
+
+    
 };
 
 (function() {
