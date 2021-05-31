@@ -2,6 +2,30 @@ $accent: #9DC88D;
 $textColor: #505050;
 $radius: 30px;
 
+@font-face {
+    font-family: 'Futura Regular';
+    src: url('../fonts/futura-regular.woff2') format('woff2'),
+        url('../fonts/futura-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Futura Medium';
+    src: url('../fonts/futura-medium.woff2') format('woff2'),
+        url('../fonts/futura-medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Futura Bold';
+    src: url('../fonts/futura-bold.woff2') format('woff2'),
+        url('../fonts/futura-bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 
 @mixin blobLink {
     transition: transform .5s;
@@ -108,7 +132,7 @@ $radius: 30px;
 
 body {
     margin: 0;
-    font-family: Futura;
+    font-family: 'Futura Regular';
     color: $textColor;
 
     main { @include maxWidth(); }
@@ -369,7 +393,7 @@ header {
 
         h1 {
             margin: unset;
-            font-family: Futura;
+            font-family: 'Futura Medium';
             font-size: 1.4em;
             font-weight: 500;
             letter-spacing: 1px;;
@@ -895,7 +919,9 @@ body.screenshot {
         display: flex;
         aspect-ratio: 1/1;
         max-height: 100px;
+        max-width: 100px;
         overflow: hidden;
+
 
         img {
             width: 100%;

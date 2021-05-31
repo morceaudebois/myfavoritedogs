@@ -13,7 +13,7 @@ try {
    die($e -> getMessage());
 }
 
-$homeURL = 'http://192.168.1.15/~tahoe/myfavoritedogs';
+$homeURL = 'https://myfavoritedogs.local/~tahoe/myfavoritedogs';
 
 ?>
 

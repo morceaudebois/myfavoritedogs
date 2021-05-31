@@ -10,5 +10,4 @@
     </div>
 </footer>
 
-
 <script src='<?php echo $homeURL . "/includes/scripts.js" ?>'></script>

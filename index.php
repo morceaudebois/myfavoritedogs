@@ -50,6 +50,9 @@ $index = 0;
 
     <link rel='stylesheet' type='text/css' media='screen' href='<?php echo $homeURL . "/css/style.css" ?>'>
 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
 </head>
 <body class="noSelection">
     
@@ -120,12 +123,7 @@ $index = 0;
 
     <?php @include 'pannel.php' ?>
 
-
-
     <div class="overlay"></div>
-
-    
-
 
 
 <?php @include 'footer.php' ?>
