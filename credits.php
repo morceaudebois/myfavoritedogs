@@ -1,14 +1,14 @@
 <?php require_once('includes/config.php');
 
-try {
+    try {
+        $db = new PDO('sqlite:myfavoritedogs.db');
 
-    $stmt = $db->prepare('SELECT * FROM dogbreeds INNER JOIN photos ON dogbreeds.id = photos.breed_id ORDER BY title');
-    $stmt->execute(); 
-    $allData = $stmt->fetchAll();
-
-} catch(PDOException $e) {
-    echo $e->getMessage();
-}
+        $stmt = $db->prepare('SELECT * FROM dogbreeds INNER JOIN photos ON dogbreeds.id = photos.breed_id ORDER BY title');
+        $stmt->execute();
+        $allData = $stmt->fetchAll();
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
 
 ?>
 
@@ -49,10 +49,10 @@ try {
 </head>
 
 <body>
-    <?php @include 'header.php'; ?>
+    <?php include 'header.php' ?>
 
     <div class="hero">     
-        <div class="titleCard" style="background-image: url('<?php echo $homeURL . "/images/" . $allData[rand(0, count($allData) - 1)]['photo_url'] ?>')">
+        <div class="titleCard" style="background-image: url('<?= $homeURL . "/images/" . $allData[rand(0, count($allData) - 1)]['photo_url'] ?>')">
 
             <div class="gradient"></div>
             <h1 class="title">Photo credits</h1>
@@ -100,7 +100,7 @@ try {
 
 
 
-    <?php @include 'footer.php' ?>
+    <?php include 'footer.php' ?>
 </body>
 
 </html>  

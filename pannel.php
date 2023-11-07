@@ -17,7 +17,6 @@
             <h2>Save your list</h2> <div class="hr"></div>
         </div>
 
-
         <div class="doubleContainer nameContainer">
             <div class="half">
                 <div class="fieldContainer">
@@ -47,8 +46,6 @@
 
         <span id="error"></span>
         
-
-
         <div id="share">
             <div class="bigTitle">
                 <h2>Share your list</h2> <div class="hr"></div>
@@ -56,27 +53,20 @@
 
             <div class="socialContainer">
                 <a target="_blank" class="socialBlock" id="twitterBlock">
-                    <img draggable='false' src="<?php echo $homeURL . "/images/twitter.svg" ?>">
+                    <img draggable='false' src="<?= $homeURL . "/images/twitter.svg" ?>">
                     <span>Twitter</span>
                 </a>
 
                 <a target="_blank" class="socialBlock" id="facebookBlock">
-                    <img draggable='false' src="<?php echo $homeURL . "/images/facebook.svg" ?>">
+                    <img draggable='false' src="<?= $homeURL . "/images/facebook.svg" ?>">
                     <span>Facebook</span>
                 </a>
 
                 <a target="_blank" class="socialBlock" id="telegramBlock">
-                    <img draggable='false' src="<?php echo $homeURL . "/images/telegram.svg" ?>">
+                    <img draggable='false' src="<?= $homeURL . "/images/telegram.svg" ?>">
                     <span>Telegram</span>
                 </a>
             </div>
         </div>
-
-        
-
-        
-
     </div>
-    
-    
 </div>
