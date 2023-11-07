@@ -1,37 +1,29 @@
 <?php require_once('../includes/config.php');
+    $db = new PDO('sqlite:../myfavoritedogs.db');
 
-try {
-    $stmt = $db->prepare('SELECT * FROM lists WHERE link = ?');
+    try {
+        $stmt = $db->prepare('SELECT * FROM lists WHERE link = :link');
+        $stmt->execute(array(':link' => $_GET['q']));
+        $list = $stmt->fetch();
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
 
-    $stmt->bindParam(1, $_GET['q']);  
-    $stmt->execute(); 
-    
-    $list = $stmt->fetch();
+    $breeds = json_decode(stripslashes($list['data']));
 
-} catch(PDOException $e) {
-    echo $e->getMessage();
-} 
+    try {
+        $stmt = $db->prepare('SELECT photo_url FROM photos 
+            INNER JOIN dogbreeds ON dogbreeds.id = photos.breed_id 
+            WHERE dogbreeds.slug = :slug');
+        $stmt->execute(array(':slug' => $breeds[0]));
 
-$breeds = json_decode($list['data'], true);
+        $mainImage = $stmt->fetch();
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
 
-
-
-try {
-    $stmt = $db->prepare('SELECT photo_url FROM photos INNER JOIN dogbreeds WHERE dogbreeds.id = photos.breed_id AND dogbreeds.slug = ?');
-    // -- breed_id = ?');
-
-    $stmt->bindParam(1, $breeds[0]);  
-    $stmt->execute(); 
-    
-    $mainImage = $stmt->fetch();
-
-} catch(PDOException $e) {
-    echo $e->getMessage();
-}
-
-
-$url =  "//{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
-$escaped_url = htmlspecialchars( $url, ENT_QUOTES, 'UTF-8' );
+    $url =  "//{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
+    $escaped_url = htmlspecialchars( $url, ENT_QUOTES, 'UTF-8' );
 
 ?>
 
@@ -91,12 +83,9 @@ $escaped_url = htmlspecialchars( $url, ENT_QUOTES, 'UTF-8' );
         <?php 
         
             foreach ($breeds as $breed) { 
-
                 try {
-                    $stmt = $db->prepare('SELECT * FROM dogbreeds WHERE slug = ?');
-
-                    $stmt->bindParam(1, $breed);  
-                    $stmt->execute(); 
+                    $stmt = $db->prepare('SELECT * FROM dogbreeds WHERE slug = :slug');
+                    $stmt->execute(array(':slug' => $breed)); 
                     
                     $breedData = $stmt->fetch();
 

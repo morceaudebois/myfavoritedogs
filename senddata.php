@@ -17,64 +17,36 @@ $races = explode("|", $data);
 
 // va chercher les liens déjà existants
 try {
-    $stmt = $db->prepare('SELECT link FROM lists WHERE link = :link');
+    $db = new PDO('sqlite:myfavoritedogs.db'); // Replace with your SQLite database path
 
-    do {
-        $link = generateRandomString();
-        $stmt->execute(array(
-            'link' => $link
-        ));
-    
-        $testLink = $stmt->fetch(PDO::FETCH_ASSOC);
-        
-    // tant que le lien est déjà pris
-    } while (isset($testLink) && !empty($testLink));
+    $data = $_GET['q'];
+    $races = explode("|", $data);
 
-
-
-} catch(PDOException $e) {
-    echo $e->getMessage();
-}
-
-
-
-
-// check si la liste existe déjà
-try {
+    // Check if the list already exists
     $stmt = $db->prepare('SELECT name, data, link FROM lists WHERE name = :name AND data = :data');
-    
     $stmt->execute(array(
         ':name' => $races[1],
         ':data' => $races[0]
     ));
-
     $alreadyExists = $stmt->fetch(PDO::FETCH_ASSOC);
-        
+
     if (isset($alreadyExists) && !empty($alreadyExists)) {
-
-        // echo "This list already exists! Here's its permanent link.<br>";
         echo $homeURL . "/list/index.php?q=" . $alreadyExists['link'];
-
     } else {
-        // créée la nouvelle liste
-        try {
-            $stmt = $db->prepare('INSERT INTO lists (name, data, link, date) VALUES (:name, :data, :link, :date)');
-
+        $link = '';
+        do {
+            $link = generateRandomString(); // Replace with your random string generation method
+            $stmt = $db->prepare('INSERT OR IGNORE INTO lists (name, data, link, date) VALUES (:name, :data, :link, :date)');
             $stmt->execute(array(
                 ':name' => $races[1],
                 ':data' => $races[0],
                 ':link' => $link,
                 ':date' => date("Y/m/d")
             ));
+        } while ($stmt->rowCount() == 0); // Continue generating a new link until it's unique
 
-            // echo "Your list has been saved! Here's your permanent link.<br>";
-            echo $homeURL . "/list/index.php?q=" . $link;
-
-        } catch(PDOException $e) {
-            echo $e->getMessage();
-        }
+        echo $homeURL . "/list/index.php?q=" . $link;
     }
-
-} catch(PDOException $e) {
+} catch (PDOException $e) {
     echo $e->getMessage();
 }

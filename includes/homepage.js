@@ -85,17 +85,16 @@ function updatePannel(breedSlug) {
         listIndexes(); sendToStorage(); counter();
     // va chercher les infos dans la bdd et ajoute le li
     } else {
-
         getData().then(function (response) {
-        let breedData = JSON.parse(response);
+            let breedData = JSON.parse(response);
 
-        let fullLi = '<li class="' + breedData['slug'] + '"><div class="delete" onclick="check(\'' +  breedData['slug'] + '\')"><img draggable="false" src="' + baseURL + 'images/moins.svg"></div><div class="breed"><img draggable="false" class="breedImage" src="' + baseURL + 'images/smaller/' + breedData['photo_url'] + '"><span><span class="place"></span> - ' + breedData['name'] + '</span><div class="dragZone"><img draggable="false" class="dragIcon" src="' + baseURL + 'images/drag.svg"></div></div></li>'; 
-        list.insertAdjacentHTML('beforeend', fullLi);
+            let fullLi = '<li class="' + breedData['slug'] + '"><div class="delete" onclick="check(\'' +  breedData['slug'] + '\')"><img draggable="false" src="' + baseURL + 'images/moins.svg"></div><div class="breed"><img draggable="false" class="breedImage" src="' + baseURL + 'images/smaller/' + breedData['photo_url'] + '"><span><span class="place"></span> - ' + breedData['name'] + '</span><div class="dragZone"><img draggable="false" class="dragIcon" src="' + baseURL + 'images/drag.svg"></div></div></li>'; 
+            list.insertAdjacentHTML('beforeend', fullLi);
 
-        listIndexes(); sendToStorage(); counter();
+            listIndexes(); sendToStorage(); counter();
 
         }).catch(function (req) {
-        console.log('Can\'t get data: ' + req);
+            console.log('Can\'t get data: ' + req);
         });
     }
 
