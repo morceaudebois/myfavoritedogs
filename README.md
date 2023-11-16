@@ -4,7 +4,7 @@
 
 My Favorite Dogs is a web app that allows you to make a list of your favorite dogs from a wide varitey of breeds. The project does a simple thing but aims to do it as best as it can, with beautiful high res photos and a smooth modern UI.
 
-My Favorite Dogs can be used [here](https://myfavoritedogs.co/). Everything is working but isn't completely finished.
+My Favorite Dogs can be used [here](https://myfavoritedogs.tahoe.be/). Everything is working but isn't completely finished.
 
 ## Features
 
