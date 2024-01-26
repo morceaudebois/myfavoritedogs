@@ -1,45 +1,18 @@
--- fichier original de la BDD
+-- Fichier venant d'un export phpMyAdmin converti manuellement pour que SQLite le comprenne
+-- Commande pour créer le fichier .db : sqlite3 myfavoritedogs.db < myfavoritedogs.sql
+-- Define a table
 
--- phpMyAdmin SQL Dump
--- version 5.0.4
--- https://www.phpmyadmin.net/
---
--- Host: localhost
--- Generation Time: Dec 24, 2022 at 01:32 PM
--- Server version: 8.0.23
--- PHP Version: 7.4.32
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `myfavoritedogs`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `dogbreeds`
---
-
-CREATE TABLE `dogbreeds` (
-  `id` int NOT NULL,
+DROP TABLE IF EXISTS `dogbreeds`;
+CREATE TABLE IF NOT EXISTS `dogbreeds` (
+  `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
   `title` text NOT NULL,
   `slug` text NOT NULL,
-  `image` text CHARACTER SET utf8 COLLATE utf8_general_ci
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `image` text CHARACTER
+);
 
 --
 -- Dumping data for table `dogbreeds`
 --
-
 INSERT INTO `dogbreeds` (`id`, `title`, `slug`, `image`) VALUES
 (114, 'Shiba Inu', 'shiba', NULL),
 (115, 'Czechoslovakian Wolfdog', 'cwd', NULL),
@@ -134,11 +107,18 @@ INSERT INTO `dogbreeds` (`id`, `title`, `slug`, `image`) VALUES
 -- Table structure for table `dogbreeds_meta`
 --
 
-CREATE TABLE `dogbreeds_meta` (
-  `id` int NOT NULL,
-  `breed_id` int NOT NULL,
-  `tag_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+DROP TABLE IF EXISTS `dogbreeds_meta`;
+CREATE TABLE IF NOT EXISTS dogbreeds_meta (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  breed_id INTEGER NOT NULL,
+  tag_id INTEGER NOT NULL,
+  FOREIGN KEY (breed_id) REFERENCES dogbreeds (id),
+  FOREIGN KEY (tag_id) REFERENCES dogtags (tag_id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+-- Indexes for table dogbreeds_meta
+CREATE INDEX IF NOT EXISTS idx_breed_id ON dogbreeds_meta (breed_id);
+CREATE INDEX IF NOT EXISTS idx_tag_id ON dogbreeds_meta (tag_id);
 
 --
 -- Dumping data for table `dogbreeds_meta`
@@ -326,11 +306,11 @@ INSERT INTO `dogbreeds_meta` (`id`, `breed_id`, `tag_id`) VALUES
 --
 -- Table structure for table `dogtags`
 --
-
-CREATE TABLE `dogtags` (
-  `tag_id` int NOT NULL,
+DROP TABLE IF EXISTS `dogtags`;
+CREATE TABLE IF NOT EXISTS `dogtags` (
+  `tag_id` INTEGER NOT NULL PRIMARY KEY,
   `name` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 --
 -- Dumping data for table `dogtags`
@@ -354,44 +334,31 @@ INSERT INTO `dogtags` (`tag_id`, `name`) VALUES
 --
 -- Table structure for table `lists`
 --
-
-CREATE TABLE `lists` (
-  `id` int NOT NULL,
+-- list qu'on ne supprime pas pour mettre à jour, contient les données des gens 
+CREATE TABLE IF NOT EXISTS `lists` (
+  `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
   `name` text NOT NULL,
   `data` text NOT NULL,
   `link` text NOT NULL,
   `Date` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `lists`
---
-
-INSERT INTO `lists` (`id`, `name`, `data`, `link`, `Date`) VALUES
-(93, 'Jesus', '[\"husky\",\"cwd\",\"tam\",\"lab\",\"shiba\"]', 'odzhyOJXSL', '2021-04-02'),
-(94, 'Jesus', '[\"shiba\"]', 'nK3bB3BxSu', '2021-04-02'),
-(95, 'Myriam', '[\"aussie\",\"cwd\",\"akita\",\"sam\",\"tam\"]', 'E2OD5vhE54', '2021-04-02'),
-(96, 'ah', '[\"akita\",\"tam\"]', 'gBel29FUNT', '2021-04-02'),
-(97, 'maliste', '[\"chow\",\"lhasa\",\"pekinois\",\"pinsch\",\"poodle\",\"eurasier\",\"keeshond\",\"husky\",\"pome\",\"jack\",\"malt\"]', 'vT0xTJOXOc', '2021-04-08'),
-(98, 'test', '[\"crested\",\"am-akita\"]', 'UJBU1YEQbf', '2021-04-10'),
-(99, 'Michel', '[\"dach\",\"coton\",\"corgi\"]', 'ePiNlm5qAB', '2021-04-11'),
-(100, 'test', '[\"coton\",\"corgi\",\"dach\",\"bullmastiff\"]', 'gsgbLrfRXm', '2021-04-11'),
-(101, 'Michael', '[\"am-akita\",\"dalma\",\"tib-mastiff\",\"bull-terrier\",\"dane\",\"rhod\"]', 'euLsEpXpLk', '2021-04-12');
+);
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `photos`
 --
+DROP TABLE IF EXISTS `photos`;
+CREATE TABLE IF NOT EXISTS photos (
+  photo_id INTEGER PRIMARY KEY AUTOINCREMENT,
+  breed_id INTEGER NOT NULL UNIQUE,
+  photo_url TEXT NOT NULL,
+  photo_author TEXT NOT NULL,
+  author_url TEXT NOT NULL,
+  dog_name TEXT NOT NULL,
+  FOREIGN KEY (breed_id) REFERENCES dogbreeds (id) ON DELETE CASCADE ON UPDATE CASCADE
+);
 
-CREATE TABLE `photos` (
-  `photo_id` int NOT NULL,
-  `breed_id` int NOT NULL,
-  `photo_url` text NOT NULL,
-  `photo_author` text NOT NULL,
-  `author_url` text NOT NULL,
-  `dog_name` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `photos`
@@ -413,7 +380,7 @@ INSERT INTO `photos` (`photo_id`, `breed_id`, `photo_url`, `photo_author`, `auth
 (53, 127, 'samuel-thompson-O6UzDPFH36g-unsplash.jpeg', 'Samuel Thompson', 'https://unsplash.com/@samuelthomps0n', 'Frankie'),
 (54, 128, 'helena-lopes-IBz1XwoAEOY-unsplash.jpeg', 'Helena Lopes', 'https://unsplash.com/@wildlittlethingsphoto', ''),
 (55, 129, '24lhg8gvwvi61.jpeg', 'u/Ctoretto93', 'https://www.reddit.com/user/Ctoretto93/', 'Hachi'),
-(56, 130, 'cocker-américain.jpeg', '', '', ''),
+(56, 130, 'cocker-americain.jpeg', '', '', ''),
 (57, 131, 'martin-dalsgaard-bnbukHzNcGs-unsplash.jpeg', 'Martin Dalsgaard', 'https://unsplash.com/@martin_dalsgaard', ''),
 (58, 132, 'stock-photo-51617430.jpeg', 'norman tesch', 'https://500px.com/p/tikaldogos?view=photos', ''),
 (59, 133, 'daniel-lincoln-_g30Vjnlhkk-unsplash.jpeg', 'Daniel Lincoln', 'https://unsplash.com/@danny_lincoln', ''),
@@ -483,97 +450,4 @@ INSERT INTO `photos` (`photo_id`, `breed_id`, `photo_url`, `photo_author`, `auth
 (124, 198, 'stock-photo-1019368807.jpeg', 'Борис Цепко', 'https://500px.com/boryagin1', ''),
 (125, 199, 'stock-photo-1021173931.jpeg', 'Adam Doroziński', 'https://500px.com/p/adamdpl', 'Ghost'),
 (126, 200, 'justin-veenema-Ku3igYrMhD4-unsplash.jpeg', ' Justin Veenema', 'https://unsplash.com/@justinveenema', ''),
-(127, 201, 'julio-bernal-WLGx0fKFSeI-unsplash-sm', 'Julio Bernal', 'https://unsplash.com/@jbernals', '');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `dogbreeds`
---
-ALTER TABLE `dogbreeds`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `dogbreeds_meta`
---
-ALTER TABLE `dogbreeds_meta`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `breed_id` (`breed_id`),
-  ADD KEY `tag_id` (`tag_id`);
-
---
--- Indexes for table `dogtags`
---
-ALTER TABLE `dogtags`
-  ADD PRIMARY KEY (`tag_id`);
-
---
--- Indexes for table `lists`
---
-ALTER TABLE `lists`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `photos`
---
-ALTER TABLE `photos`
-  ADD PRIMARY KEY (`photo_id`),
-  ADD UNIQUE KEY `breed_id` (`breed_id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `dogbreeds`
---
-ALTER TABLE `dogbreeds`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=202;
-
---
--- AUTO_INCREMENT for table `dogbreeds_meta`
---
-ALTER TABLE `dogbreeds_meta`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=335;
-
---
--- AUTO_INCREMENT for table `dogtags`
---
-ALTER TABLE `dogtags`
-  MODIFY `tag_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
---
--- AUTO_INCREMENT for table `lists`
---
-ALTER TABLE `lists`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
-
---
--- AUTO_INCREMENT for table `photos`
---
-ALTER TABLE `photos`
-  MODIFY `photo_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `dogbreeds_meta`
---
-ALTER TABLE `dogbreeds_meta`
-  ADD CONSTRAINT `dogbreeds_meta_ibfk_1` FOREIGN KEY (`breed_id`) REFERENCES `dogbreeds` (`id`),
-  ADD CONSTRAINT `dogbreeds_meta_ibfk_2` FOREIGN KEY (`tag_id`) REFERENCES `dogtags` (`tag_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `photos`
---
-ALTER TABLE `photos`
-  ADD CONSTRAINT `photos_ibfk_1` FOREIGN KEY (`breed_id`) REFERENCES `dogbreeds` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+(127, 201, 'julio-bernal-WLGx0fKFSeI-unsplash-sm.jpg', 'Julio Bernal', 'https://unsplash.com/@jbernals', '');

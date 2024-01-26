@@ -1,8 +1,3 @@
-<?php
-
-
-$homeURL = 'http://localhost/myfavoritedogs';
-
-?>
+<?php $homeURL = 'http://localhost/myfavoritedogs' ?>
 
 

@@ -1,13 +1,40 @@
--- Fichier venant d'un export phpMyAdmin converti manuellement pour que SQLite le comprenne
+-- fichier original de la BDD
 
--- Define a table
+-- phpMyAdmin SQL Dump
+-- version 5.0.4
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost
+-- Generation Time: Dec 24, 2022 at 01:32 PM
+-- Server version: 8.0.23
+-- PHP Version: 7.4.32
 
-CREATE TABLE IF NOT EXISTS `dogbreeds` (
-  `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `myfavoritedogs`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dogbreeds`
+--
+
+CREATE TABLE `dogbreeds` (
+  `id` int NOT NULL,
   `title` text NOT NULL,
   `slug` text NOT NULL,
-  `image` text CHARACTER
-);
+  `image` text CHARACTER SET utf8 COLLATE utf8_general_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `dogbreeds`
@@ -107,18 +134,11 @@ INSERT INTO `dogbreeds` (`id`, `title`, `slug`, `image`) VALUES
 -- Table structure for table `dogbreeds_meta`
 --
 
-
-CREATE TABLE IF NOT EXISTS dogbreeds_meta (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  breed_id INTEGER NOT NULL,
-  tag_id INTEGER NOT NULL,
-  FOREIGN KEY (breed_id) REFERENCES dogbreeds (id),
-  FOREIGN KEY (tag_id) REFERENCES dogtags (tag_id) ON DELETE CASCADE ON UPDATE CASCADE
-);
-
--- Indexes for table dogbreeds_meta
-CREATE INDEX IF NOT EXISTS idx_breed_id ON dogbreeds_meta (breed_id);
-CREATE INDEX IF NOT EXISTS idx_tag_id ON dogbreeds_meta (tag_id);
+CREATE TABLE `dogbreeds_meta` (
+  `id` int NOT NULL,
+  `breed_id` int NOT NULL,
+  `tag_id` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `dogbreeds_meta`
@@ -307,10 +327,10 @@ INSERT INTO `dogbreeds_meta` (`id`, `breed_id`, `tag_id`) VALUES
 -- Table structure for table `dogtags`
 --
 
-CREATE TABLE IF NOT EXISTS `dogtags` (
-  `tag_id` INTEGER NOT NULL PRIMARY KEY,
+CREATE TABLE `dogtags` (
+  `tag_id` int NOT NULL,
   `name` text NOT NULL
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `dogtags`
@@ -335,13 +355,13 @@ INSERT INTO `dogtags` (`tag_id`, `name`) VALUES
 -- Table structure for table `lists`
 --
 
-CREATE TABLE IF NOT EXISTS `lists` (
-  `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+CREATE TABLE `lists` (
+  `id` int NOT NULL,
   `name` text NOT NULL,
   `data` text NOT NULL,
   `link` text NOT NULL,
   `Date` date DEFAULT NULL
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `lists`
@@ -364,16 +384,14 @@ INSERT INTO `lists` (`id`, `name`, `data`, `link`, `Date`) VALUES
 -- Table structure for table `photos`
 --
 
-CREATE TABLE IF NOT EXISTS photos (
-  photo_id INTEGER PRIMARY KEY AUTOINCREMENT,
-  breed_id INTEGER NOT NULL UNIQUE,
-  photo_url TEXT NOT NULL,
-  photo_author TEXT NOT NULL,
-  author_url TEXT NOT NULL,
-  dog_name TEXT NOT NULL,
-  FOREIGN KEY (breed_id) REFERENCES dogbreeds (id) ON DELETE CASCADE ON UPDATE CASCADE
-);
-
+CREATE TABLE `photos` (
+  `photo_id` int NOT NULL,
+  `breed_id` int NOT NULL,
+  `photo_url` text NOT NULL,
+  `photo_author` text NOT NULL,
+  `author_url` text NOT NULL,
+  `dog_name` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `photos`
@@ -465,4 +483,97 @@ INSERT INTO `photos` (`photo_id`, `breed_id`, `photo_url`, `photo_author`, `auth
 (124, 198, 'stock-photo-1019368807.jpeg', 'Борис Цепко', 'https://500px.com/boryagin1', ''),
 (125, 199, 'stock-photo-1021173931.jpeg', 'Adam Doroziński', 'https://500px.com/p/adamdpl', 'Ghost'),
 (126, 200, 'justin-veenema-Ku3igYrMhD4-unsplash.jpeg', ' Justin Veenema', 'https://unsplash.com/@justinveenema', ''),
-(127, 201, 'julio-bernal-WLGx0fKFSeI-unsplash-sm', 'Julio Bernal', 'https://unsplash.com/@jbernals', '');
+(127, 201, 'julio-bernal-WLGx0fKFSeI-unsplash-sm.jpg', 'Julio Bernal', 'https://unsplash.com/@jbernals', '');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `dogbreeds`
+--
+ALTER TABLE `dogbreeds`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `dogbreeds_meta`
+--
+ALTER TABLE `dogbreeds_meta`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `breed_id` (`breed_id`),
+  ADD KEY `tag_id` (`tag_id`);
+
+--
+-- Indexes for table `dogtags`
+--
+ALTER TABLE `dogtags`
+  ADD PRIMARY KEY (`tag_id`);
+
+--
+-- Indexes for table `lists`
+--
+ALTER TABLE `lists`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `photos`
+--
+ALTER TABLE `photos`
+  ADD PRIMARY KEY (`photo_id`),
+  ADD UNIQUE KEY `breed_id` (`breed_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `dogbreeds`
+--
+ALTER TABLE `dogbreeds`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=202;
+
+--
+-- AUTO_INCREMENT for table `dogbreeds_meta`
+--
+ALTER TABLE `dogbreeds_meta`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=335;
+
+--
+-- AUTO_INCREMENT for table `dogtags`
+--
+ALTER TABLE `dogtags`
+  MODIFY `tag_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `lists`
+--
+ALTER TABLE `lists`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+
+--
+-- AUTO_INCREMENT for table `photos`
+--
+ALTER TABLE `photos`
+  MODIFY `photo_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `dogbreeds_meta`
+--
+ALTER TABLE `dogbreeds_meta`
+  ADD CONSTRAINT `dogbreeds_meta_ibfk_1` FOREIGN KEY (`breed_id`) REFERENCES `dogbreeds` (`id`),
+  ADD CONSTRAINT `dogbreeds_meta_ibfk_2` FOREIGN KEY (`tag_id`) REFERENCES `dogtags` (`tag_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `photos`
+--
+ALTER TABLE `photos`
+  ADD CONSTRAINT `photos_ibfk_1` FOREIGN KEY (`breed_id`) REFERENCES `dogbreeds` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

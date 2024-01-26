@@ -14,7 +14,7 @@
     
     <div class="saveList">
         <div class="bigTitle">
-            <h2>Save your list</h2> <div class="hr"></div>
+            <h2>Save & share your list</h2> <div class="hr"></div>
         </div>
 
         <div class="doubleContainer nameContainer">
