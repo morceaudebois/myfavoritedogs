@@ -11,4 +11,4 @@
     </div>
 </footer>
 
-<script src='<?= $homeURL . "/includes/scripts.js" ?>'></script>
+<script src='<?= $homeURL . "/src/js/scripts.js" ?>'></script>

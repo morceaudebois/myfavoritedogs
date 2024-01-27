@@ -6,7 +6,7 @@
 
         if (strpos($url, 'list') !== false) { ?>
             <a id="addList" title="Create my own list" href="<?= $homeURL ?>">
-                <img src='<?= $homeURL . "/images/new.svg" ?>'>
+                <img src='<?= $homeURL . "/src/images/new.svg" ?>'>
             </a>
         <?php }  ?>
     </div>

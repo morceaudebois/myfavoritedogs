@@ -1,4 +1,4 @@
-<?php require_once('includes/config.php');
+<?php require_once('src/php/config.php');
 $db = new SQLite3('myfavoritedogs.db');
 $tags = $db->query('SELECT * FROM dogtags ORDER BY name');
 
@@ -20,7 +20,7 @@ $index = 0;
     <meta property="og:type" content="tool">
     <meta property="og:title" content="My Favorite Dogs · Make your list">
     <meta property="og:url" content="<?= $homeURL ?>">
-    <meta property="og:image" content="<?= $homeURL . "/images/tarkan.jpg" ?>">
+    <meta property="og:image" content="<?= $homeURL . "/src/images/tarkan.jpg" ?>">
 
     <meta name="twitter:card" content="summary_large_image">
     </meta>
@@ -29,21 +29,21 @@ $index = 0;
     <meta name="twitter:creator" content="@morceaudebois" />
     <meta name="twitter:description" content="Make a list of your favorite dog breeds with myfavoritedogs.co. Discover new breeds and share them with your friends!">
     </meta>
-    <meta name="twitter:image" content="<?= $homeURL . "/images/tarkan.jpg" ?>" />
+    <meta name="twitter:image" content="<?= $homeURL . "/src/images/tarkan.jpg" ?>" />
 
 
 
-    <link rel="apple-touch-icon" sizes="180x180" href="<?= $homeURL . '/images/favicons/apple-touch-icon.png' ?>">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?= $homeURL . '/images/favicons/favicon-32x32.png' ?>">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?= $homeURL . '/images/favicons/favicon-16x16.png' ?>">
-    <link rel="manifest" href="<?= $homeURL . '/images/favicons/site.webmanifest' ?>">
-    <link rel="mask-icon" href="<?= $homeURL . '/images/favicons/safari-pinned-tab.svg' ?>" color="#9dc88d">
-    <link rel="shortcut icon" href="<?= $homeURL . '/images/favicons/favicon.ico' ?>">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?= $homeURL . '/src/images/favicons/apple-touch-icon.png' ?>">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?= $homeURL . '/src/images/favicons/favicon-32x32.png' ?>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?= $homeURL . '/src/images/favicons/favicon-16x16.png' ?>">
+    <link rel="manifest" href="<?= $homeURL . '/src/images/favicons/site.webmanifest' ?>">
+    <link rel="mask-icon" href="<?= $homeURL . '/src/images/favicons/safari-pinned-tab.svg' ?>" color="#9dc88d">
+    <link rel="shortcut icon" href="<?= $homeURL . '/src/images/favicons/favicon.ico' ?>">
     <meta name="msapplication-TileColor" content="#2d89ef">
-    <meta name="msapplication-config" content="<?= $homeURL . '/images/favicons/browserconfig.xml' ?>">
+    <meta name="msapplication-config" content="<?= $homeURL . '/src/images/favicons/browserconfig.xml' ?>">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel='stylesheet' type='text/css' media='screen' href='<?= $homeURL . "/css/style.css" ?>'>
+    <link rel='stylesheet' type='text/css' media='screen' href='<?= $homeURL . "/src/styles/style.css" ?>'>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
@@ -96,7 +96,7 @@ $index = 0;
 
                         <div class="breedBlock <?= $breed['slug'] ?>">
 
-                            <img draggable='false' loading="lazy" src='<?= $homeURL . "/images/small/" . $photo_url ?>'>
+                            <img draggable='false' loading="lazy" src='<?= $homeURL . "/src/images/small/" . $photo_url ?>'>
                             <label><input type="checkbox" value="<?= $breed['slug'] ?>"><span class="checkmark"></span></label>
 
                             <h3><?= $breed['title'] ?></h3>
@@ -116,7 +116,7 @@ $index = 0;
     ?>
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.13.0/Sortable.min.js'></script>
-    <script src='<?= $homeURL . "/includes/homepage.js" ?>'></script>
+    <script src='<?= $homeURL . "/src/js/homepage.js" ?>'></script>
 
 </body>
 

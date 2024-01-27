@@ -1,4 +1,4 @@
-<?php require_once('includes/config.php');
+<?php require_once('src/php/config.php');
 
     try {
         $db = new PDO('sqlite:myfavoritedogs.db');
@@ -26,25 +26,25 @@
 	<meta property="og:type" content="tool">
 	<meta property="og:title" content="My Favorite Dogs · Make your list">
 	<meta property="og:url" content="<?php echo $homeURL ?>">
-	<meta property="og:image" content="<?php echo $homeURL . "/images/tarkan.jpg"?>">
+	<meta property="og:image" content="<?php echo $homeURL . "/src/images/tarkan.jpg"?>">
     
     <meta name="twitter:card" content="summary_large_image"></meta>
     <meta name="twitter:title" content="My Favorite Dogs · Make a list of your favorite dog breeds"></meta>
     <meta name="twitter:creator" content="@morceaudebois" />
     <meta name="twitter:description" content="Make a list of your favorite dog breeds with myfavoritedogs.co. Discover new breeds and share them with your friends!"></meta>
-    <meta name="twitter:image" content="<?php echo $homeURL . "/images/tarkan.jpg"?>" />
+    <meta name="twitter:image" content="<?php echo $homeURL . "/src/images/tarkan.jpg"?>" />
     
-    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $homeURL . '/images/favicons/apple-touch-icon.png' ?>">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $homeURL . '/images/favicons/favicon-32x32.png' ?>">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $homeURL . '/images/favicons/favicon-16x16.png' ?>">
-    <link rel="manifest" href="<?php echo $homeURL . '/images/favicons/site.webmanifest' ?>">
-    <link rel="mask-icon" href="<?php echo $homeURL . '/images/favicons/safari-pinned-tab.svg' ?>" color="#9dc88d">
-    <link rel="shortcut icon" href="<?php echo $homeURL . '/images/favicons/favicon.ico' ?>">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $homeURL . '/src/images/favicons/apple-touch-icon.png' ?>">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $homeURL . '/src/images/favicons/favicon-32x32.png' ?>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $homeURL . '/src/images/favicons/favicon-16x16.png' ?>">
+    <link rel="manifest" href="<?php echo $homeURL . '/src/images/favicons/site.webmanifest' ?>">
+    <link rel="mask-icon" href="<?php echo $homeURL . '/src/images/favicons/safari-pinned-tab.svg' ?>" color="#9dc88d">
+    <link rel="shortcut icon" href="<?php echo $homeURL . '/src/images/favicons/favicon.ico' ?>">
     <meta name="msapplication-TileColor" content="#2d89ef">
-    <meta name="msapplication-config" content="<?php echo $homeURL . '/images/favicons/browserconfig.xml' ?>">
+    <meta name="msapplication-config" content="<?php echo $homeURL . '/src/images/favicons/browserconfig.xml' ?>">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel='stylesheet' type='text/css' media='screen' href='<?php echo $homeURL . "/css/style.css" ?>'>
+    <link rel='stylesheet' type='text/css' media='screen' href='<?php echo $homeURL . "/src/styles/style.css" ?>'>
 
 </head>
 
@@ -52,7 +52,7 @@
     <?php include 'header.php' ?>
 
     <div class="hero">     
-        <div class="titleCard" style="background-image: url('<?= $homeURL . "/images/" . $allData[rand(0, count($allData) - 1)]['photo_url'] ?>')">
+        <div class="titleCard" style="background-image: url('<?= $homeURL . "/src/images/" . $allData[rand(0, count($allData) - 1)]['photo_url'] ?>')">
 
             <div class="gradient"></div>
             <h1 class="title">Photo credits</h1>
@@ -75,7 +75,7 @@
                 foreach ($allData as $photo) { ?>
                 
                     <tr>
-                        <td><div class="imgContainer"><img src="<?php echo $homeURL . '/images/smaller/' . $photo['photo_url'] ?>" loading="lazy"></div></td>
+                        <td><div class="imgContainer"><img src="<?php echo $homeURL . '/src/images/smaller/' . $photo['photo_url'] ?>" loading="lazy"></div></td>
                         <td><?php echo $photo['title'] ?></td>
                         <td><?php
                                 if ($photo['author_url']) {

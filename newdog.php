@@ -1,4 +1,4 @@
-<?php require_once('includes/config.php');
+<?php require_once('src/php/config.php');
 
     try {
         $stmt = $db->prepare('SELECT * FROM dogtags');
@@ -20,9 +20,9 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Add a new dog ! · My Favorite Dogs</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='<?php echo $homeURL . "/css/style.css" ?>'>
+    <link rel='stylesheet' type='text/css' media='screen' href='<?php echo $homeURL . "/src/styles/style.css" ?>'>
     
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/fontawesome.min.css"> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/src/styles/fontawesome.min.css"> -->
 
 </head>
 <body>

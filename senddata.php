@@ -1,4 +1,4 @@
-<?php require_once('includes/config.php');
+<?php require_once('src/php/config.php');
 
 function generateRandomString($length = 10) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';

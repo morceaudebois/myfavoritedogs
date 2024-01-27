@@ -53,17 +53,17 @@
 
             <div class="socialContainer">
                 <a target="_blank" class="socialBlock" id="twitterBlock">
-                    <img draggable='false' src="<?= $homeURL . "/images/twitter.svg" ?>">
+                    <img draggable='false' src="<?= $homeURL . "/src/images/twitter.svg" ?>">
                     <span>Twitter</span>
                 </a>
 
                 <a target="_blank" class="socialBlock" id="facebookBlock">
-                    <img draggable='false' src="<?= $homeURL . "/images/facebook.svg" ?>">
+                    <img draggable='false' src="<?= $homeURL . "/src/images/facebook.svg" ?>">
                     <span>Facebook</span>
                 </a>
 
                 <a target="_blank" class="socialBlock" id="telegramBlock">
-                    <img draggable='false' src="<?= $homeURL . "/images/telegram.svg" ?>">
+                    <img draggable='false' src="<?= $homeURL . "/src/images/telegram.svg" ?>">
                     <span>Telegram</span>
                 </a>
             </div>

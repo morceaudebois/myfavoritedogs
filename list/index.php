@@ -1,4 +1,4 @@
-<?php require_once('../includes/config.php');
+<?php require_once('../src/php/config.php');
     $db = new PDO('sqlite:../myfavoritedogs.db');
 
     try {
@@ -42,27 +42,27 @@
 	<meta property="og:type" content="tool">
 	<meta property="og:title" content="<?php echo $list['name'] ?>'s favorite dogs list">
 	<meta property="og:url" content="<?php echo $escaped_url ?>">
-	<meta property="og:image" content="<?php echo $homeURL . "/images/" . $mainImage['photo_url'] ?>">
+	<meta property="og:image" content="<?php echo $homeURL . "/src/images/" . $mainImage['photo_url'] ?>">
     
     <meta name="twitter:card" content="summary_large_image"></meta>
     <meta name="twitter:title" content="<?php echo $list['name'] ?>'s favorite dogs list · My Favorite Dogs"></meta>
     <meta name="twitter:creator" content="@morceaudebois" />
     <meta name="twitter:description" content="Make a list of your favorite dog breeds with myfavoritedogs.co. Discover <?php echo $list['name'] ?>'s favorite dogs!"></meta>
-    <meta name="twitter:image" content="<?php echo $homeURL . "/images/" . $mainImage['photo_url'] ?>" />
+    <meta name="twitter:image" content="<?php echo $homeURL . "/src/images/" . $mainImage['photo_url'] ?>" />
 
 
 
-    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $homeURL . '/images/favicons/apple-touch-icon.png' ?>">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $homeURL . '/images/favicons/favicon-32x32.png' ?>">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $homeURL . '/images/favicons/favicon-16x16.png' ?>">
-    <link rel="manifest" href="<?php echo $homeURL . '/images/favicons/site.webmanifest' ?>">
-    <link rel="mask-icon" href="<?php echo $homeURL . '/images/favicons/safari-pinned-tab.svg' ?>" color="#9dc88d">
-    <link rel="shortcut icon" href="<?php echo $homeURL . '/images/favicons/favicon.ico' ?>">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $homeURL . '/src/images/favicons/apple-touch-icon.png' ?>">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $homeURL . '/src/images/favicons/favicon-32x32.png' ?>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $homeURL . '/src/images/favicons/favicon-16x16.png' ?>">
+    <link rel="manifest" href="<?php echo $homeURL . '/src/images/favicons/site.webmanifest' ?>">
+    <link rel="mask-icon" href="<?php echo $homeURL . '/src/images/favicons/safari-pinned-tab.svg' ?>" color="#9dc88d">
+    <link rel="shortcut icon" href="<?php echo $homeURL . '/src/images/favicons/favicon.ico' ?>">
     <meta name="msapplication-TileColor" content="#2d89ef">
-    <meta name="msapplication-config" content="<?php echo $homeURL . '/images/favicons/browserconfig.xml' ?>">
+    <meta name="msapplication-config" content="<?php echo $homeURL . '/src/images/favicons/browserconfig.xml' ?>">
 
     
-    <link rel='stylesheet' type='text/css' media='screen' href='<?php echo $homeURL . "/css/style.css" ?>'>
+    <link rel='stylesheet' type='text/css' media='screen' href='<?php echo $homeURL . "/src/styles/style.css" ?>'>
 
 </head>
 
@@ -71,7 +71,7 @@
     <?php @include '../header.php'; ?>
     
     <div class="hero">     
-        <div class="titleCard" style="background-image: url('<?php echo $homeURL . "/images/" . $mainImage['photo_url'] ?>')">
+        <div class="titleCard" style="background-image: url('<?php echo $homeURL . "/src/images/" . $mainImage['photo_url'] ?>')">
 
             <div class="gradient"></div>
             <h1 class="title"><?php echo $list['name'] ?>'s favorite dogs list</h1>
@@ -107,7 +107,7 @@
         ?>
 
             <div class="breedBlock <?php echo $breedData['slug']?>">
-                <img src='<?php echo $homeURL . "/images/small/" . $breedPhoto['photo_url']?>'>
+                <img src='<?php echo $homeURL . "/src/images/small/" . $breedPhoto['photo_url']?>'>
 
                 <h3><?php echo $breedData['title']?></h3>
                 <span class="medal"></span>
@@ -127,29 +127,9 @@
     <div class="overlay"></div>
     <?php @include '../footer.php' ?>
 
-    <script src='../includes/html2canvas.min.js'></script>
-    <script src='<?php echo $homeURL . "/list/list.js" ?>'></script>
-  
+    <script src='/src/js/html2canvas.min.js'></script>
+    <script src='<?php echo $homeURL . "/src/js/list.js" ?>'></script>
 
 </body>
 
-</html>  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</html>

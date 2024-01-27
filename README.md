@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Tahoooe/myfavoritedogs/master/images/logo_w.svg" width="50%"></img>
+  <img src="https://raw.githubusercontent.com/Tahoooe/myfavoritedogs/master/src/images/logo_w.svg" width="50%"></img>
 </p>
 
 My Favorite Dogs is a web app that allows you to make a list of your favorite dogs from a wide varitey of breeds. The project does a simple thing but aims to do it as best as it can, with beautiful high res photos and a smooth modern UI.
