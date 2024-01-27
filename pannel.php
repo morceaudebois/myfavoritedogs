@@ -1,7 +1,7 @@
 <div id="pannel">
     <div class="bottom">
         <div id="compteur">No breed selected.</div>
-        <button onclick="pannel(this)" class="niceBtn">my list</button>
+        <button id="myListBtn" class="niceBtn">my list</button>
     </div>
 
     <div class="list">
@@ -40,7 +40,7 @@
             </div>
 
             <div class="half">
-                <button id="copyLink" class="niceBtn" onclick='copyLink()'>Copy link</button>
+                <button id="copyLink" class="niceBtn">Copy link</button>
             </div>
         </div>
 

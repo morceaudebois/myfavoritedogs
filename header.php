@@ -41,6 +41,7 @@
 
         <?php $url = $_SERVER['REQUEST_URI'];    
 
+        // bouton pour nouvelle liste 
         if (strpos($url, 'list') !== false) { ?>
             <a id="addList" title="Create my own list" href="<?= $homeURL ?>">
                 <img src='<?= $homeURL . "/src/images/new.svg" ?>'>

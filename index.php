@@ -4,7 +4,7 @@
 
     $index = 0;
     
-    $bodyClasses = 'noSelection';
+    $bodyClasses = 'noSelection homepage';
     include 'header.php';
 ?>
 

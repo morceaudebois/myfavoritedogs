@@ -43,7 +43,7 @@
     <div class="breedGrid">
     <?php 
     
-        foreach ($breeds as $breed) { 
+        foreach ($breeds as $key=>$breed) { 
             try {
                 $stmt = $db->prepare('SELECT * FROM dogbreeds WHERE slug = :slug');
                 $stmt->execute(array(':slug' => $breed)); 
@@ -64,16 +64,15 @@
 
             } catch(PDOException $e) {
                 echo $e->getMessage();
-            }
-    ?>
+            } ?>
 
-        <div class="breedBlock <?php echo $breedData['slug']?>">
-            <img src='<?php echo $homeURL . "/src/images/small/" . $breedPhoto['photo_url']?>'>
+            <div class="breedBlock <?php echo $breedData['slug']?>">
+                <img src='<?php echo $homeURL . "/src/images/small/" . $breedPhoto['photo_url']?>'>
 
-            <h3><?php echo $breedData['title']?></h3>
-            <span class="medal"></span>
-            
-        </div>
+                <h3><?php echo $breedData['title']?></h3>
+                <span class="medal"><?= $key + 1 ?></span>
+                
+            </div>
 
         <?php } ?>
     </div>
