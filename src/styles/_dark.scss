@@ -4,6 +4,10 @@
         color: rgb(239, 239, 239);
     }
 
+    ::selection {
+        color: white;
+    }
+
     header {
         background-color: #1e1e1e;
 

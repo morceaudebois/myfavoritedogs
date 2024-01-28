@@ -105,6 +105,11 @@ $radius: 30px;
     outline: none;
 }
 
+::selection {
+    color: black;
+    background-color: #9dc88d7e;
+}
+
 .screenshotContainer {
     opacity: 0;
     pointer-events: none;
@@ -406,6 +411,15 @@ header {
                 
                 path {
                     fill: white;
+                }
+            }
+
+            .text {
+                flex-direction: column;
+                font-weight: 100;
+
+                #tagline {
+                    font-family: 'Futura Regular';
                 }
             }
         }

@@ -14,6 +14,19 @@ My Favorite Dogs can be used [here](https://myfavoritedogs.tahoe.be/). Everythin
 * Share your list on social media
 * Credits page with name of the dog, photographers and their links
 
+## Photos
+
+The site uses free photos from Unsplash, Pixabay or Wikipedia as well as some of my own photos. All credits can be found [here](https://myfavoritedogs.tahoe.be/credits.php).
+
+__I'm always looking for better photos__, if you think you have some that would represent a breed nicely, please get in touch at mail@tahoe.be. I'd love for you to participate to the project! 
+
+Here's a description of the ideal photo:
+- full body shot of the dog either standing or sitting, with the recognisable traits of their breed clearly visible
+- professional looking, shot with a real camera or a good phone with nice lightning conditions and a shallow depth of field
+- ideally, the dog should be at their best and not have undergone physical alterations, like cut tail, ears or balls
+
+Some examples of ideal photos include [this](https://myfavoritedogs.tahoe.be/src/images/medium/tahoe-bZYJ89REqIE-unsplash.jpg), [this](https://myfavoritedogs.tahoe.be/src/images/medium/jayalekshman-sj-UF3T6qtjelM-unsplash.jpg) or [this](https://myfavoritedogs.tahoe.be/src/images/medium/tarkan.jpg).
+
 ## Built with
 
 * Styled with [Sass](https://sass-lang.com/guide)
