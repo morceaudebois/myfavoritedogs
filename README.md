@@ -17,10 +17,12 @@ My Favorite Dogs can be used [here](https://myfavoritedogs.tahoe.be/). Everythin
 ## Built with
 
 * Styled with [Sass](https://sass-lang.com/guide)
-* Based on PHP & MySQL
+* Made with vanilla PHP/JS & MySQL
 
 ## Current state
 
 As of may 2021, the project is usable but not "officially" launched. I am waiting for some photographers to get back to me to know if their photos can be used in the project.
 
-<br />
+<hr />
+
+_If you care about projects like these made by independant creators, please consider [donating](https://www.buymeacoffee.com/Tahoe) :)_

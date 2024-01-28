@@ -31,7 +31,6 @@
     <meta name="theme-color" content="#ffffff">
 
     <link rel='stylesheet' type='text/css' media='screen' href='<?= $homeURL . "/src/styles/style.css" ?>'>
-    <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 
 <body class="<?= $bodyClasses ?? '' ?>">
@@ -53,3 +52,7 @@
         <?php }  ?>
     </div>
 </header>
+
+<?php if (isset($bodyClasses) && str_contains($bodyClasses, 'homepage')) { 
+    include 'notice.php'; 
+} ?>

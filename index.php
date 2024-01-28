@@ -49,7 +49,7 @@
 
                         <div class="breedBlock <?= $breed['slug'] ?>">
 
-                            <img draggable='false' loading="lazy" src='<?= $homeURL . "/src/images/small/" . $photo_url ?>'>
+                            <img draggable='false' loading="lazy" src='<?= $homeURL . "/src/images/medium/" . $photo_url ?>'>
                             <label><input type="checkbox" value="<?= $breed['slug'] ?>"><span class="checkmark"></span></label>
 
                             <h3><?= $breed['title'] ?></h3>

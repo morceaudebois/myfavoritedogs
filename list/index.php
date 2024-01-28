@@ -37,10 +37,10 @@
 ?>
     
 <div class="hero">     
-    <div class="titleCard" style="background-image: url('<?php echo $homeURL . "/src/images/" . $mainImage['photo_url'] ?>')">
+    <div class="titleCard" style="background-image: url('<?= $homeURL . "/src/images/large/" . $mainImage['photo_url'] ?>')">
 
         <div class="gradient"></div>
-        <h1 class="title"><?php echo $list['name'] ?>'s favorite dogs list</h1>
+        <h1 class="title"><?= $list['name'] ?>'s favorite dogs list</h1>
     </div>
 </div>
 
@@ -71,10 +71,10 @@
                 echo $e->getMessage();
             } ?>
 
-            <div class="breedBlock <?php echo $breedData['slug']?>">
-                <img src='<?php echo $homeURL . "/src/images/small/" . $breedPhoto['photo_url']?>'>
+            <div class="breedBlock <?= $breedData['slug']?>">
+                <img src='<?= $homeURL . "/src/images/medium/" . $breedPhoto['photo_url']?>'>
 
-                <h3><?php echo $breedData['title']?></h3>
+                <h3><?= $breedData['title']?></h3>
                 <span class="medal"><?= $key + 1 ?></span>
                 
             </div>

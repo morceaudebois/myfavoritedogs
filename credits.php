@@ -14,7 +14,7 @@
 ?>
 
 <div class="hero">     
-    <div class="titleCard" style="background-image: url('<?= $homeURL . "/src/images/" . $allData[rand(0, count($allData) - 1)]['photo_url'] ?>')">
+    <div class="titleCard" style="background-image: url('<?= $homeURL . "/src/images/large/" . $allData[rand(0, count($allData) - 1)]['photo_url'] ?>')">
 
         <div class="gradient"></div>
         <h1 class="title">Photo credits</h1>
@@ -37,8 +37,8 @@
             foreach ($allData as $photo) { ?>
             
                 <tr>
-                    <td><div class="imgContainer"><img src="<?php echo $homeURL . '/src/images/smaller/' . $photo['photo_url'] ?>" loading="lazy"></div></td>
-                    <td><?php echo $photo['title'] ?></td>
+                    <td><div class="imgContainer"><img src="<?= $homeURL . '/src/images/smaller/' . $photo['photo_url'] ?>" loading="lazy"></div></td>
+                    <td><?= $photo['title'] ?></td>
                     <td><?php
                             if ($photo['author_url']) {
                                 echo '<a href="' . $photo['author_url'] . '">' . $photo['photo_author'] . '</a>';
@@ -48,7 +48,7 @@
                         ?>
 
                     
-                    <td><?php echo $photo['dog_name'] ?></td>
+                    <td><?= $photo['dog_name'] ?></td>
                 </tr>
             <?php }
         ?>

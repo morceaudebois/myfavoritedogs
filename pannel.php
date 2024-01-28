@@ -1,6 +1,6 @@
 <div id="pannel">
     <div class="bottom">
-        <div id="compteur">No breed selected.</div>
+        <div id="compteur">No breed selected</div>
         <button id="myListBtn" class="niceBtn">my list</button>
     </div>
 

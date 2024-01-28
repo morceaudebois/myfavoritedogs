@@ -20,7 +20,7 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Add a new dog ! · My Favorite Dogs</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='<?php echo $homeURL . "/src/styles/style.css" ?>'>
+    <link rel='stylesheet' type='text/css' media='screen' href='<?= $homeURL . "/src/styles/style.css" ?>'>
     
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/src/styles/fontawesome.min.css"> -->
 
@@ -29,14 +29,14 @@
     
     <?php @include 'header.php'; ?>
 
-    <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+    <form method="post" action="<?= $_SERVER['PHP_SELF'];?>">
         <input type="text" placeholder="Breed name" id="dogname" name="breedname">
         <input type="text" placeholder="Breed slug" id="breedslug" name="breedslug">
 
         <?php foreach ($tags as $tag) { ?>
 
-            <input type="checkbox" name="<?php echo $tag['tag_id'] ?>" id="<?php echo $tag['name'] ?>">
-            <label for="<?php echo $tag['name'] ?>"><?php echo $tag['name'] ?></label>
+            <input type="checkbox" name="<?= $tag['tag_id'] ?>" id="<?= $tag['name'] ?>">
+            <label for="<?= $tag['name'] ?>"><?= $tag['name'] ?></label>
             
         <?php } ?>
         <br>

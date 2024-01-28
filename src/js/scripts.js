@@ -160,10 +160,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 document.body.classList.remove('open');
                 document.body.classList.add('noSelection');
             } else if (elements.length === 1) {
-                id('compteur').innerHTML = elements.length + ' breed selected.';
+                id('compteur').innerHTML = elements.length + ' breed selected';
                 document.body.classList.remove('noSelection');
             } else {
-                id('compteur').innerHTML = elements.length + ' breeds selected.';
+                id('compteur').innerHTML = elements.length + ' breeds selected';
                 document.body.classList.remove('noSelection');
             }
         }
