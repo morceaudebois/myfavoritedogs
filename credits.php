@@ -37,7 +37,7 @@
             foreach ($allData as $photo) { ?>
             
                 <tr>
-                    <td><div class="imgContainer"><img src="<?= $homeURL . '/src/images/smaller/' . $photo['photo_url'] ?>" loading="lazy"></div></td>
+                    <td><div class="imgContainer"><img src="<?= $homeURL . '/src/images/small/' . $photo['photo_url'] ?>" loading="lazy"></div></td>
                     <td><?= $photo['title'] ?></td>
                     <td><?php
                             if ($photo['author_url']) {

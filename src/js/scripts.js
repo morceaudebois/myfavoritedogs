@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 getData().then(function (response) {
                     let breedData = JSON.parse(response);
 
-                    let fullLi = '<li class="' + breedData['slug'] + '"><div class="delete" onclick="check(\'' + breedData['slug'] + '\')"><img draggable="false" src="' + baseURL + 'src/images/moins.svg"></div><div class="breed"><img draggable="false" class="breedImage" src="' + baseURL + 'src/images/smaller/' + breedData['photo_url'] + '"><span><span class="place"></span> - ' + breedData['name'] + '</span><div class="dragZone"><img draggable="false" class="dragIcon" src="' + baseURL + 'src/images/drag.svg"></div></div></li>';
+                    let fullLi = '<li class="' + breedData['slug'] + '"><div class="delete" onclick="check(\'' + breedData['slug'] + '\')"><img draggable="false" src="' + baseURL + 'src/images/moins.svg"></div><div class="breed"><img draggable="false" class="breedImage" src="' + baseURL + 'src/images/small/' + breedData['photo_url'] + '"><span><span class="place"></span> - ' + breedData['name'] + '</span><div class="dragZone"><img draggable="false" class="dragIcon" src="' + baseURL + 'src/images/drag.svg"></div></div></li>';
                     list.insertAdjacentHTML('beforeend', fullLi);
 
                     listIndexes(); sendToStorage(); counter();
@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                     let xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange = function () {
                         if (this.readyState == 4 && this.status == 200) {
-                            // resolve((baseURL + 'images/smaller/' + this.responseText).replace(/\s/g, ''));
+                            // resolve((baseURL + 'images/small/' + this.responseText).replace(/\s/g, ''));
                             resolve(this.responseText);
                         }
                     };
@@ -312,7 +312,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
                     console.error('Error copying text to clipboard:', err);
                 })
         }
-
 
         id('copyLink').addEventListener('click', () => {
             copyToClipboard(id('link').value)
