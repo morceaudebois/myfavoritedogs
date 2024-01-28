@@ -1,0 +1,53 @@
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: rgb(239, 239, 239);
+    }
+    header {
+        background-color: #1e1e1e;
+
+        a h1 svg path {
+            fill: $accent;
+        }
+    }
+
+    main.allDogs {
+        .accordion-content {
+            background-color: #121212;
+        }
+
+        button.accordion {
+            background-color: #121212;
+            color: #e1e1e1;
+
+            svg path {
+                fill: #e1e1e1
+            }
+        }
+
+        .breedBlock {
+
+            h3 {
+                background-color: #1d1d1d;
+            }
+        } 
+    }
+
+    #pannel {
+        background-color: #2c2c2c;
+
+        .list #items li .breed {
+            background-color: #323232;
+
+            &:hover {
+                background-color: #373737;
+            }
+        }
+
+        input {
+            background-color: #6b6b6b;
+            color: white;
+        }
+    }
+}
+    

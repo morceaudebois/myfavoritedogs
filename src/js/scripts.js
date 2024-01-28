@@ -46,9 +46,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
             let index = 0;
             accordionBtns.forEach((accordion) => {
 
-                accordion.onclick = function () {
-                    this.classList.toggle('isOpen');
-                    let content = this.nextElementSibling;
+                function toggleAccordion(e) {
+                    e.classList.toggle('isOpen');
+                    let content = e.parentNode.querySelector('.accordion-content')
                     if (content.style.maxHeight) {
                         //this is if the accordion is open
                         content.style.maxHeight = null;
@@ -56,7 +56,16 @@ document.addEventListener("DOMContentLoaded", (event) => {
                         //if the accordion is currently closed
                         content.style.maxHeight = content.scrollHeight + 'px';
                     }
-                };
+                }
+
+                accordion.onclick = function (e) {
+                    // all('.accordion.isOpen').forEach(function (openAccordion) {
+                    //     toggleAccordion(openAccordion)
+                    // })
+
+                    toggleAccordion(e.currentTarget)
+                    // e.currentTarget.scrollIntoView({ inline: "start" })
+                }
 
                 // ouvre le premier au chargement 
                 if (index === 0) { accordion.click(); } index++;

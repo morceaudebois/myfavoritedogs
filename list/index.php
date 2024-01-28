@@ -9,6 +9,11 @@
         echo $e->getMessage();
     }
 
+    if (!$list) {
+        include '../404.php';
+        exit;
+    }
+
     $breeds = json_decode(stripslashes($list['data']));
 
     try {

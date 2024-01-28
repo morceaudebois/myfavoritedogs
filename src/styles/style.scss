@@ -376,8 +376,6 @@ header {
     background-color: $accent;
     padding: 1em 0;
     color: white;
-
-    
     position: relative;
     z-index: 4;
 
@@ -396,7 +394,19 @@ header {
             font-family: 'Futura Medium';
             font-size: 1.4em;
             font-weight: 500;
-            letter-spacing: 1px;;
+            letter-spacing: 1px;
+            display: flex;
+            gap: .5em;
+
+            svg {
+                display: inline-block;
+                max-width: 1.5em;
+                width: 100%;
+                
+                path {
+                    fill: white;
+                }
+            }
         }
     }
 
@@ -414,7 +424,7 @@ header {
     }
 }
 
-section {
+main {
     margin: 2em;
 }
 
@@ -436,7 +446,7 @@ section {
 
 
 
-section.allDogs {
+main.allDogs {
     @include maxWidth();
     margin: 50px auto;
 
@@ -818,67 +828,6 @@ footer {
 
 
 
-body.screenshot {
-    aspect-ratio: 9/16;
-    max-width: 400px;
-    overflow: hidden;
-
-    .toScreen { height: 100%; }
-
-    header {
-        padding: .5em 0; 
-        .container {
-            justify-content: center;
-            #addList { display: none; }
-        }
-
-        
-    }
-
-    .titleCard {
-        height: 15vh;
-
-        h1 {
-            font-size: 1.5em;
-        }
-    }
-
-    .breedGrid {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr))!important;
-
-        .breedBlock {
-            aspect-ratio: unset;
-            overflow: visible;
-            flex-direction: row;
-            align-items: unset;
-            min-height: 70px; max-height: 70px;
-
-            img {
-                max-width: 15%;
-                border-radius: 12px 0 0 12px;
-            }
-
-            .medal {
-                top: unset;
-                right: 0;
-                left: unset;
-                align-self: center;
-            }
-
-            h3, img { position: relative; }
-
-            h3 {
-                padding: .5em 1em;
-                height: 100%;
-                max-width: 70%;
-                font-size: 1.1em;
-                display: flex;
-                align-items: center;
-                border-radius: 0 12px 12px 0;
-            }
-        }
-    }
-}
 
 
 
@@ -935,3 +884,4 @@ body.screenshot {
 
 
 @import 'responsive';
+@import 'dark';
