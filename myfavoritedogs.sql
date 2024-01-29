@@ -368,7 +368,7 @@ INSERT INTO `photos` (`photo_id`, `breed_id`, `photo_url`, `photo_author`, `auth
 (40, 114, 'doge.jpg', 'Atsuko Satō', 'http://kabochan.blog.jp/', 'Kabosu'),
 (41, 115, 'tarkan.jpg', 'Tahoe Beetschen', 'https://tahoe.be', 'Tarkan'),
 (42, 116, 'husky.jpg', 'Tahoe Beetschen', 'https://tahoe.be', ''),
-(44, 118, 'alvan-nee-zUDYWilST8c-unsplash.jpeg', 'Alvan Nee', 'https://unsplash.com/@alvannee', ''),
+(44, 118, 'alvan-nee-zUDYWilST8c-unsplash.jpg', 'Alvan Nee', 'https://unsplash.com/@alvannee', ''),
 (45, 119, 'dog-7330712.jpg', 'Lazyboness', 'https://pixabay.com/fr/users/lazyboness-28706455/', ''),
 (46, 120, 'tahoe-bZYJ89REqIE-unsplash.jpg', 'Tahoe Beetschen', 'https://tahoe.be', 'Scarlet'),
 (47, 121, 'Molly_akita.jpg', 'Peter Theakston', 'https://commons.wikimedia.org/wiki/File:Molly_akita.jpg', 'Molly'),
