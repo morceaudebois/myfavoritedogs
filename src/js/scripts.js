@@ -157,14 +157,20 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
             // ajoute dans le compteur
             if (elements.length === 0) {
-                document.body.classList.remove('open');
-                document.body.classList.add('noSelection');
+                document.body.classList.remove('open')
+                document.body.classList.add('noSelection')
             } else if (elements.length === 1) {
-                id('compteur').innerHTML = elements.length + ' breed selected';
-                document.body.classList.remove('noSelection');
+                id('compteur').innerHTML = elements.length + ' breed selected'
+                document.body.classList.remove('noSelection')
             } else {
-                id('compteur').innerHTML = elements.length + ' breeds selected';
-                document.body.classList.remove('noSelection');
+                id('compteur').innerHTML = elements.length + ' breeds selected'
+                document.body.classList.remove('noSelection')
+            }
+
+            if (elements.length > 5) {
+                document.body.classList.add('longList')
+            } else {
+                document.body.classList.remove('longList')
             }
         }
 
@@ -181,7 +187,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         if (list) {
             let sortable = Sortable.create(list, {
                 animation: 150,
-                handle: '.dragZone',
+                handle: '.breed',
                 onEnd: function () {
                     listIndexes();
                     sendToStorage();

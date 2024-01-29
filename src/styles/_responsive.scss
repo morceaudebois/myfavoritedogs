@@ -5,16 +5,23 @@
         transform: translateY(calc(50vh - 90px));
 
         .saveList {
-            .niceBtn {
-                min-width: 110px;
+            .doubleContainer .half {
+                &:first-child {
+                    max-width: 50%;
+                    width: 100%;
+                }
             }
 
             #share .socialContainer {
                 grid-gap: 1em;
     
-                a.socialBlock img {
-                    max-width: 45px;
-                }
+                a.socialBlock {
+                    padding: 13px;
+
+                    img {
+                        max-width: 45px;
+                    }
+                } 
             }
         }
         
@@ -22,6 +29,10 @@
 
     &.open {
         #pannel { height: 70vh; }
+
+        &.longList #pannel {
+            height: 90vh;
+        }
     }
 
     footer .doubleContainer {
