@@ -81,6 +81,8 @@
 
         <?php } ?>
     </div>
+
+    <?php include '../notice.php' ?>
 </main>
 
 <div class="overlay"></div>

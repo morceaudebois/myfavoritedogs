@@ -1,8 +1,3 @@
-<?php if (!isset($bodyClasses) || (isset($bodyClasses) && !str_contains($bodyClasses, 'homepage'))) { 
-    include 'notice.php'; 
-} ?>
-
-
 <footer>
     <div class="doubleContainer">
         <div class="half">
@@ -25,18 +20,18 @@
 
         <div class="half">
             <h3>Resources</h3>
-            <li>Check out the <a href="<?= $homeURL . "/credits.php" ?>">photo credits 📷</a></li>
-            <li>See the <a href="https://github.com/morceaudebois/myfavoritedogs">source code 🧑‍💻</a></li>
+            <li><a href="<?= $homeURL . "/credits.php" ?>">Photo credits 📷</a></li>
+            <li><a href="https://github.com/morceaudebois/myfavoritedogs">Source code 🧑‍💻</a></li>
 
             <h4>Some of my other projects</h4>
-            <a href="https://github.com/morceaudebois/myfavoritedogs">Bonjourr</a>, <a href="https://github.com/morceaudebois/myfavoritedogs">pourcentag.es</a>,<br> <a href="https://github.com/morceaudebois/myfavoritedogs">Apollo the Parrot</a>, <a href="">Debrandify</a>
+            <a href="https://bonjourr.fr">Bonjourr</a>, <a href="https://pourcentag.es">pourcentag.es</a>,<br> <a href="https://modrinth.com/mod/apollo-the-parrot">Apollo the Parrot</a>, <a href="https://wordpress.org/plugins/debrandify/">Debrandify</a>
         </div>
     </div>
 
     <hr>
 
     <div class="sub">
-        Made in France by <a href="https://tahoe.be/">Tahoe Beetschen</a><br> © Since 2021
+        Made in France by <a href="https://tahoe.be/">Tahoe</a><br> © Since 2021
     </div>
     
 </footer>
