@@ -230,10 +230,14 @@ body {
         aspect-ratio: 1/1;
         display: flex;
         align-items: flex-end;
-        border-radius: $radius;
+        border-radius: 30px;
         overflow: hidden;
         position: relative;
         box-sizing: border-box;
+        width: 300px;
+        height: 375px;
+        width: 100%;
+        will-change: transform;
 
         @supports not (aspect-ratio: 1/1) {
             min-height: 370px;
@@ -245,7 +249,7 @@ body {
             width: 100%;
             min-height: 100%;
             align-self: center;
-            object-fit: cover;
+            object-fit: cover !important;
             z-index: 1;
         }
 
@@ -318,7 +322,7 @@ body {
             margin: unset;
             padding: .8em 1em;
             z-index: 2;
-            box-shadow: 0px -5px 20px rgba(0, 0, 0, 0.15%)
+            box-shadow: 0px -5px 20px rgba(0, 0, 0, 0.15%);
         }
     }
 }
