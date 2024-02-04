@@ -58,3 +58,9 @@ I love making high quality open source software! My goal is to become a full tim
 
 * Made with vanilla PHP/JS & MySQL
 * Styled with [Sass](https://sass-lang.com/guide)
+
+## Get started
+
+`npm install`, then `sqlite3 myfavoritedogs.db < myfavoritedogs.sql` to create the database
+
+`npm run scss` to watch sass
