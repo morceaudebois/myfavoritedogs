@@ -36,6 +36,8 @@
     
 </footer>
 
+<div id="backtotop"> <img src="<?= $homeURL ?>/src/images/arrowup.svg" alt="Back to top"></div>
+
 <script src='<?= $homeURL . "/src/js/scripts.js" ?>'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.13.0/Sortable.min.js'></script>
 

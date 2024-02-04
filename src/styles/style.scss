@@ -133,7 +133,9 @@ $radius: 30px;
     
 }
 
-
+html {
+    scroll-behavior: smooth;
+}
 
 
 body {
@@ -980,6 +982,39 @@ footer {
         margin: 0;
         text-align: justify;
         font-size: .95em;
+    }
+}
+
+body.noSelection, body:not(.homepage) {
+    #backtotop {
+        bottom: 2em;
+    }
+} 
+
+#backtotop {
+    position: fixed;
+    right: 2em;
+    bottom: 7em;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    z-index: 1;
+    border-radius: 50%;
+    background-color: white;
+    transition: transform .1s ease-in, bottom .5s cubic-bezier(0, 1, 0.5, 1);
+    @include regularShadow();
+
+    &:hover {
+        transform: scale(1.1);
+    }
+
+    &:active {
+        background-color: rgb(219, 219, 219);
+    }
+
+    img {
+        height: 100%;
+        width: 100%;
     }
 }
 

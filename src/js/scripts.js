@@ -323,6 +323,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
             copyToClipboard(id('link').value)
         })
     }
+
+    // bouton back to top
+    document.querySelector('#backtotop').addEventListener("click", function () {
+        window.scrollTo({ top: 0 })
+    })
 })
 
 // clique sur une race 
