@@ -33,7 +33,7 @@ Some examples of ideal photos include:
 <div align="center">
     <img src="https://raw.githubusercontent.com/morceaudebois/myfavoritedogs/main/src/images/medium/tahoe-bZYJ89REqIE-unsplash.jpg" width="200" alt="Photo 1">
     <img src="https://raw.githubusercontent.com/morceaudebois/myfavoritedogs/main/src/images/medium/jayalekshman-sj-UF3T6qtjelM-unsplash.jpg" width="250" alt="Photo 2">
-    <img src="https://raw.githubusercontent.com/morceaudebois/myfavoritedogs/main/src/images/medium/tarkan.jpg" width="243" alt="Photo 3">
+    <img src="https://raw.githubusercontent.com/morceaudebois/myfavoritedogs/main/src/images/medium/leonberger-8493488.jpg" width="250" alt="Photo 3">
 </div>
 
 ## 🐕 Current state
