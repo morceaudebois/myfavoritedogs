@@ -1,5 +1,5 @@
-$accent: #9DC88D;
-$lightAccent: rgb(190, 202, 186);
+$accent: rgb(157, 200, 141);
+$lightAccent: rgb(190, 211, 182);
 $textColor: #505050;
 $radius: 30px;
 
@@ -230,7 +230,7 @@ body {
 .breedGrid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    grid-gap: 1em;
+    grid-gap: 2em;
     margin: 1em 0;
 
     .breedBlock {
@@ -241,10 +241,11 @@ body {
         overflow: hidden;
         position: relative;
         box-sizing: border-box;
-        width: 300px;
-        height: 340px;
+        height: 360px;
         width: 100%;
         will-change: transform;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+        border: 1px solid rgba(144, 144, 144, 0.4);
 
         @supports not (aspect-ratio: 1/1) {
             min-height: 370px;
@@ -316,20 +317,23 @@ body {
                     background-color: $lightAccent;
                 }
             }
-
-
         }
 
-        h3 {
+        h4 {
             box-sizing: border-box;
             position: absolute;
             display: block;
+            font-size: 1.2em;
             background-color: #efefef;
             width: 100%;
             margin: unset;
             padding: .8em 1em;
             z-index: 2;
             box-shadow: 0px -5px 20px rgba(0, 0, 0, 0.15%);
+            color: #494949;
+            background-color: #fffb;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
         }
     }
 }
@@ -375,6 +379,10 @@ p {
 
     h2, p {
         margin: unset;
+    }
+
+    h2 {
+        font-size: 1.8em;
     }
 
     p {
@@ -478,16 +486,19 @@ main.allDogs {
         outline: none;
         padding: 0;
         text-align: left;
-        font-size: 1.5em;
+        font-size: 1.2em;
         font-family: Futura;
         color: $textColor;
         font-weight: 500;
         cursor: pointer;
         transition: background-color 0.2s linear;
-
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        h3 {
+            margin-block: 0;
+        }
 
         svg {
             width: 1.5em;
@@ -556,6 +567,8 @@ main.allDogs {
     transition-property: all;
 	transition-duration: .5s;
 	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+    border: 1px solid rgba(144, 144, 144, 0.2);
+    border-bottom: 0;
     
     .list, .linkContainer {
         margin-bottom: 2em; 
@@ -637,16 +650,9 @@ main.allDogs {
                         &.breedImage {
                             border-radius: 13px;
                             height: 100%;
-                            aspect-ratio: 1/1;
                             object-fit: cover;
                             max-width: 100px;
-
-                            @supports not (aspect-ratio: 1/1) {
-                                max-width: 54px;
-                                min-width: 54px;
-                            }
                         }
-                        
                     }
 
                     .dragZone {
@@ -730,6 +736,7 @@ main.allDogs {
 body.savedList {
 
     main {
+        padding-bottom: 2em;
         .breedGrid {
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             grid-gap: 1.5em;

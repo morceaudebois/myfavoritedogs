@@ -1,12 +1,16 @@
 <?php require_once('../src/php/config.php');
     $db = new PDO('sqlite:../myfavoritedogs.db');
 
-    try {
-        $stmt = $db->prepare('SELECT * FROM lists WHERE link = :link');
-        $stmt->execute(array(':link' => $_GET['q']));
-        $list = $stmt->fetch();
-    } catch (PDOException $e) {
-        echo $e->getMessage();
+    $query = isset($_GET['q']) ? $_GET['q'] : false;
+
+    if (isset($query)) {
+        try {
+            $stmt = $db->prepare('SELECT * FROM lists WHERE link = :link');
+            $stmt->execute(array(':link' => $query));
+            $list = $stmt->fetch();
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
     }
 
     if (!$list) {
