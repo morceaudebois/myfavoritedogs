@@ -985,16 +985,20 @@ footer {
     }
 }
 
-body.noSelection, body:not(.homepage) {
-    #backtotop {
-        bottom: 2em;
+
+
+.tablet, .smallTablet, .mobile {
+    &.homepage:not(.noSelection) {
+        #backtotop {
+            bottom: 7em
+        }
     }
-} 
+}
 
 #backtotop {
     position: fixed;
     right: 2em;
-    bottom: 7em;
+    bottom: 2em;
     width: 35px;
     height: 35px;
     cursor: pointer;
