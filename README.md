@@ -1,10 +1,14 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Tahoooe/myfavoritedogs/master/src/images/logo_w.svg" width="50%"></img>
+  <img src="https://raw.githubusercontent.com/morceaudebois/myfavoritedogs/master/src/images/logo_w.svg" width="50%"></img>
 </p>
 
 My Favorite Dogs is a web app that allows you to make a list of your favorite dogs from a wide varitey of breeds and share it on social media. The project does a simple thing but aims to do it as best as it can, with beautiful high res photos and a smooth modern UI.
 
 My Favorite Dogs can be used [here](https://myfavoritedogs.tahoe.be/).
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/morceaudebois/myfavoritedogs/main/src/images/screenshot.png" width="50%"></img>
+</p>
 
 ## ✨ Features
 
@@ -25,7 +29,12 @@ Here's a description of the ideal photo:
 - professional looking, shot with a real camera or a good phone with nice lightning conditions and a shallow depth of field
 - ideally, the dog should be at their best and not have undergone physical alterations, like cut tail, ears or balls
 
-Some examples of ideal photos include [this](https://myfavoritedogs.tahoe.be/src/images/medium/tahoe-bZYJ89REqIE-unsplash.jpg), [this](https://myfavoritedogs.tahoe.be/src/images/medium/jayalekshman-sj-UF3T6qtjelM-unsplash.jpg) or [this](https://myfavoritedogs.tahoe.be/src/images/medium/tarkan.jpg).
+Some examples of ideal photos include:
+<div align="center">
+    <img src="https://raw.githubusercontent.com/morceaudebois/myfavoritedogs/main/src/images/medium/tahoe-bZYJ89REqIE-unsplash.jpg" width="200" alt="Photo 1">
+    <img src="https://raw.githubusercontent.com/morceaudebois/myfavoritedogs/main/src/images/medium/jayalekshman-sj-UF3T6qtjelM-unsplash.jpg" width="250" alt="Photo 2">
+    <img src="https://raw.githubusercontent.com/morceaudebois/myfavoritedogs/main/src/images/medium/tarkan.jpg" width="243" alt="Photo 3">
+</div>
 
 ## 🐕 Current state
 
