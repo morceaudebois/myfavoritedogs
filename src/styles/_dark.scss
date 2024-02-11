@@ -11,7 +11,7 @@
     header {
         background-color: #1e1e1e;
 
-        a h1 svg path {
+        a.logo h1 svg path {
             fill: $accent;
         }
     }
@@ -22,7 +22,6 @@
         }
 
         button.accordion {
-            background-color: #121212;
             color: #e1e1e1;
 
             svg path {

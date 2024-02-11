@@ -62,5 +62,4 @@ I love making high quality open source software! My goal is to become a full tim
 ## Get started
 
 `npm install`, then `sqlite3 myfavoritedogs.db < myfavoritedogs.sql` to create the database
-
 `npm run scss` to watch sass

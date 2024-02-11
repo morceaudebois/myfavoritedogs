@@ -3,5 +3,3 @@
 } else {
     $homeURL = 'https://myfavoritedogs.tahoe.be';
 } ?>
-
-

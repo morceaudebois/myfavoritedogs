@@ -30,6 +30,9 @@
     <meta name="msapplication-config" content="<?= $homeURL . '/src/images/favicons/browserconfig.xml' ?>">
     <meta name="theme-color" content="#ffffff">
 
+    <link href="https://fonts.cdnfonts.com/css/futura-pt" rel="stylesheet">
+                
+
     <link rel='stylesheet' type='text/css' media='screen' href='<?= $homeURL . "/src/styles/style.css" ?>'>
 </head>
 

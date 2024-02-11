@@ -3,30 +3,6 @@ $lightAccent: rgb(190, 211, 182);
 $textColor: #505050;
 $radius: 30px;
 
-@font-face {
-    font-family: 'Futura Regular';
-    src: url('../fonts/futura-regular.woff2') format('woff2'),
-        url('../fonts/futura-regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Futura Medium';
-    src: url('../fonts/futura-medium.woff2') format('woff2'),
-        url('../fonts/futura-medium.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Futura Bold';
-    src: url('../fonts/futura-bold.woff2') format('woff2'),
-        url('../fonts/futura-bold.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
 
 @mixin blobLink {
     transition: transform .5s;
@@ -111,28 +87,6 @@ $radius: 30px;
     background-color: #9dc88d7e;
 }
 
-.screenshotContainer {
-    opacity: 0;
-    pointer-events: none;
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-
-    z-index: 100;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    transform: scale(0.5);
-    transition: transform 0.3s cubic-bezier(0.42, 0, 0.58, 1) 0s, opacity 0.3s cubic-bezier(0.42, 0, 0.58, 1) 0s, -webkit-transform 0.3s cubic-bezier(0.42, 0, 0.58, 1) 0s;
-
-    canvas {
-        transform: scale(0.8);
-    }
-    
-}
-
 html {
     scroll-behavior: smooth;
 }
@@ -140,7 +94,8 @@ html {
 
 body {
     margin: 0;
-    font-family: 'Futura Regular';
+    font-family: 'Futura PT', sans-serif;
+    font-weight: 400;
     color: $textColor;
     background-color: white;
 
@@ -234,6 +189,9 @@ body {
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     grid-gap: 2em;
     margin: 1em 0;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
 
     .breedBlock {
         aspect-ratio: 1/1;
@@ -343,9 +301,6 @@ body {
 
 
 
-p {
-    font-weight: 400;
-}
 
 .niceBtn {
     background-color: $accent;
@@ -355,7 +310,6 @@ p {
     min-width: 150px;
     height: 46px;
     border-radius: 10px;
-    font-family: Futura;
     font-weight: 500;
     cursor: pointer;
 
@@ -385,6 +339,7 @@ p {
 
     h2 {
         font-size: 1.8em;
+        font-weight: 500;
     }
 
     p {
@@ -396,7 +351,6 @@ p {
         opacity: .4;
         margin: .7em 0;
     }
-
 }
 
 a.logo {
@@ -405,7 +359,6 @@ a.logo {
 
     h1 {
         margin: unset;
-        font-family: 'Futura Medium';
         font-size: 1.4em;
         font-weight: 500;
         letter-spacing: 1px;
@@ -424,13 +377,8 @@ a.logo {
 
         .text {
             flex-direction: column;
-            font-weight: 100;
             display: flex;
             align-items: center;
-
-            #tagline {
-                font-family: 'Futura Regular';
-            }
         }
     }
 }
@@ -482,14 +430,13 @@ main.allDogs {
     margin: 2em auto;
 
     button.accordion {
-        background: white;
+        background: unset;
         width: 100%;
         border: none;
         outline: none;
         padding: 0;
         text-align: left;
         font-size: 1.2em;
-        font-family: Futura;
         color: $textColor;
         font-weight: 500;
         cursor: pointer;
@@ -745,7 +692,6 @@ body.savedList {
 
             .medal {
                 position: absolute;
-                font-family: Futura;
                 font-size: 1.5em;
                 top: 20px;
                 left: 20px;
@@ -981,7 +927,6 @@ footer {
     p {
         margin: 0;
         text-align: justify;
-        font-size: .95em;
     }
 }
 
