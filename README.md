@@ -40,6 +40,13 @@ Some examples of ideal photos include:
 
 As of february 2024, I am finally launching [the project](https://myfavoritedogs.tahoe.be) for people to use! The site is not perfect but I intend to improve it as it gets a bit of traction and I get some feeback from users :)
 
+Some things I'd want to do if people actually use this project:
+- Better styling, it looks a bit too 2013 for my taste
+- Saved lists in localStorage should probably expire at some point
+- Add a reset button to empty the list you're making
+- When a link to a list has been created, have a way to reset it without having to refresh the page
+- Search feature 🔎
+
 ## 🌟 Support my work!
 
 If you like this project, here's some things you can do:
