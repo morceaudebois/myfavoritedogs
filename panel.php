@@ -52,17 +52,17 @@
             </div>
 
             <div class="socialContainer">
-                <a target="_blank" class="socialBlock" id="twitterBlock">
+                <a target="_blank" class="socialBlock" id="twitterBlock" title="Share on Twitter">
                     <img draggable='false' src="<?= $homeURL . "/src/images/twitter.svg" ?>">
                     <span>Twitter</span>
                 </a>
 
-                <a target="_blank" class="socialBlock" id="facebookBlock">
+                <a target="_blank" class="socialBlock" id="facebookBlock" title="Share on Facebook">
                     <img draggable='false' src="<?= $homeURL . "/src/images/facebook.svg" ?>">
                     <span>Facebook</span>
                 </a>
 
-                <a target="_blank" class="socialBlock" id="telegramBlock">
+                <a target="_blank" class="socialBlock" id="telegramBlock" title="Share on Telegram">
                     <img draggable='false' src="<?= $homeURL . "/src/images/telegram.svg" ?>">
                     <span>Telegram</span>
                 </a>

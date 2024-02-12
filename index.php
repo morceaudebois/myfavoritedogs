@@ -9,9 +9,8 @@
 ?>
 
 <main class="allDogs">
-
     <div class="bigTitle">
-        <h2>All the dogs</h2>
+        <h1>All dog breeds</h1>
         <div class="hr"></div>
         <p>Select your favorite dog breeds and share the list with your friends!</p>
     </div>
@@ -19,7 +18,7 @@
     <?php $iBreed = 0; while ($tag = $tags->fetchArray()) { ?>
         <section>
             <button class="accordion <?= $iBreed === 0 ? 'isOpen init' : '' ?>">
-                <h3><?= $tag['name'] ?></h3>
+                <h2><?= $tag['name'] ?></h2>
 
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 91.8 59.3">
                     <path d="M41,57.2,2,18.2A6.8,6.8,0,0,1,2,8.5H2L8.5,2a6.8,6.8,0,0,1,9.7,0h0L45.9,29.7,73.5,2a6.8,6.8,0,0,1,9.7,0h.1l6.4,6.5a6.9,6.9,0,0,1,.1,9.7h-.1l-39,39a6.8,6.8,0,0,1-9.6.1Z" transform="translate(0 0)" fill="#505050" />

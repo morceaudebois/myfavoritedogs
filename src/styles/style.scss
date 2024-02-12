@@ -346,11 +346,11 @@ body {
 .bigTitle {
     margin-bottom: 2em;
 
-    h2, p {
+    h1, p {
         margin: unset;
     }
 
-    h2 {
+    h1 {
         font-size: 1.8em;
         font-weight: 500;
     }
@@ -370,7 +370,7 @@ a.logo {
     color: white;
     text-decoration: none;
 
-    h1 {
+
         margin: unset;
         font-size: 1.4em;
         font-weight: 500;
@@ -396,7 +396,7 @@ a.logo {
                 font-size: .6em
             }
         }
-    }
+
 }
 
 header {
@@ -477,7 +477,7 @@ main.allDogs {
         justify-content: space-between;
         align-items: center;
 
-        h3 {
+        h2 {
             margin-block: 0;
         }
 
