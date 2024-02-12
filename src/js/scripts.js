@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                     let toChecks = all('input[value="' + checkbox.value + '"');
                     toChecks.forEach((toCheck) => { toCheck.checked = this.checked; });
 
-                    updatePannel(checkbox.value);
+                    updatepanel(checkbox.value);
 
                 };
             });
@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 
 
-        function updatePannel(breedSlug) {
+        function updatepanel(breedSlug) {
 
             // retire le li déjà existant si décoché
             if (document.querySelector('.list ul li.' + breedSlug)) {
@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             }
         }
 
-        //compteur de races & pannel behaviour
+        //compteur de races & panel behaviour
         function counter() {
             let elements = all('#items > li');
 
@@ -185,8 +185,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
         // liste drag and sort
         if (list) {
-            let sortable = Sortable.create(list, {
+            Sortable.create(list, {
                 animation: 150,
+                delay: 100,
+                delayOnTouchOnly: true,
                 handle: '.breed',
                 onEnd: function () {
                     listIndexes();
@@ -220,17 +222,17 @@ document.addEventListener("DOMContentLoaded", (event) => {
             localStorage.setItem("breeds", JSON.stringify(getFullList()));
         }
 
-        function pannel() {
+        function panel() {
             document.body.classList.toggle('open');
-            id('pannel').scrollTop = 0; // For Safari
+            id('panel').scrollTop = 0; // For Safari
         }
 
         document.querySelector('.overlay').addEventListener('click', () => {
-            pannel()
+            panel()
         })
 
         id('myListBtn').addEventListener('click', () => {
-            pannel(this)
+            panel(this)
         })
 
         // enter dans l'input
@@ -303,20 +305,43 @@ document.addEventListener("DOMContentLoaded", (event) => {
             }
         }
 
-        function copyToClipboard(text) {
-            navigator.clipboard.writeText(text)
-                .then(() => {
-                    console.log('Text copied to clipboard:', text)
+            // clean but doesn't work on Safari iOS
+        // function copyToClipboard(text) {
+        //     navigator.clipboard.writeText(text)
+        //         .then(() => {
+        //             console.log('Text copied to clipboard:', text)
     
-                    setTimeout(function () {
-                        id('copyLink').innerHTML = 'Copy link'
-                    }, 3000);
+        //             setTimeout(function () {
+        //                 id('copyLink').innerHTML = 'Copy link'
+        //             }, 3000);
 
-                    id('copyLink').innerHTML = 'Link copied'
-                })
-                .catch(err => {
-                    console.error('Error copying text to clipboard:', err);
-                })
+        //             id('copyLink').innerHTML = 'Link copied!'
+        //         })
+        //         .catch(err => {
+        //             console.error('Error copying text to clipboard:', err);
+        //         })
+        // }
+
+            // gross ChatGPT version that works on Safari iOS
+        function copyToClipboard(text) {
+            const el = document.createElement('textarea')
+            el.value = text;
+            el.setAttribute('readonly', '')
+            el.style.position = 'absolute'
+            el.style.left = '-9999px'
+            document.body.appendChild(el)
+
+            el.select()
+            document.execCommand('copy')
+            document.body.removeChild(el)
+
+            console.log('Text copied to clipboard:', text)
+
+            setTimeout(function () {
+                id('copyLink').innerHTML = 'Copy link'
+            }, 3000)
+
+            id('copyLink').innerHTML = 'Link copied!'
         }
 
         id('copyLink').addEventListener('click', () => {
@@ -334,3 +359,28 @@ document.addEventListener("DOMContentLoaded", (event) => {
 function check(breed) {
     document.querySelector('input[value="' + breed + '"').click()
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+all('.breedBlock label').forEach(function(label) {
+    // label.addEventListener('touchmove', function (event) {
+    //     console.log(label)
+    //     event.preventDefault()
+    // });
+
+    // label.addEventListener('touchend', function (event) {
+    //     event.preventDefault();
+    //     var checkbox = label.querySelector('input');
+    //     checkbox.checked = !checkbox.checked; // Toggle checkbox state
+    // });
+})

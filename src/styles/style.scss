@@ -113,10 +113,9 @@ body {
             pointer-events: all;
         }
     
-        #pannel {
+        #panel {
             overflow-y: auto;
-            transform: translateY(0);
-            -webkit-transform: translateY(0);
+            bottom: 0;
 
             .list .bigTitle {
                 opacity: 1;
@@ -127,6 +126,10 @@ body {
             }
         }
 
+        &.longList #panel {
+            height: 89vh;
+        }
+
         .screenshotContainer {
             opacity: 1;
             transform: scale(1);
@@ -135,9 +138,10 @@ body {
     }
 
     &.noSelection {
-        #pannel {
-            transform: translateY(100%);
-            -webkit-transform: translateY(100%);
+        #panel {
+            bottom: -400px;
+            // transform: translateY(100%);
+            // -webkit-transform: translateY(100%);
         }
     } 
 
@@ -194,7 +198,6 @@ body {
     -webkit-touch-callout: none;
 
     .breedBlock {
-        aspect-ratio: 1/1;
         display: flex;
         align-items: flex-end;
         border-radius: 30px;
@@ -206,12 +209,6 @@ body {
         will-change: transform;
         box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
         border: 1px solid rgba(144, 144, 144, 0.4);
-
-        @supports not (aspect-ratio: 1/1) {
-            min-height: 370px;
-            max-height: 370px;
-            justify-self: center;
-        }
 
         img {
             width: 100%;
@@ -312,6 +309,10 @@ body {
     border-radius: 10px;
     font-weight: 500;
     cursor: pointer;
+    padding-inline: 0;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
 
     @include blobLink-S();
 }
@@ -378,7 +379,10 @@ a.logo {
         .text {
             flex-direction: column;
             display: flex;
-            align-items: center;
+
+            #tagline {
+                font-size: .6em
+            }
         }
     }
 }
@@ -388,7 +392,8 @@ header {
     padding: 1em 0;
     color: white;
     position: relative;
-    z-index: 4;
+    z-index: 5;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 
     .container {
         @include maxWidth();
@@ -396,10 +401,25 @@ header {
         justify-content: space-between;
     }
 
-    #addList img {
-        width: 2em;
-        height: 2em;
-        filter: invert(100);
+    #addList {
+        display: flex;
+        align-items: center;
+
+        img {
+            width: 2em;
+            height: 2em;
+            filter: invert(100);
+        }
+    } 
+}
+
+body:not(.homepage) {
+    padding-top: 80px;
+
+    header {
+        width: 100%;
+        top: 0;
+        position: fixed;
     }
 }
 
@@ -494,9 +514,9 @@ main.allDogs {
 }
 
 
-#pannel {
+#panel {
     position: fixed;
-    bottom: 0;
+    bottom: -318px;
     background-color: white;
     width: 80%;
     max-width: 600px;
@@ -508,10 +528,10 @@ main.allDogs {
     z-index: 10;
     overflow: hidden;
     box-shadow: 0px 3px 35px rgba(0, 0, 0, .3);
-    height: 50vh;
-    transform: translateY(calc(50vh - 80px));
-    -webkit-transform: translateY(calc(50vh - 80px));
-    will-change: transform;
+    height: 400px;
+    // transform: translateY(calc(50vh - 80px));
+    // -webkit-transform: translateY(calc(50vh - 80px));
+    will-change: bottom;
     border-radius: $radius $radius 0 0;
     transition-property: all;
 	transition-duration: .5s;
@@ -600,7 +620,8 @@ main.allDogs {
                             border-radius: 13px;
                             height: 100%;
                             object-fit: cover;
-                            max-width: 100px;
+                            max-width: 75px;
+                            width: 100%;
                         }
                     }
 
@@ -610,6 +631,9 @@ main.allDogs {
                         padding: 0 1em;
                         display: flex;
                         align-items: center;
+                        user-select: none;
+                        -webkit-user-select: none;
+                        -webkit-touch-callout: none;
 
                         .dragIcon {
                             max-height: 1.2em;

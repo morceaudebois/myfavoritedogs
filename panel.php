@@ -1,4 +1,4 @@
-<div id="pannel">
+<div id="panel">
     <div class="bottom">
         <div id="compteur">No breed selected</div>
         <button id="myListBtn" class="niceBtn">my list</button>

@@ -78,7 +78,7 @@
             <div class="breedBlock <?= $breedData['slug']?>">
                 <img src='<?= $homeURL . "/src/images/medium/" . $breedPhoto['photo_url']?>'>
 
-                <h3><?= $breedData['title']?></h3>
+                <h4><?= $breedData['title']?></h4>
                 <span class="medal"><?= $key + 1 ?></span>
                 
             </div>

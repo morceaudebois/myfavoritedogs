@@ -66,6 +66,6 @@
 <div class="overlay"></div>
 
 <?php 
-    include 'pannel.php';
+    include 'panel.php';
     include 'footer.php';
 ?>
