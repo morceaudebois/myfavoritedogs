@@ -16,9 +16,9 @@
         <p>Select your favorite dog breeds and share the list with your friends!</p>
     </div>
 
-    <?php $i = 0; while ($tag = $tags->fetchArray()) { ?>
+    <?php $iBreed = 0; while ($tag = $tags->fetchArray()) { ?>
         <section>
-            <button class="accordion <?= $i === 0 ? 'isOpen init' : '' ?>">
+            <button class="accordion <?= $iBreed === 0 ? 'isOpen init' : '' ?>">
                 <h3><?= $tag['name'] ?></h3>
 
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 91.8 59.3">
@@ -26,7 +26,7 @@
                 </svg>
             </button>
 
-            <div class="accordion-content" <?= $i === 0 ? 'style="max-height: 100%;"' : '' ?>>
+            <div class="accordion-content" <?= $iBreed === 0 ? 'style="max-height: 100%;"' : '' ?>>
                 <div class="breedGrid">
                     <?php
 
@@ -40,6 +40,7 @@
 
 
                     // va chercher l'URL de la photo correspondante
+                    $iDog = 0;
                     while ($breed = $breeds->fetchArray()) {
                         while ($breedPhoto = $breedPhotos->fetchArray()) {
                             if ($breedPhoto['breed_id'] === $breed['breed_id']) {
@@ -49,18 +50,18 @@
 
                         <div class="breedBlock <?= $breed['slug'] ?>">
 
-                            <img draggable='false' loading="lazy" src='<?= $homeURL . "/src/images/medium/" . $photo_url ?>.webp' width='300px' height='300px'>
+                            <img draggable='false' <?= ($iBreed === 0 && $iDog < 3) ? '' : 'loading="lazy"' ?> src='<?= $homeURL . "/src/images/medium/" . $photo_url ?>.webp' width='300px' height='300px'>
                             <label><input type="checkbox" autocomplete="off" value="<?= $breed['slug'] ?>"><span class="checkmark"></span></label>
 
                             <h4><?= $breed['title'] ?></h4>
                         </div>
-                    <?php } ?>
+                    <?php $iDog++; } ?>
 
                 </div>
             </div>
         </section>
         
-    <?php $i++; } ?>
+    <?php $iBreed++; } ?>
 </main>
 
 <div class="overlay"></div>
