@@ -50,8 +50,14 @@
 
                         <div class="breedBlock <?= $breed['slug'] ?>">
 
-                            <img draggable='false' <?= ($iBreed === 0 && $iDog < 3) ? '' : 'loading="lazy"' ?> src='<?= $homeURL . "/src/images/medium/" . $photo_url ?>.webp' width='300px' height='300px'>
-                            <label><input type="checkbox" autocomplete="off" value="<?= $breed['slug'] ?>"><span class="checkmark"></span></label>
+                            <img draggable='false' <?= ($iBreed === 0 && $iDog < 3) ? '' : 'loading="lazy"' ?> src='<?= $homeURL . "/src/images/medium/" . $photo_url ?>.webp' width='300px' height='300px' alt="image of a <?= $breed['title'] ?>">
+
+                            <div class="interact">
+
+                                <label for="<?= $breed['slug'] ?>_input"></label>
+                                <input type="checkbox" autocomplete="off" value="<?= $breed['slug'] ?>" name="<?= $breed['slug'] ?>" id="<?= $breed['slug'] ?>_input">
+                                <span class="checkmark"></span>
+                            </div>
 
                             <h4><?= $breed['title'] ?></h4>
                         </div>

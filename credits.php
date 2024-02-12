@@ -14,7 +14,7 @@
 ?>
 
 <div class="hero">     
-    <div class="titleCard" style="background-image: url('<?= $homeURL . "/src/images/large/" . $allData[rand(0, count($allData) - 1)]['photo_url'] ?>.jpg)">
+    <div class="titleCard" style="background-image: url('<?= $homeURL . "/src/images/large/" . $allData[rand(0, count($allData) - 1)]['photo_url'] ?>.jpg')">
 
         <div class="gradient"></div>
         <h1 class="title">Photo credits</h1>
