@@ -36,9 +36,11 @@
     
 </footer>
 
-<div id="backtotop"> <img src="<?= $homeURL ?>/src/images/arrowup.svg" alt="Back to top"></div>
+<div id="backtotop"> <img src="<?= $homeURL ?>/src/images/arrowup.svg" alt="Back to top" width='300px' height='300px'></div>
 
 <script src='<?= $homeURL . "/src/js/scripts.js" ?>'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.13.0/Sortable.min.js'></script>
+
+<link href="https://fonts.cdnfonts.com/css/futura-pt" rel="stylesheet">
 
 </body></html>

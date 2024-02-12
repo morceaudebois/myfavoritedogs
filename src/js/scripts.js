@@ -47,15 +47,18 @@ document.addEventListener("DOMContentLoaded", (event) => {
             accordionBtns.forEach((accordion) => {
 
                 function toggleAccordion(e) {
-                    e.classList.toggle('isOpen');
-                    let content = e.parentNode.querySelector('.accordion-content')
-                    if (content.style.maxHeight) {
-                        //this is if the accordion is open
-                        content.style.maxHeight = null;
-                    } else {
-                        //if the accordion is currently closed
-                        content.style.maxHeight = content.scrollHeight + 'px';
-                    }
+                    if (!e.classList.contains('init')) {
+                        e.classList.toggle('isOpen');
+
+                        let content = e.parentNode.querySelector('.accordion-content')
+                        if (content.style.maxHeight) {
+                            //this is if the accordion is open
+                            content.style.maxHeight = null;
+                        } else {
+                            //if the accordion is currently closed
+                            content.style.maxHeight = content.scrollHeight + 'px';
+                        }
+                    } else e.classList.remove('init') // si c'est le premier, activé par défaut en PHP, n'y touche pas la première fois
                 }
 
                 accordion.onclick = function (e) {
@@ -124,7 +127,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 getData().then(function (response) {
                     let breedData = JSON.parse(response);
 
-                    let fullLi = '<li class="' + breedData['slug'] + '"><div class="delete" onclick="check(\'' + breedData['slug'] + '\')"><img draggable="false" src="' + baseURL + 'src/images/moins.svg"></div><div class="breed"><img draggable="false" class="breedImage" src="' + baseURL + 'src/images/small/' + breedData['photo_url'] + '"><span><span class="place"></span> - ' + breedData['name'] + '</span><div class="dragZone"><img draggable="false" class="dragIcon" src="' + baseURL + 'src/images/drag.svg"></div></div></li>';
+                    let fullLi = '<li class="' + breedData['slug'] + '"><div class="delete" onclick="check(\'' + breedData['slug'] + '\')"><img draggable="false" src="' + baseURL + 'src/images/moins.svg"></div><div class="breed"><img draggable="false" class="breedImage" width="300px" height="300px" src="' + baseURL + 'src/images/small/' + breedData['photo_url'] + '.jpg"><span><span class="place"></span> - ' + breedData['name'] + '</span><div class="dragZone"><img draggable="false" class="dragIcon" src="' + baseURL + 'src/images/drag.svg"></div></div></li>';
                     list.insertAdjacentHTML('beforeend', fullLi);
 
                     listIndexes(); sendToStorage(); counter();

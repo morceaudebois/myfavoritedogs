@@ -16,9 +16,9 @@
         <p>Select your favorite dog breeds and share the list with your friends!</p>
     </div>
 
-    <?php while ($tag = $tags->fetchArray()) { ?>
+    <?php $i = 0; while ($tag = $tags->fetchArray()) { ?>
         <section>
-            <button class="accordion">
+            <button class="accordion <?= $i === 0 ? 'isOpen init' : '' ?>">
                 <h3><?= $tag['name'] ?></h3>
 
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 91.8 59.3">
@@ -26,7 +26,7 @@
                 </svg>
             </button>
 
-            <div class="accordion-content">
+            <div class="accordion-content" <?= $i === 0 ? 'style="max-height: 100%;"' : '' ?>>
                 <div class="breedGrid">
                     <?php
 
@@ -49,7 +49,7 @@
 
                         <div class="breedBlock <?= $breed['slug'] ?>">
 
-                            <img draggable='false' loading="lazy" src='<?= $homeURL . "/src/images/medium/" . $photo_url ?>'>
+                            <img draggable='false' loading="lazy" src='<?= $homeURL . "/src/images/medium/" . $photo_url ?>.webp' width='300px' height='300px'>
                             <label><input type="checkbox" autocomplete="off" value="<?= $breed['slug'] ?>"><span class="checkmark"></span></label>
 
                             <h4><?= $breed['title'] ?></h4>
@@ -60,7 +60,7 @@
             </div>
         </section>
         
-    <?php } ?>
+    <?php $i++; } ?>
 </main>
 
 <div class="overlay"></div>

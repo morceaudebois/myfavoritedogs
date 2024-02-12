@@ -41,7 +41,7 @@
 ?>
     
 <div class="hero">     
-    <div class="titleCard" style="background-image: url('<?= $homeURL . "/src/images/large/" . $mainImage['photo_url'] ?>')">
+    <div class="titleCard" style="background-image: url('<?= $homeURL . "/src/images/large/" . $mainImage['photo_url'] ?>.jpg')">
 
         <div class="gradient"></div>
         <h1 class="title"><?= $list['name'] ?>'s favorite dogs list</h1>
@@ -76,7 +76,7 @@
             } ?>
 
             <div class="breedBlock <?= $breedData['slug']?>">
-                <img src='<?= $homeURL . "/src/images/medium/" . $breedPhoto['photo_url']?>'>
+                <img src='<?= $homeURL . "/src/images/medium/" . $breedPhoto['photo_url']?>.webp'>
 
                 <h4><?= $breedData['title']?></h4>
                 <span class="medal"><?= $key + 1 ?></span>
