@@ -18,7 +18,7 @@
     <meta name="twitter:title" content="My Favorite Dogs · Make a list of your favorite dog breeds"></meta>
     <meta name="twitter:creator" content="@morceaudebois" />
     <meta name="twitter:description" content="Make a list of your favorite dog breeds with My Favorite Dogs. Discover new breeds and share them with your friends!"></meta>
-    <meta name="twitter:image" content="<?= $thumbnail ?? $homeURL . "/src/images/tarkan.jpg" ?>" />
+    <meta name="twitter:image" content="<?= $thumbnail ?? $homeURL . "/src/images/large/tarkan.jpg" ?>" />
     
     <link rel="apple-touch-icon" sizes="180x180" href="<?= $homeURL . '/src/images/favicons/apple-touch-icon.png' ?>">
     <link rel="icon" type="image/png" sizes="32x32" href="<?= $homeURL . '/src/images/favicons/favicon-32x32.png' ?>">
