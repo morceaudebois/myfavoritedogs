@@ -1,9 +1,9 @@
-.smallTablet, .mobile {
-
-    &:not(.homepage) {
+@media only screen and (max-width: 768px) {
+    body:not(.homepage) {
         padding-top: 54px;
-    }    
-    &.homepage {
+    }
+
+    body.homepage {
         padding-top: 0;
     }
 
@@ -34,21 +34,23 @@
 
             #share .socialContainer {
                 grid-gap: 1em;
-    
+
                 a.socialBlock {
                     padding: 13px;
 
                     img {
                         max-width: 45px;
                     }
-                } 
+                }
             }
         }
-        
+
     }
 
-    &.open {
-        #panel { height: 70vh; }
+    body.open {
+        #panel {
+            height: 70vh;
+        }
 
         &.longList #panel {
             height: 90vh;
