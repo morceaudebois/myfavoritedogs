@@ -35,7 +35,7 @@
     $escaped_url = htmlspecialchars( $url, ENT_QUOTES, 'UTF-8' );
 
     $pageTitle = "{$list['name']}'s favorite dogs list";
-    $thumbnail = $homeURL . "/src/images/" . $mainImage['photo_url'];
+    $thumbnail = $homeURL . "/src/images/medium/" . $mainImage['photo_url'] . '.webp';
     $bodyClasses = 'savedList';
     include '../header.php';
 ?>
