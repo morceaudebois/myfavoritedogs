@@ -31,7 +31,7 @@ try {
     $alreadyExists = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if (isset($alreadyExists) && !empty($alreadyExists)) {
-        echo $homeURL . "/list/index.php?q=" . $alreadyExists['link'];
+        echo $homeURL . "/list/" . $alreadyExists['link'];
     } else {
         $link = '';
         do {
