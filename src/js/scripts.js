@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 getData().then(function (response) {
                     let breedData = JSON.parse(response);
 
-                    let fullLi = '<li class="' + breedData['slug'] + '"><div class="delete" onclick="check(\'' + breedData['slug'] + '\')"><img draggable="false" src="' + baseURL + 'src/images/moins.svg"></div><div class="breed"><img draggable="false" class="breedImage" width="300px" height="300px" src="' + baseURL + 'src/images/small/' + breedData['photo_url'] + '.jpg"><span><span class="place"></span> - ' + breedData['name'] + '</span><div class="dragZone"><img draggable="false" class="dragIcon" src="' + baseURL + 'src/images/drag.svg"></div></div></li>';
+                    let fullLi = '<li class="' + breedData['slug'] + '"><div class="delete" onclick="check(\'' + breedData['slug'] + '\')"><img draggable="false" src="' + baseURL + 'src/images/moins.svg"></div><div class="breed"><img draggable="false" class="breedImage" width="300px" height="300px" src="' + baseURL + 'src/images/small/' + breedData['photo_url'] + '.jpg"><span><span class="place"></span><span> - ' + breedData['name'] + '</span></span><div class="dragZone"><img draggable="false" class="dragIcon" src="' + baseURL + 'src/images/drag.svg"></div></div></li>';
                     list.insertAdjacentHTML('beforeend', fullLi);
 
                     listIndexes(); sendToStorage(); counter();

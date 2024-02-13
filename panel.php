@@ -21,7 +21,7 @@
             <div class="half">
                 <div class="fieldContainer">
                     <label for="name">What's your name?</label>
-                    <input type="text" id="name" name="name" minlength="4" maxlength="20" size="10" placeholder="Michael" autocomplete="off">
+                    <input type="text" id="name" name="name" minlength="4" maxlength="20" size="10" placeholder="Jean-Pierre" autocomplete="off">
                 </div>
             </div>
 
