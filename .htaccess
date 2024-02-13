@@ -5,3 +5,8 @@ RewriteRule ^list/([0-9a-zA-Z]+)$ list.php?q=$1 [L]
 RewriteCond %{REQUEST_URI} ^/list/index.php$
 RewriteCond %{QUERY_STRING} ^q=(.+)$
 RewriteRule ^(.*)$ /list/%1? [R=301,L]
+
+# 404
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ 404.php [L]
